@@ -19,6 +19,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
+
+
+
+
 <script type="text/javascript">
 	function number(){
 		var z = document.getElementById("quantità").value;
@@ -26,10 +31,12 @@
 			document.getElementById("quantSpan").textContent = " quantità non valida";
 		else 
 			document.getElementById("quantSpan").textContent = "";
-		       sessionStorage.setItem("quantità",  z);
+		    
 	}
 
 	</script>
+	
+	
 
 		
 
@@ -67,15 +74,17 @@
 					<strong><%=b.get(c).getPrezzo()%> </strong>
 				</p>
 				
+				
+				<form action="CarrelloServlet">
  					<input type="number" id="quantità" name="quantità"
 						placeholder="quantità" onkeyup="number()">
-	                 <a href="CarrelloServlet?id=<%= b.get(c).getCodice() %>" >
 	                 
-					<button  type ="submit" class="btn btn-default btn-sm" >
+	                 <input type="hidden" name = "id" value ="<%= b.get(c).getCodice() %>" >
+					<button  type ="submit" class="btn btn-default btn-sm"  id="action" >
 						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
 						  
 						  </button>
-					</a>
+					</form>
               
 			</div>
 			<%
