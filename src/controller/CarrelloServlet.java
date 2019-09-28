@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 public class CarrelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
              String c =  request.getParameter("id");
-             System.out.println("c");
+             System.out.println(c);
 
 	}
 	
