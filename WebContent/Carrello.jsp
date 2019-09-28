@@ -27,7 +27,7 @@
 	if (b==null){
 		session.setAttribute("carrello", new ArrayList<ProdottoBean>());
 		b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
-		
+		 
 	}
 	int lenghtb = b.size();
 	int c = 0;

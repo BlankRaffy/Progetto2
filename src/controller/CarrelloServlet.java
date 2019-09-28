@@ -24,7 +24,7 @@ public class CarrelloServlet extends HttpServlet {
 		int id =  Integer.parseInt(request.getParameter("id"));
            int d = Integer.parseInt(request.getParameter("quantità"));
 
-       
+        
        ProdottoDAO a = new ProdottoDAO();
        
        
