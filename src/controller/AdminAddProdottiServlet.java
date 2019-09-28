@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProdottoDAO;
-@WebServlet("/AdminDeleteProdottiServlet")
-public class AdminDeleteProdottiServlet extends HttpServlet {
+import model.ProdottoBean;
+@WebServlet("/AdminAddProdottiServlet")
+public class AdminAddProdottiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int IdCodice= Integer.parseInt(request.getParameter("id"));
 		ProdottoDAO a = new ProdottoDAO();
-		boolean c=a.AdminDelete(IdCodice);
-		request.setAttribute("CancellaProdotto", c);
+		ProdottoBean b= new ProdottoBean(Double.parseDouble(request.getParameter("prezzo")), Double.parseDouble(request.getParameter("iva")), request.getParameter("nome"), request.getParameter("immagine"), request.getParameter("descrizione"), Integer.parseInt(request.getParameter("Pdisponibili")), 0);
+		boolean c=a.AddProdotto(b);
+		request.setAttribute("AddProdotto", c);
 		RequestDispatcher rd = request.getRequestDispatcher("adminProdotti.jsp");
 		rd.forward(request, response);
 

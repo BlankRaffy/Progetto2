@@ -47,12 +47,57 @@
 			}
 				}
 
+				if (request.getAttribute("CancellaProdotto") != null) {
+					boolean isdeleted = (boolean) request.getAttribute("CancellaProdotto");
+					if (isdeleted == true) {
+		%>
+		<div class="alert alert-success">
+			<strong>Cancellato!</strong> Il Prodotto è stato cancellato con
+			successo.
+		</div>
+		<%
+			} else {
+		%>
+		<div class="alert alert-danger">
+			<strong>Prodotto non cancellato!</strong> Il prodotto non è stato
+			cancellato con successo.
+		</div>
+		<%
+			}
+				}
+				if (request.getAttribute("AddProdotto") != null) {
+					boolean isAdded = (boolean) request.getAttribute("AddProdotto");
+					if (isAdded == true) {
+		%>
+		<div class="alert alert-success">
+			<strong>Aggiunto!</strong> Il Prodotto è stato aggiunto con successo.
+		</div>
+		<%
+			} else {
+		%>
+		<div class="alert alert-danger">
+			<strong>Prodotto non aggiunto!</strong> Il prodotto non è stato
+			aggiunto con successo.
+		</div>
+		<%
+			}
+				}
+
 				ProdottoDAO a = new ProdottoDAO();
 				ArrayList<ProdottoBean> b = a.GetAllProdtti();
 				int lenghtb = b.size();
 		%>
 		<br>
-		<h2 align="center">Catalogo Prodotti</h2>
+		<div class="row">
+			<h2 align="center">
+				Catalogo Prodotti<span style="float: right"><a
+					href="AdminAddProdotti.jsp" class="btn btn-success"> <span
+						class="glyphicon glyphicon-plus"></span> Aggiungi Nuovo Prodotto
+				</a> </span>
+			</h2>
+
+		</div>
+
 		<!--  get all the images  -->
 		<%
 			for (int i = 0; i < lenghtb; i++) {

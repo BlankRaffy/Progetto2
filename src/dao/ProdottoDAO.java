@@ -155,4 +155,45 @@ public class ProdottoDAO {
 		return prodotto;
 	}
 
+	public boolean AdminDelete(int codice) {
+		try {
+			Connection conn = DB.getConnection();
+			PreparedStatement st = conn.prepareStatement("DELETE FROM farmacia.prodotto WHERE IdCodice=?");
+			st.setInt(1, codice);
+			int rs = st.executeUpdate();
+			if (rs == 1)
+				return true;
+		} catch (Exception e) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+
+		}
+		return false;
+	}
+	public boolean AddProdotto(ProdottoBean b) {
+		try {
+			Connection conn = DB.getConnection();
+			double prezzo=b.getPrezzo();
+			double iva=b.getIva();
+			String nome=b.getNome();
+			String immagine=b.getImmagine();
+			String descrizione=b.getDescrizione();
+			int pdisponibili=b.getPdisponibili();
+			PreparedStatement st = conn.prepareStatement("INSERT INTO farmacia.prodotto (Prezzo, Iva, Nome, Immagine, Descrizione, PDisponibili) VALUES (?, ?, ?, ?, ?, ?)");
+			st.setDouble(1, prezzo);
+			st.setDouble(2, iva);
+			st.setString(3, nome);
+			st.setString(4, immagine);
+			st.setString(5, descrizione);
+			st.setDouble(6, pdisponibili);
+			int rs = st.executeUpdate();
+			if (rs == 1)
+				return true;
+		} catch (Exception e) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+
+		}
+		return false;
+	}
 }
