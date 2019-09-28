@@ -26,8 +26,8 @@
 			document.getElementById("quantSpan").textContent = " quantità non valida";
 		else 
 			document.getElementById("quantSpan").textContent = "";
+		       sessionStorage.setItem("quantità",  z);
 	}
-	
 
 	</script>
 
@@ -66,18 +66,17 @@
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
 				</p>
-
-
-				<form action="CarrelloServlet?id=<%=b.get(c).getCodice() %>" >
 				
-					<input type="number" id="quantità" name="quantità"
+ 					<input type="number" id="quantità" name="quantità"
 						placeholder="quantità" onkeyup="number()">
+	                 <a href="CarrelloServlet?id=<%= b.get(c).getCodice() %>" >
+	                 
 					<button  type ="submit" class="btn btn-default btn-sm" >
 						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
-						
-					</button>
-				</form>
-
+						  
+						  </button>
+					</a>
+              
 			</div>
 			<%
 				c++;
