@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="model.ProdottoBean"%>
+	<%@page import="java.util.*"%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +21,57 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-	<div class=container>Ciao Carello</div>
+	<div class=container>Benvenuto nel tuo Carrello</div>
+	<%    
+	ArrayList <ProdottoBean> b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
+	if (b==null){
+		session.setAttribute("carrello", new ArrayList<ProdottoBean>());
+		b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
+		
+	}
+	int lenghtb = b.size();
+	int c = 0;
+	int j;
+	
+		%>
+		<br>
+		<h3 align="center">Catalogo Prodotti</h3>
+		<%
+			for (int i = 0; i < (int) Math.ceil(lenghtb / 4.00); i++) {
+		%>
+		<div class="row">
+			<%
+				j = 0;
+					while (j <= 3 && c < lenghtb) {
+			%>
+			<div class="col-md-3">
+				<!-- Tutte le immagini con relativi prezzi  -->
+				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
+					alt="Image">
+				<p align="left">
+					<strong><%=b.get(c).getPrezzo()%> </strong>
+				</p>
+				
+				
+				
+ 					<input type="number" id="quantità" name="quantità"
+						placeholder="quantità" onkeyup="number()">
+	                 
+	   
+              
+			</div>
+			<%
+				c++;
+						j++;
+					}
+			%>
+		</div>
+		<%
+			}
+		%>
+	
+	
+	
 	<%@ include file="footer.jsp"%>
 
 </body>
