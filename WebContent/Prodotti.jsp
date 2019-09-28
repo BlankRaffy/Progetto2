@@ -34,6 +34,12 @@
 		    
 	}
 
+	function funzioneGay(codice)
+	{
+		var quant = document.getElementById(""+codice);
+		alert(quant);
+	}
+	
 	</script>
 	
 	
