@@ -74,7 +74,13 @@
 					<strong><%=b.get(c).getPrezzo()%> </strong>
 				</p>
 				
+				<!-- Pezzo scritto da Gian -->
 				
+				<input type="number" id="<%= b.get(c).getCodice() %>" placeholder="quantità">
+				<button onclick="funzioneGay(<%= b.get(c).getCodice() %>)"></button>
+				 
+				
+				<!-- Pezzo scritto da Raf 
 				<form action="CarrelloServlet">
  					<input type="number" id="quantità" name="quantità"
 						placeholder="quantità" onkeyup="number()">
@@ -85,7 +91,7 @@
 						  
 						  </button>
 					</form>
-              
+              -->
 			</div>
 			<%
 				c++;
