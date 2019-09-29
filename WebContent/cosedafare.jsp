@@ -15,7 +15,6 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-
 	<div id="index" class=container>
 		<%@ include file="intestazione.jsp"%>
 		<div class=container>

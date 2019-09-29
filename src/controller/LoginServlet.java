@@ -22,17 +22,17 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		if (email.equalsIgnoreCase("admin@gmail.com") && pass.equalsIgnoreCase("admin")) {
 			request.getSession().setAttribute("admin", 1);
-			// RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-			// rd.forward(request, response);
 			response.sendRedirect("admin.jsp");
 		} else {
-
 			UserBean u = new UtenteDAO().login(email, pass);
 			if (u != null) {
 				request.getSession().setAttribute("utente", u);
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			} else {
+				request.setAttribute("LoginCliente", false);
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+				rd.forward(request, response);
 
 			}
 		}

@@ -22,6 +22,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
+
 	<div class=container>
 		<!--  get all the images  -->
 		<%

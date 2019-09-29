@@ -5,8 +5,8 @@ public class UserBean {
 	public UserBean() {
 	}
 
-	public UserBean(String user, String password, String nome, String telefono, String cognome, String email) {
-		this.username = user;
+	public UserBean( String password, String nome, String telefono, String cognome, String email) {
+		
 		this.password = password;
 		this.cognome = cognome;
 		this.nome = nome;
@@ -38,14 +38,6 @@ public class UserBean {
 		this.telefono = telefono;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -64,7 +56,6 @@ public class UserBean {
 
 	private String nome;
 	private String cognome;
-	private String username;
 	private String password;
 	private String email;
 	private String telefono;

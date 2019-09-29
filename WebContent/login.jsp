@@ -17,7 +17,6 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-
 	<div class=container>
 		<div class="row">
 			<div class=col-sm-6 align=left>
@@ -51,17 +50,30 @@
 					<div class="row material-row">
 						<div id="remember" class="col-sm-6 margin-bottom--small">
 							<label class="remember-me" style="float: left"><input
-								checked="checked" type="checkbox" value="1" name="_rm" id="_rm"><span
-								>Ricordami</span></label>
+								checked="checked" type="checkbox" value="1" name="_rm" id="_rm"><span>Ricordami</span></label>
 						</div>
 					</div>
 					<button type="submit" class="btn btn-success">Accedi</button>
 					<a href="#">Password dimenticata?</a>
 				</form>
+				<%
+					if (request.getAttribute("LoginCliente") != null) {
+						boolean iscliente = (boolean) request.getAttribute("LoginCliente");
+						if (iscliente == false) {
+				%>
+				<div class="alert alert-danger">
+					<strong>Dati inseriti non corretti!</strong> Verificare le
+					credenziali di accesso inserite.
+				</div>
+				<%
+					}
+					}
+				%>
 			</div>
 		</div>
 	</div>
 
 	<%@ include file="footer.jsp"%>
+
 </body>
 </html>

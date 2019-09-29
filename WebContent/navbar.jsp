@@ -49,7 +49,7 @@
 			%>
 			<ul class="nav navbar-nav navbar-right navbar-brand">
 
-				<%=u.getUsername()%>
+				<%=u.getNome()%> <%=u.getCognome()%> 
 			</ul>
 			<%
 				}
