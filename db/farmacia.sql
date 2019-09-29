@@ -85,7 +85,7 @@ CREATE TABLE `farmacia`.`volontario` (
   `telefono` VARCHAR(10) NOT NULL,
   `orario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`email`));
-  
+ 
 
  create table Reclamo(
   Nome varchar(18) not null,

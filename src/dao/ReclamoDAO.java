@@ -16,7 +16,7 @@ public class ReclamoDAO {
 			Connection conn = DB.getConnection();
 
 			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.reclamo ");
+			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.reclamo");
 
 			while (rs.next()) {
 				ReclamoBean a = new ReclamoBean(rs.getNString("Nome"), rs.getNString("Cognome"),

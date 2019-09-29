@@ -9,7 +9,6 @@ public class ReclamoBean {
 		this.email = email;
 		this.commento = commento;
 		this.telefono = telefono;
-
 	}
 
 	public String getNome() {
