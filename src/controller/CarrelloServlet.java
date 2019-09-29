@@ -33,6 +33,8 @@ public class CarrelloServlet extends HttpServlet {
          if(session.getAttribute("carrello")==null) {
         	 ArrayList <ProdottoBean> carrello = new ArrayList <ProdottoBean>();
         	 carrello.add(b);
+         	session.setAttribute("carrello", carrello); 
+
          }
          else {
         	 ArrayList <ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");

@@ -30,6 +30,7 @@
 		 
 	}
 	int lenghtb = b.size();
+	System.out.println(lenghtb);
 	int c = 0;
 	int j;
 	
