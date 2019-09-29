@@ -25,61 +25,66 @@
 
 		if (username.length < 1 || (username == "")) {
 			document.getElementById("usernameChange").className = " col-md-12 form-group has-error has-feedback";
-			document.getElementById("usernameSpan").textContent = " USERNAME NON VALIDO ";
+			$("#usernameSpan").text("USERNAME NON VALIDO");
+
 
 		} else {
-			document.getElementById("usernameSpan").textContent = " ";
+			$("#usernameSpan").text("");
 
 		}
 
 		if (cognome.length < 1 || (cognome == "")) {
 			document.getElementById("cognomeChange").className = "col-md-12 form-group has-error has-feedback";
-			document.getElementById("cognomeSpan").textContent = " COGNOME NON VALIDO ";
+			
+			$("#cognomeSpan").text("COGNOME NON VALIDO");
 			check++;
 
 		} else {
-			document.getElementById("cognomeSpan").textContent = " ";
+			$("#cognomeSpan").text("");
 
 		}
 		if (nome.length < 1 || (nome == "")) {
 			document.getElementById("nameChange").className = "col-md-12 form-group has-error has-feedback";
-			document.getElementById("nameSpan").textContent = " NOME NON VALIDA ";
+			$("#nameSpan").text("NOME NON VALIDO");
 			check++;
 
 		} else {
-			document.getElementById("nameSpan").textContent = " ";
+			$("#nameSpan").text("");
 
 		}
 
 		if (!email.match(mailformat)) {
 			document.getElementById("EmailChange").className = "col-md-12 form-group has-error has-feedback";
-			document.getElementById("emailSpan").textContent = " EMAIL NON VALIDA ";
+			$("#emailSpan").text("MAIL NON VALIDA");
+
 			check++;
 
 		} else {
-			document.getElementById("emailSpan").textContent = " ";
+			$("#emailSpan").text("");
 
 		}
 
 		if (password.length < 6 || (password == "")
 				|| (password == "undefined")) {
 			document.getElementById("passwordChange").className = "col-md-12 form-group has-error has-feedback";
-			document.getElementById("passwordSpan").textContent = " PASSWORD NON VALIDA ";
+			$("#passwordSpan").text("PASSWORD NON VALIDA");
+
 
 			check++;
 
 		} else {
-			document.getElementById("passwordSpan").textContent = " ";
+			$("#passwordSpan").text("");
 
 		}
 
 		if (!(telefono.match(telformat))) {
 			document.getElementById("telChange").className = "col-md-12 form-group has-error has-feedback";
-			document.getElementById("telSpan").textContent = " NUMERO  NON VALIDO ";
+			$("#telSpan").text("NUMERO  NON VALIDO");
+
 
 			check++;
 		} else {
-			document.getElementById("telSpan").textContent = " ";
+			$("#telSpan").text("");
 
 		}
 		if (check == 0)

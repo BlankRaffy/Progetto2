@@ -34,8 +34,9 @@ public class CarrelloDeleteServlet extends HttpServlet {
         	 ProdottoBean c =     b.GetProdotto(id);
         	 
         	 for (int i=0; i< carrello.size();i++) {
-        		 if(c.getCodice()== carrello.get(i).getCodice())
+        		 if(c.getCodice()== carrello.get(i).getCodice()) {
         	           carrello.remove(i);
+        	 }
         	 }
         	 
         	 session.setAttribute("carrello", carrello);
@@ -46,6 +47,7 @@ public class CarrelloDeleteServlet extends HttpServlet {
          
          RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
  		rd.forward(request, response);
+        	 
          
 
          
