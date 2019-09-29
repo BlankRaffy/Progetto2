@@ -15,7 +15,6 @@ public class VolontarioDAO {
 		ArrayList<VolontarioBean> volontari = new ArrayList<VolontarioBean>();
 		try {
 			Connection conn = DB.getConnection();
-
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.volontario ");
 

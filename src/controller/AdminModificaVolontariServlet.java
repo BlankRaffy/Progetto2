@@ -23,6 +23,7 @@ public class AdminModificaVolontariServlet extends HttpServlet {
 				request.getParameter("telefono"), request.getParameter("orario"));
 		VolontarioDAO a = new VolontarioDAO();
 		boolean b = a.ModificaVolontari(v);
+		
 
 		request.setAttribute("ModificaProdotto", b);
 		RequestDispatcher rd = request.getRequestDispatcher("adminelencoVolontari.jsp");

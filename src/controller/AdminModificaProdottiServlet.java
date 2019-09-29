@@ -26,6 +26,7 @@ public class AdminModificaProdottiServlet extends HttpServlet {
 				Integer.parseInt(request.getParameter("IdCodice")));
 
 		ProdottoDAO a = new ProdottoDAO();
+		
 		boolean b = a.modificaadmin(p);
 
 		request.setAttribute("ModificaProdotto", b);

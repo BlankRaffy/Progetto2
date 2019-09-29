@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/mycss.css">
 
 <script>
+
 	$(document).ready(function() {
 		$("#Button").click(function() {
 			var prezzo = $('#myForm').find('input[name="prezzo"]').val();

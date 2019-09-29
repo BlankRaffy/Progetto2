@@ -20,6 +20,7 @@ public class AdminDeleteVolontariServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		VolontarioDAO a = new VolontarioDAO();
 		boolean c = a.AdminDeleteVolontario(email);
+	
 		request.setAttribute("CancellaProdotto", c);
 		RequestDispatcher rd = request.getRequestDispatcher("adminelencoVolontari.jsp");
 		rd.forward(request, response);

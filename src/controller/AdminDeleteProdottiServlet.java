@@ -23,6 +23,7 @@ public class AdminDeleteProdottiServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("adminProdotti.jsp");
 		rd.forward(request, response);
 
+		
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

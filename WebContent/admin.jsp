@@ -24,7 +24,6 @@
 		<%@ include file="intestazione.jsp"%>
 
 	</div>
-
 	<%
 		} else {
 	%>
