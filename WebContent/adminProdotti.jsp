@@ -95,6 +95,7 @@
 						data-target="#myModal">
 						<span class="glyphicon glyphicon-plus"></span> Aggiungi Nuovo
 						Prodotto
+						
 					</button>
 				</span>
 			</h2>
