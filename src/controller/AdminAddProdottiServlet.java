@@ -30,17 +30,16 @@ public class AdminAddProdottiServlet extends HttpServlet {
 		 * rd = request.getRequestDispatcher("adminProdotti.jsp"); rd.forward(request,
 		 * response);
 		 */
-
+		
 		String json = request.getParameter("json");
 
 		JSONObject data = null;
 
 		try {
 			data = new JSONObject(json);
-
 			ProdottoBean p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
 					Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
-					data.getString("descrizione"), Integer.parseInt(data.getString("PDisponibili")), 0);
+					data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0);
 
 			(new ProdottoDAO()).AddProdotto(p);
 

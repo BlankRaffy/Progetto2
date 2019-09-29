@@ -158,7 +158,7 @@
 
 									<div class="col-md-12">
 
-										<form id ="myGayForm" action="javascript:void(0);">
+										<form id ="myForm" action="javascript:void(0);">
 											<div class="form-group">
 												<label>Prezzo:</label> <input type="text"
 													class="form-control" name="prezzo">

@@ -84,7 +84,7 @@ public class VolontarioDAO {
 	public boolean AdminDeleteVolontario(String email) {
 		try {
 			Connection conn = DB.getConnection();
-			PreparedStatement st = conn.prepareStatement("DELETE FROM farmacia.prodotto WHERE email =?");
+			PreparedStatement st = conn.prepareStatement("DELETE FROM farmacia.volontario WHERE email =?");
 			st.setString(1, email);
 			int rs = st.executeUpdate();
 			if (rs == 1)

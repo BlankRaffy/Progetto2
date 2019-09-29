@@ -116,7 +116,7 @@
 							href="AdminModificaVolontari.jsp?email=<%=b.get(i).getEmail()%>"
 							class="btn btn-warning"> <span
 							class="glyphicon glyphicon-cog"></span> Modifica
-						</a> <a href="AdminDeleteVolontariServlet?id=<%=b.get(i).getEmail()%>"
+						</a> <a href="AdminDeleteVolontariServlet?email=<%=b.get(i).getEmail()%>"
 							class="btn btn-danger"><span
 							class="glyphicon glyphicon-trash"></span> Cancella</a>
 					</div>
