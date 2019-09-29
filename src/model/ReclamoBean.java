@@ -2,13 +2,13 @@ package model;
 
 public class ReclamoBean {
 
-	public ReclamoBean(String nome, String cognome, String telefono, String email, String commenti) {
+	public ReclamoBean(String nome, String cognome, String telefono, String email, String commento) {
 
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
-		this.commenti = commenti;
-		this.numero = telefono;
+		this.commento = commento;
+		this.telefono = telefono;
 
 	}
 
@@ -36,25 +36,25 @@ public class ReclamoBean {
 		this.email = email;
 	}
 
-	public String getCommenti() {
-		return commenti;
+	public String getCommento() {
+		return commento;
 	}
 
-	public void setCommenti(String commenti) {
-		this.commenti = commenti;
+	public void setCommento(String commento) {
+		this.commento = commento;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getTelefono() {
+		return telefono;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setTelefono(String numero) {
+		this.telefono = numero;
 	}
 
 	private String nome;
 	private String cognome;
 	private String email;
-	private String commenti;
-	private String numero;
+	private String commento;
+	private String telefono;
 }

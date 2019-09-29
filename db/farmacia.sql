@@ -85,3 +85,13 @@ CREATE TABLE `farmacia`.`volontario` (
   `telefono` VARCHAR(10) NOT NULL,
   `orario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`email`));
+  
+
+ create table Reclamo(
+  Nome varchar(18) not null,
+  Cognome varchar(18) not null ,
+  Telefono varchar (18),
+  Email varchar(50) not null ,
+ Commento varchar(50) not null,
+ primary key (Email)
+ );

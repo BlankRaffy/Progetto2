@@ -16,11 +16,11 @@ public class ReclamoDAO {
 			Connection conn = DB.getConnection();
 
 			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.volontario ");
+			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.reclamo ");
 
 			while (rs.next()) {
-				ReclamoBean a = new ReclamoBean(rs.getNString("nome"), rs.getNString("cognome"),
-						rs.getString("telefono"), rs.getNString("email"), rs.getNString("commenti"));
+				ReclamoBean a = new ReclamoBean(rs.getNString("Nome"), rs.getNString("Cognome"),
+						rs.getString("Telefono"), rs.getNString("Email"), rs.getNString("Commento"));
 				reclami.add(a);
 
 			}
