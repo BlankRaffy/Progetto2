@@ -24,8 +24,8 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("Password");
 
-		// creazione userbean e funzione di registrazione 
-		UserBean u = new UserBean( password, nome, telefono, cognome, email);
+		// creazione userbean e funzione di registrazione
+		UserBean u = new UserBean(password, nome, telefono, cognome, email);
 		UtenteDAO a = new UtenteDAO();
 		a.registrazione(u);
 

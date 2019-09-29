@@ -16,26 +16,15 @@
 		var nome = document.getElementById("nome").value;
 		var cognome = document.getElementById("cognome").value;
 		var email = document.getElementById("email").value;
-		var username = document.getElementById("username").value;
 		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		var telefono = document.getElementById("telefono").value;
 		var password = document.getElementById("password").value;
 		var telformat = /^(\([0-9]{3}\)|[0-9]{3})[0-9]{3}[0-9]{4}$/;
 		var check = 0;
 
-		if (username.length < 1 || (username == "")) {
-			document.getElementById("usernameChange").className = " col-md-12 form-group has-error has-feedback";
-			$("#usernameSpan").text("USERNAME NON VALIDO");
-
-
-		} else {
-			$("#usernameSpan").text("");
-
-		}
-
 		if (cognome.length < 1 || (cognome == "")) {
 			document.getElementById("cognomeChange").className = "col-md-12 form-group has-error has-feedback";
-			
+
 			$("#cognomeSpan").text("COGNOME NON VALIDO");
 			check++;
 
@@ -69,7 +58,6 @@
 			document.getElementById("passwordChange").className = "col-md-12 form-group has-error has-feedback";
 			$("#passwordSpan").text("PASSWORD NON VALIDA");
 
-
 			check++;
 
 		} else {
@@ -80,7 +68,6 @@
 		if (!(telefono.match(telformat))) {
 			document.getElementById("telChange").className = "col-md-12 form-group has-error has-feedback";
 			$("#telSpan").text("NUMERO  NON VALIDO");
-
 
 			check++;
 		} else {
@@ -114,21 +101,12 @@
 						<input type="radio" name="modalità" value="volontario">
 						volontario
 					</div>
-
-
-
-
 					<div class="form-row">
 						<div class="form-group col-md-12" id="nameChange">
 							<label for="inputnome">Nome</label> <input type="text"
 								class="form-control" name="nome" id="nome" placeholder="Nome"
 								required> <span id="nameSpan"></span>
-
 						</div>
-
-
-
-
 						<div class="form-group col-md-12" id="cognomeChange">
 							<label for="inputcognome">Cognome</label> <input type="text"
 								class="form-control" name="cognome" id="cognome"
@@ -136,37 +114,24 @@
 
 						</div>
 
-
-						<div class="form-group col-md-12" id="usernameChange">
-							<label for="inputuser">Username</label> <input type="text"
-								class="form-control" name="username" id="username"
-								placeholder="User" required> <span id="usernameSpan"></span>
-
-						</div>
 						<div class="form-group col-md-12" id="telChange">
 							<label for="inputtel">Telefono</label> <input type="text"
 								class="form-control" id="telefono" name="telefono"
 								placeholder="Inserire solo numeri"> <span id="telSpan"></span>
-
-
-
-						</div> 
+						</div>
 						<div class="form-group col-md-12" id="EmailChange">
 							<label for="inputEmail4">Email</label> <input type="text"
 								class="form-control" name="email" id="email" placeholder="Email"
 								required> <span id="emailSpan"> </span>
 						</div>
 
-
-
-
 						<div class="form-group col-md-12" id="passwordChange">
 							<label for="inputPassword4">Password</label> <input
 								type="password" class="form-control" name="Password"
-								id="password" placeholder="Deve essere almeno 6 caratteri" required> <span
-								id="passwordSpan"></span>
+								id="password" placeholder="Deve essere almeno 6 caratteri"
+								required> <span id="passwordSpan"></span>
 						</div>
-					</div> 
+					</div>
 					<div class="form-group">
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" id="gridCheck">
@@ -176,11 +141,6 @@
 					<button type="button" class="btn btn-primary" name="Registrazione"
 						class="login loginmodal-submit" onclick="valida()">Sign
 						in</button>
-
-
-
-
-
 				</form>
 
 			</div>
@@ -190,8 +150,6 @@
 				dimenticata?</a>
 		</div>
 	</div>
-
-
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
