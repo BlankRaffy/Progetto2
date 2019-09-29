@@ -57,7 +57,8 @@
 				 <a
 									href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
 									class="btn btn-danger"><span
-									class="glyphicon glyphicon-trash"></span> Cancella</a>
+									class="glyphicon glyphicon-trash"></span> Cancella 
+									</a>
 			</div>
 			<%
 				c++;

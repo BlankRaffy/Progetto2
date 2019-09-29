@@ -13,62 +13,39 @@ import javax.servlet.http.HttpSession;
 import dao.ProdottoDAO;
 import model.ProdottoBean;
 
-
 @SuppressWarnings("serial")
 @WebServlet("/CarrelloServlet")
 
 public class CarrelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-             
-		
-		int id =  Integer.parseInt(request.getParameter("id"));
-           int d = Integer.parseInt(request.getParameter("quantità"));
 
-        
-       ProdottoDAO a = new ProdottoDAO();
-       ProdottoBean b = a.GetProdotto(id);
-       b.setPdisponibili(d);
-       
-         HttpSession session = request.getSession();
-         if(session.getAttribute("carrello")==null) {
-        	 ArrayList <ProdottoBean> carrello = new ArrayList <ProdottoBean>();
-        	 carrello.add(b);
-        	 session.setAttribute("carrello", carrello);
+		int id = Integer.parseInt(request.getParameter("id"));
+		int d = Integer.parseInt(request.getParameter("quantità"));
 
-         }
-         else {
-        	 ArrayList <ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
-        	 
-        	 
-        	 
-        	 
-        	 carrello.add(b);
-        	 session.setAttribute("carrello", carrello);
+		ProdottoDAO a = new ProdottoDAO();
+		ProdottoBean b = a.GetProdotto(id);
+		b.setPdisponibili(d);
 
-        	      
-        	 
-        	 
-        	 
+		HttpSession session = request.getSession();
+		if (session.getAttribute("carrello") == null) {
+			ArrayList<ProdottoBean> carrello = new ArrayList<ProdottoBean>();
+			carrello.add(b);
+			session.setAttribute("carrello", carrello);
 
-         
-        	   }
-         
-         
+		} else {
+			ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 
-         RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
- 		rd.forward(request, response);
-         
+			session.setAttribute("carrello", carrello);
 
-         
-         
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
+		rd.forward(request, response);
+
 	}
-	
-	
-	
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 
 }
