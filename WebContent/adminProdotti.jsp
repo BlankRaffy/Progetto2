@@ -90,11 +90,32 @@
 		<br>
 		<div class="row">
 			<h2 align="center">
-				Catalogo Prodotti<span style="float: right"><a
-					href="AdminAddProdotti.jsp" class="btn btn-success"> <span
-						class="glyphicon glyphicon-plus"></span> Aggiungi Nuovo Prodotto
-				</a> </span>
+				Catalogo Prodotti <span style="float: right"> <!-- Trigger the modal with a button -->
+					<button type="button" class="btn btn-success" data-toggle="modal"
+						data-target="#myModal">
+						<span class="glyphicon glyphicon-plus"></span> Aggiungi Nuovo
+						Prodotto
+					</button>
+				</span>
 			</h2>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Modal Header</h4>
+						</div>
+						<div class="modal-body">
+							<p>This is a large modal.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		</div>
 
