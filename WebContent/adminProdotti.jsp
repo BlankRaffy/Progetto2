@@ -124,19 +124,19 @@
 							<strong>Quantità:</strong>
 							<%=b.get(i).getPdisponibili()%>
 							pz.
-							<div class="row">
-								<div class="btn-group">
-									<a
-										href="AdminModificaProdotti.jsp?id=<%=b.get(i).getCodice()%>"
-										class="btn btn-warning"> <span
-										class="glyphicon glyphicon-cog"></span> Modifica
-									</a> <a
-										href="AdminDeleteProdottiServlet?id=<%=b.get(i).getCodice()%>"
-										class="btn btn-danger"><span
-										class="glyphicon glyphicon-trash"></span> Cancella</a>
-								</div>
+						</div>
+						<div class="row">
+							<div class="btn-group">
+								<a href="AdminModificaProdotti.jsp?id=<%=b.get(i).getCodice()%>"
+									class="btn btn-warning"> <span
+									class="glyphicon glyphicon-cog"></span> Modifica
+								</a> <a
+									href="AdminDeleteProdottiServlet?id=<%=b.get(i).getCodice()%>"
+									class="btn btn-danger"><span
+									class="glyphicon glyphicon-trash"></span> Cancella</a>
 							</div>
 						</div>
+
 					</div>
 				</div>
 				<div class="col-md-2"></div>

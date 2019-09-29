@@ -20,8 +20,8 @@ public class VolontarioDAO {
 
 			while (rs.next()) {
 				VolontarioBean a = new VolontarioBean(rs.getNString("immagine"), rs.getNString("nome"),
-						rs.getNString("cognome"), rs.getNString("username"), rs.getNString("password"),
-						rs.getNString("email"), rs.getNString("telefono"), rs.getNString("orario"));
+						rs.getNString("cognome"), rs.getNString("password"), rs.getNString("email"),
+						rs.getNString("telefono"), rs.getNString("orario"));
 				volontari.add(a);
 
 			}

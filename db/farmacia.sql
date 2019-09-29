@@ -7,18 +7,16 @@ create schema Farmacia;
   Nome varchar(18) not null,
   Cognome varchar(18) not null ,
   Telefono varchar (18), 
-  Username varchar(18) not null ,
   Password varchar(18) not null,
   Email varchar(50) not null ,
   IdCliente int not null AUTO_INCREMENT  unique ,
   
-  primary key (Username , Password));
+  primary key (Email , Password));
   
   create table Utente (
   Nome varchar(18) not null,
   Cognome varchar(18) not null ,
   Telefono varchar (18), 
-  Username varchar(18) not null ,
   Password varchar(18) not null,
   Email varchar(50) not null ,
   IdCliente int not null AUTO_INCREMENT  unique ,
@@ -82,9 +80,8 @@ CREATE TABLE `farmacia`.`volontario` (
   `immagine` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `cognome` VARCHAR(45) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(10) NOT NULL,
   `orario` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`nome`, `cognome`));
+  PRIMARY KEY (`email`));

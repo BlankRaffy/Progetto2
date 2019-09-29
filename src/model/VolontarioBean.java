@@ -5,13 +5,12 @@ public class VolontarioBean {
 	public VolontarioBean() {
 	}
 
-	public VolontarioBean(String immagine, String nome, String cognome, String username, String password, String email,
+	public VolontarioBean(String immagine, String nome, String cognome, String password, String email,
 			String telefono, String orario) {
 		super();
 		this.immagine = immagine;
 		this.nome = nome;
 		this.cognome = cognome;
-		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.telefono = telefono;
@@ -40,14 +39,6 @@ public class VolontarioBean {
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	public String getPassword() {
@@ -85,7 +76,6 @@ public class VolontarioBean {
 	private String immagine;
 	private String nome;
 	private String cognome;
-	private String username;
 	private String password;
 	private String email;
 	private String telefono;
