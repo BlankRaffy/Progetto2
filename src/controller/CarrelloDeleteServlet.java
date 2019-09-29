@@ -25,26 +25,17 @@ public class CarrelloDeleteServlet extends HttpServlet {
 
         
        ProdottoDAO a = new ProdottoDAO();
-       
+       System.out.println(id);
        
        
          HttpSession session = request.getSession();
-        	 ArrayList <ProdottoBean> carrello = new ArrayList <ProdottoBean>();
-        	 ProdottoDAO b =  new ProdottoDAO();
-        	 ProdottoBean c =     b.GetProdotto(id);
+        	 ArrayList <ProdottoBean> carrello = (ArrayList<ProdottoBean>) request.getAttribute("carrello");
+        	 ProdottoBean c =     a.GetProdotto(id);
+        	 carrello.remove(0);
         	 
-        	 for (int i=0; i< carrello.size();i++) {
-        		 if(c.getCodice()== carrello.get(i).getCodice()) {
-        	           carrello.remove(i);
-        	 }
-        	 }
         	 
         	 session.setAttribute("carrello", carrello);
         	 
-         
-         
-
-         
          RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
  		rd.forward(request, response);
         	 
