@@ -52,7 +52,17 @@
 					alt="Image">
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
+					
 				</p>
+				<form action="CarrelloServlet">
+					<input type="number" id="quantità" name="quantità"
+						placeholder="quantità" onkeyup="number()" value ="1"> <input
+						type="hidden" name="id" value="<%= b.get(c).getCodice() %>" >
+					<button type="submit" class="btn btn-default btn-sm" id="action">
+						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
+
+					</button>
+				</form>
 			</div>
 
 			<%
