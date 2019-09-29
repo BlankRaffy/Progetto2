@@ -47,10 +47,14 @@
 			<%
 				} else {
 			%>
-			<ul class="nav navbar-nav navbar-right navbar-brand">
-
-				<%=u.getNome()%> <%=u.getCognome()%> 
-			</ul>
+			<div class="row">
+				<ul class="nav navbar-nav navbar-right navbar-brand">
+					<li><%=u.getNome()%> <%=u.getCognome()%></li>
+					<li><a href="#" class="btn btn-success"> <span
+							class="glyphicon glyphicon-log-out"></span> Log out
+					</a></li>
+				</ul>
+			</div>
 			<%
 				}
 			%>
