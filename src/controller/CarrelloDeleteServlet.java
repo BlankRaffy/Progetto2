@@ -25,7 +25,7 @@ public class CarrelloDeleteServlet extends HttpServlet {
 		System.out.println(id);
 
 		HttpSession session = request.getSession();
-		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) request.getAttribute("carrello");
+		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 		ProdottoBean c = a.GetProdotto(id);
 		for (int i = 0; i < carrello.size(); i++) {
 			if (carrello.get(i).getCodice() == c.getCodice()) {
