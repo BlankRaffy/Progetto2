@@ -22,13 +22,13 @@
 
 <script>
 	$(document).ready(function() {
-		$("#gayButton").click(function() {
-			var prezzo = $('#myGayForm').find('input[name="prezzo"]').val();
-			var iva = $('#myGayForm').find('input[name="iva"]').val();
-			var nome = $('#myGayForm').find('input[name="nome"]').val();
-			var immagine = $('#myGayForm').find('input[name="immagine"]').val();
-			var descrizione = $('#myGayForm').find('input[name="descrizione"]').val();
-			var pd = $('#myGayForm').find('input[name="Pdisponibili"]').val();
+		$("#Button").click(function() {
+			var prezzo = $('#myForm').find('input[name="prezzo"]').val();
+			var iva = $('#myForm').find('input[name="iva"]').val();
+			var nome = $('#myForm').find('input[name="nome"]').val();
+			var immagine = $('#myForm').find('input[name="immagine"]').val();
+			var descrizione = $('#myForm').find('input[name="descrizione"]').val();
+			var pd = $('#myForm').find('input[name="PDisponibili"]').val();
 			
 			var json =
 				{
@@ -180,9 +180,9 @@
 											</div>
 											<div class="form-group">
 												<label>PDisponibili:</label> <input type="number"
-													class="form-control" name="Pdisponibili">
+													class="form-control" name="PDisponibili">
 											</div>
-											<button id="gayButton" class="btn btn-default">Aggiungi
+											<button id="Button" class="btn btn-default">Aggiungi
 												Prodotto</button>
 										</form>
 									</div>
