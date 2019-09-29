@@ -11,21 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.VolontarioDAO;
-import model.VolontarioBean;
 
-@WebServlet("/AdminModificaVolontariServlet")
-public class AdminModificaVolontariServlet extends HttpServlet {
+@WebServlet("/AdminDeleteVolontariServlet")
+public class AdminDeleteVolontariServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		VolontarioBean v = new VolontarioBean(request.getParameter("immagine"), request.getParameter("nome"),
-				request.getParameter("cognome"), request.getParameter("password"), request.getParameter("email"),
-				request.getParameter("telefono"), request.getParameter("orario"));
+		String email = request.getParameter("email");
 		VolontarioDAO a = new VolontarioDAO();
-		boolean b = a.ModificaVolontari(v);
-
-		request.setAttribute("ModificaProdotto", b);
-		RequestDispatcher rd = request.getRequestDispatcher("adminelencoVolontari.jsp");
+		boolean c = a.AdminDeleteVolontario(email);
+		request.setAttribute("CancellaProdotto", c);
+		RequestDispatcher rd = request.getRequestDispatcher("adminelencoVolontario.jsp");
 		rd.forward(request, response);
 
 	}

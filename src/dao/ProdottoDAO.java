@@ -76,16 +76,17 @@ public class ProdottoDAO {
 			ps.setInt(6, p.getPdisponibili());
 			ps.setInt(7, p.getCodice());
 
-			ps.executeUpdate();
+			int rs = ps.executeUpdate();
+			if (rs == 1)
+				return true;
 
 		}
 
 		catch (Exception e) {
 			System.out.println("Errore durante la connessione." + e.getMessage());
 			System.out.println("se sei qui non funziona");
-			return false;
 		}
-		return true;
+		return false;
 	}
 
 	public String GetImmages(String nome) {
