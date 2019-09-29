@@ -19,6 +19,50 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
+
+<script>
+	$(document).ready(function() {
+		$("#gayButton").click(function() {
+			var prezzo = $('#myGayForm').find('input[name="prezzo"]').val();
+			var iva = $('#myGayForm').find('input[name="iva"]').val();
+			var nome = $('#myGayForm').find('input[name="nome"]').val();
+			var immagine = $('#myGayForm').find('input[name="immagine"]').val();
+			var descrizione = $('#myGayForm').find('input[name="descrizione"]').val();
+			var pd = $('#myGayForm').find('input[name="Pdisponibili"]').val();
+			
+			var json =
+				{
+					"prezzo":prezzo,
+	            	"iva":iva,
+	            	"nome":nome,
+	            	"immagine":immagine,
+	            	"descrizione":descrizione,
+	            	"pd":pd
+				}
+		
+			
+			 $.ajax({
+		            type: "GET",
+		            url: "AdminAddProdottiServlet",
+		            contentType: "application/json",
+		            data:{
+		            	"json":JSON.stringify(json)
+		            },
+		            success: function(status){
+		                console.log("Entered",status);
+		                alert("Success!!!!!!!!");
+		            },
+		            error: function(error){
+		                console.log("error",error);
+		                alert("ERROR");
+		            },
+
+		     });
+			
+		});
+	});
+</script>
+
 </head>
 <body>
 	<%
@@ -108,49 +152,46 @@
 							<h4 class="modal-title">Aggiungi Prodotto</h4>
 						</div>
 						<div class="modal-body">
-							<div class=container>
-									<div class="row">
-										<div class="col-md-6">
-											<img alt="Prodotto" >
-										</div>
-										<div class="col-md-6">
+							<div>
+								<div class="row">
 
-											<form action="AdminAddProdottiServlet">
-												<div class="form-group">
-													<label>Prezzo:</label> <input type="text"
-														class="form-control" name="prezzo">
-												</div>
-												<div class="form-group">
-													<label>Iva:</label> <input type="text" class="form-control"
-														name="iva">
-												</div>
-												<div class="form-group">
-													<label>Nome:</label> <input type="text"
-														class="form-control" name="nome">
-												</div>
-												<div class="form-group">
-													<label>Immagine:</label> <input type="text"
-														class="form-control" name="immagine">
-												</div>
-												<div class="form-group">
-													<label>Descrizione:</label> <input type="text"
-														class="form-control" name="descrizione">
-												</div>
-												<div class="form-group">
-													<label>PDisponibili:</label> <input type="number"
-														class="form-control" name="Pdisponibili">
-												</div>
-												<button type="submit" class="btn btn-default">Aggiungi
-													Prodotto</button>
-											</form>
-										</div>
+									<div class="col-md-12">
+
+										<form id ="myGayForm" action="javascript:void(0);">
+											<div class="form-group">
+												<label>Prezzo:</label> <input type="text"
+													class="form-control" name="prezzo">
+											</div>
+											<div class="form-group">
+												<label>Iva:</label> <input type="text" class="form-control"
+													name="iva">
+											</div>
+											<div class="form-group">
+												<label>Nome:</label> <input type="text" class="form-control"
+													name="nome">
+											</div>
+											<div class="form-group">
+												<label>Immagine:</label> <input type="text"
+													class="form-control" name="immagine">
+											</div>
+											<div class="form-group">
+												<label>Descrizione:</label> <input type="text"
+													class="form-control" name="descrizione">
+											</div>
+											<div class="form-group">
+												<label>PDisponibili:</label> <input type="number"
+													class="form-control" name="Pdisponibili">
+											</div>
+											<button id="gayButton" class="btn btn-default">Aggiungi
+												Prodotto</button>
+										</form>
+									</div>
 								</div>
 
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
+							<button class="btn btn-default" data-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
