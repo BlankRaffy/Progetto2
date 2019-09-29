@@ -38,7 +38,6 @@ public class AdminAddProdottiServlet extends HttpServlet {
 		try {
 			data = new JSONObject(json);
 
-			
 			ProdottoBean p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
 					Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
 					data.getString("descrizione"), Integer.parseInt(data.getString("PDisponibili")), 0);
