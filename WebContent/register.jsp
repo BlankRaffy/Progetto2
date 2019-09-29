@@ -166,7 +166,7 @@
 								id="password" placeholder="Deve essere almeno 6 caratteri" required> <span
 								id="passwordSpan"></span>
 						</div>
-					</div>
+					</div> 
 					<div class="form-group">
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" id="gridCheck">
