@@ -34,7 +34,7 @@ public class CarrelloServlet extends HttpServlet {
 
 		} else {
 			ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
-
+             carrello.add(b);
 			session.setAttribute("carrello", carrello);
 
 		}
