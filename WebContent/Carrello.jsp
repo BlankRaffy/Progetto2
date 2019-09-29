@@ -21,7 +21,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-	<div class=container>Benvenuto nel tuo Carrello</div>
+	<div class=container></div>
 	<%    
 	ArrayList <ProdottoBean> b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
 	if (b==null){
@@ -30,6 +30,7 @@
 		 
 	}
 	int lenghtb = b.size();
+	System.out.println(lenghtb);
 	int c = 0;
 	int j;
 	
@@ -50,15 +51,13 @@
 					alt="Image">
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
-				</p>
-				
-				
-				
- 					<input type="number" id="quantità" name="quantità"
-						placeholder="quantità" onkeyup="number()">
-	                 
-	   
-              
+				</p>  
+				<input type="number" id="quantità" name="quantità"
+						placeholder="quantità" value = "<%= b.get(c).getPdisponibili()  %>">
+				 <a
+									href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
+									class="btn btn-danger"><span
+									class="glyphicon glyphicon-trash"></span> Cancella</a>
 			</div>
 			<%
 				c++;

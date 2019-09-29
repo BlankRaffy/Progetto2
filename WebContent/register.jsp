@@ -141,7 +141,7 @@
 						<div class="form-group col-md-12" id="telChange">
 							<label for="inputtel">Telefono</label> <input type="text"
 								class="form-control" id="telefono" name="telefono"
-								placeholder="Telefono"> <span id="telSpan"></span>
+								placeholder="Inserire solo numeri"> <span id="telSpan"></span>
 
 
 
@@ -158,7 +158,7 @@
 						<div class="form-group col-md-12" id="passwordChange">
 							<label for="inputPassword4">Password</label> <input
 								type="password" class="form-control" name="Password"
-								id="password" placeholder="Password" required> <span
+								id="password" placeholder="Deve essere almeno 6 caratteri" required> <span
 								id="passwordSpan"></span>
 						</div>
 					</div>
