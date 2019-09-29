@@ -40,11 +40,17 @@
 		alert(quant);
 	}
 	
-	</script>
-	
-	
-
+	function Img(){
 		
+		
+	}
+	
+	</script>
+
+
+
+
+
 
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
@@ -75,24 +81,24 @@
 			<div class="col-md-3">
 				<!-- Tutte le immagini con relativi prezzi  -->
 				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
-					alt="Image">
+					id="<%= b.get(c).getNome()%>" alt="Image" onmouseover="Img()">
+
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
 				</p>
-				
-			
-				 
-				
+
+
+
+
 				<form action="CarrelloServlet">
- 					<input type="number" id="quantità" name="quantità"
-						placeholder="quantità" onkeyup="number()">
-	                 
-	                 <input type="hidden" name = "id" value ="<%= b.get(c).getCodice() %>" >
-					<button  type ="submit" class="btn btn-default btn-sm"  id="action" >
+					<input type="number" id="quantità" name="quantità"
+						placeholder="quantità" onkeyup="number()" value ="1"> <input
+						type="hidden" name="id" value="<%= b.get(c).getCodice() %>" >
+					<button type="submit" class="btn btn-default btn-sm" id="action">
 						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
-						  
-						  </button>
-					</form>
+
+					</button>
+				</form>
 			</div>
 			<%
 				c++;

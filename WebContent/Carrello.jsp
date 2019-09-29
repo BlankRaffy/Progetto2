@@ -36,7 +36,7 @@
 	
 		%>
 		<br>
-		<h3 align="center">Catalogo Prodotti</h3>
+		<h3 align="center">Carrello</h3>
 		<%
 			for (int i = 0; i < (int) Math.ceil(lenghtb / 4.00); i++) {
 		%>
