@@ -34,6 +34,7 @@ create schema Farmacia;
   create table Fattura (
   Importo double ,
   Iva double ,
+  Email varchar(50) not null ,
   IdOrdine int auto_increment unique,
 
   
