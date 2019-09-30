@@ -104,14 +104,13 @@
 					<strong>Benvenuto</strong>
 				</h3>
 				<h5 align="left">Compila i campi per registrati</h5>
-				<form method="get" action="RegisterServlet" id="registrazione">
+				<form method="Post" action="RegisterServlet" id="registrazione">
 					<div class="form-row">
-						<input type="radio" name="modalità" value="cliente"
-							required="required" checked="checked" id="btn1" onclick="">
-						cliente
+						<input type="radio" name="tipo" value="cliente"
+							required="required" checked="checked" id="btn1"> cliente
 					</div>
 					<div class="form-row">
-						<input type="radio" name="modalità" id="btn2" value="volontario">
+						<input type="radio" name="tipo" id="btn2" value="volontario">
 						volontario
 					</div>
 					<div class="form-row">
@@ -153,10 +152,16 @@
 						</div>
 						<div style="display: none" class="form-group col-md-12"
 							id="ImmagineChange">
-							<label for="inputImmagine4">Immagine</label> <input type="text"
-								class="form-control" name="immagine" id="immagine"
-								placeholder="Inserire immagine" required> <span
-								id="immagineSpan"></span>
+							<label for="inputImmagine4">Immagine</label>
+							<div class="form-row">
+								<input type="radio" name="immagine"
+									value="media/placeholdermale.png" required="required"
+									checked="checked">Male
+							</div>
+							<div class="form-row">
+								<input type="radio" name="immagine"
+									value="media/placeholderfemale.png">Female
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
@@ -184,10 +189,10 @@
 				<%
 					}
 					}
-				
+
 					if (session.getAttribute("c") != null) {
-						boolean islogged = (boolean) session.getAttribute("d");
-						if (islogged == false) {
+						boolean isregister = (boolean) session.getAttribute("c");
+						if (isregister == false) {
 				%>
 				<div class="alert alert-danger">
 					<strong>Volontario Non Registrato!</strong> Dati non conformi.

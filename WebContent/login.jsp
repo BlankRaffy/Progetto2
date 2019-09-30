@@ -24,7 +24,7 @@
 						if (islogged == true) {
 				%>
 		<div class="alert alert-success">
-			<strong>Utente Registrato!</strong> Utente Registrato con successo.
+			<strong>Utente Registrato! </strong> Utente Registrato con successo.
 		</div>
 		<%
 					}
@@ -32,7 +32,7 @@
 				%>
 		<%
 					if (session.getAttribute("c") != null) {
-						boolean islogged = (boolean) session.getAttribute("d");
+						boolean islogged = (boolean) session.getAttribute("c");
 						if (islogged == true) {
 				%>
 		<div class="alert alert-success">

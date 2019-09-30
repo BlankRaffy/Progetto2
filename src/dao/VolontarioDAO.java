@@ -19,8 +19,9 @@ public class VolontarioDAO {
 			Statement st = conn.createStatement();
 
 			st.executeUpdate(
-					"INSERT INTO farmacia.volontario (Nome, Cognome, Telefono, Password, Email, orario) VALUES ('"
-							+ u.getNome() + "','" + u.getCognome() + "','" + u.getTelefono() + "', '" + u.getPassword() + "', '" + u.getEmail() + "','"+ u.getOrario()+"');");
+					"INSERT INTO farmacia.volontario (Nome, Cognome, Telefono, Password, Email, orario,immagine) VALUES ('"
+							+ u.getNome() + "','" + u.getCognome() + "','" + u.getTelefono() + "', '" + u.getPassword()
+							+ "', '" + u.getEmail() + "','" + u.getOrario() + "','" + u.getImmagine() + "');");
 		} catch (Exception e) {
 			System.out.println("Errore durante la connessione." + e.getMessage());
 			return false;
