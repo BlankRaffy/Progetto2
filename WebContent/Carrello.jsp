@@ -69,7 +69,17 @@
 		<%
 			}
 		%>
-	
+		<% 
+	if (b.size() > 0){
+		
+		 
+	%>
+				 <a
+									href="AcquistoServlet"
+									class="btn btn-success"><span
+									class="glyphicon glyphicon-trash"></span> Procedi al pagamento 
+									</a>
+	<% } %>
 	
 	
 	<%@ include file="footer.jsp"%>
