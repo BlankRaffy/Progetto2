@@ -15,7 +15,20 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
+
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+	function controllo(  ){
+		var name = '<%= session.getAttribute("utente") %>'	 
+		if (name.match("null")){
+			 document.getElementById("link").action = "login.jsp"; 
+		}
+			else 
+		document.forms["link"].submit();
+
+	}
+	</script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 </head>
@@ -54,7 +67,8 @@
 				</p>  
 				<input type="number" id="quantità" name="quantità"
 						placeholder="quantità" value = "<%= b.get(c).getPdisponibili()  %>">
-				 <a
+						
+				 <a             
 									href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
 									class="btn btn-danger"><span
 									class="glyphicon glyphicon-trash"></span> Cancella 
@@ -74,11 +88,10 @@
 		
 		 
 	%>
-				 <a
-									href="AcquistoServlet"
+				 <form name = "link" action = "AcquistoServlet" id="link" onclick = "controllo()"
 									class="btn btn-success"><span
 									class="glyphicon glyphicon-trash"></span> Procedi al pagamento 
-									</a>
+									</form>
 	<% } %>
 	
 	
