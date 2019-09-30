@@ -8,7 +8,7 @@ public class FatturaBean {
 	public FatturaBean() {
 		// TODO Auto-generated constructor stub
 	}
-
+    
 	public String getEmail() {
 		return Email;
 	}
@@ -29,6 +29,14 @@ public class FatturaBean {
 		return importo;
 	}
 
+	public double getIva() {
+		return iva;
+	}
+
+	public void setIva(double iva) {
+		this.iva = iva;
+	}
+
 	public void setImporto(double importo) {
 		this.importo = importo;
 	}
@@ -36,5 +44,7 @@ public class FatturaBean {
 	private String Email;
 	private ProdottoBean prodotto;
 	private double importo;
+	private double iva;
+
 
 }
