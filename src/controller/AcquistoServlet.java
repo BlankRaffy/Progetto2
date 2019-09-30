@@ -28,7 +28,7 @@ public class AcquistoServlet extends HttpServlet {
 		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 		UserBean user = (UserBean) session.getAttribute("utente");
 		ArrayList<FatturaBean> fattura = new ArrayList<FatturaBean>();
-		for (int i = 0; i < carrello.size(); i++) {
+		for (int i = 0; i < carrello.size(); i++) { 
 			FatturaBean a = new FatturaBean();
 			a.setEmail(user.getEmail());
 			a.setProdotto(carrello.get(i));

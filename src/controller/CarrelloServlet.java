@@ -20,7 +20,7 @@ public class CarrelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int id = Integer.parseInt(request.getParameter("id"));
-		int d = Integer.parseInt(request.getParameter("quantità"));
+		int d = Integer.parseInt(request.getParameter("quantità")); 
 
 		ProdottoDAO a = new ProdottoDAO();
 		ProdottoBean b = a.GetProdotto(id);

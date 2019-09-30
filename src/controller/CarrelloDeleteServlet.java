@@ -23,7 +23,7 @@ public class CarrelloDeleteServlet extends HttpServlet {
 
 		ProdottoDAO a = new ProdottoDAO();
 		System.out.println(id);
-
+ 
 		HttpSession session = request.getSession();
 		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 		
