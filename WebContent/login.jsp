@@ -32,7 +32,7 @@
 				%>
 		<%
 					if (session.getAttribute("c") != null) {
-						boolean islogged = (boolean) session.getAttribute("d");
+						boolean islogged = (boolean) session.getAttribute("c");
 						if (islogged == true) {
 				%>
 		<div class="alert alert-success">
