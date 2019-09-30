@@ -22,7 +22,7 @@
 	function controllo( ){
 		 var name = '<%= session.getAttribute("utente") %>'
 			 if (name.match("null")){
-				<% request.setAttribute("LogNeedCart", 1); %>
+				<% session.setAttribute("LogNeedCart", 1); %>
 				 window.location.href = "login.jsp"
  			}
 				else 

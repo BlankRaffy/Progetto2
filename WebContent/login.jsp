@@ -19,29 +19,42 @@
 	<%@ include file="navbar.jsp"%>
 	<div class=container>
 		<%
-					if (request.getAttribute("d") != null) {
-						boolean islogged = (boolean) request.getAttribute("d");
-						if (islogged == true) {
-				%>
+			if (request.getAttribute("d") != null) {
+				boolean islogged = (boolean) request.getAttribute("d");
+				if (islogged == true) {
+		%>
 		<div class="alert alert-success">
 			<strong>Utente Registrato! </strong> Utente Registrato con successo.
 		</div>
 		<%
-					}
-					} 
-				%>
+			}
+			}
+		%>
 		<%
-					if (request.getAttribute("c") != null) {
-						boolean islogged = (boolean) request.getAttribute("c");
-						if (islogged == true) {
-				%>
+			if (request.getAttribute("c") != null) {
+				boolean islogged = (boolean) request.getAttribute("c");
+				if (islogged == true) {
+		%>
 		<div class="alert alert-success">
-			<strong>Volontario Registrato!</strong> Volontario Registrato con successo.
+			<strong>Volontario Registrato!</strong> Volontario Registrato con
+			successo.
 		</div>
 		<%
-					}
-					}
-				%>
+			}
+			}
+		%>
+
+		<%
+			if (session.getAttribute("LogNeedCart") != null) {
+		%>
+		<div class="alert alert-danger">
+			<strong>Registrati o Accedi per completare l'acquisto!</strong> Devi
+			essere nostro cliente per completare l'acquisto.
+		</div>
+		<%
+			}
+		session.removeAttribute("LogNeedCart");
+		%>
 		<div class="row">
 			<div class=col-sm-6 align=left>
 				<h3>
@@ -72,18 +85,18 @@
 							name="pass" class="form-control" placeholder="Password">
 					</div>
 					<%
-					if (request.getAttribute("LoginCliente") != null) {
-						boolean iscliente = (boolean) request.getAttribute("LoginCliente");
-						if (iscliente == false) {
-				%>
+						if (request.getAttribute("LoginCliente") != null) {
+							boolean iscliente = (boolean) request.getAttribute("LoginCliente");
+							if (iscliente == false) {
+					%>
 					<div class="alert alert-danger">
 						<strong>Dati inseriti non corretti!</strong> Verificare le
 						credenziali di accesso inserite.
 					</div>
 					<%
-					}
-					}
-				%>
+						}
+						}
+					%>
 					<div class="row material-row">
 						<div id="remember" class="col-sm-6 margin-bottom--small">
 							<label class="remember-me" style="float: left"><input
