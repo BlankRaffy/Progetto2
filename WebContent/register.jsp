@@ -78,6 +78,18 @@
 			document.forms["registrazione"].submit();
 	}
 </script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btn2").click(function() {
+			$("#OrarioChange").css("display", "block");
+			$("#ImmagineChange").css("display", "block");
+		});
+		$("#btn1").click(function() {
+			$("#OrarioChange").css("display", "none");
+			$("#ImmagineChange").css("display", "none");
+		});
+	});
+</script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 </head>
@@ -95,10 +107,11 @@
 				<form method="get" action="RegisterServlet" id="registrazione">
 					<div class="form-row">
 						<input type="radio" name="modalità" value="cliente"
-							required="required" checked="checked" onclick=""> cliente
+							required="required" checked="checked" id="btn1" onclick="">
+						cliente
 					</div>
 					<div class="form-row">
-						<input type="radio" name="modalità" value="volontario">
+						<input type="radio" name="modalità" id="btn2" value="volontario">
 						volontario
 					</div>
 					<div class="form-row">
@@ -131,6 +144,20 @@
 								id="password" placeholder="Deve essere almeno 6 caratteri"
 								required> <span id="passwordSpan"></span>
 						</div>
+						<div style="display: none" class="form-group col-md-12"
+							id="OrarioChange">
+							<label for="inputOrario4">Orario</label> <input type="text"
+								class="form-control" name="Orario" id="orario"
+								placeholder="Disponibilità" required> <span
+								id="OrarioSpan"></span>
+						</div>
+						<div style="display: none" class="form-group col-md-12"
+							id="ImmagineChange">
+							<label for="inputImmagine4">Immagine</label> <input type="text"
+								class="form-control" name="immagine" id="immagine"
+								placeholder="Inserire immagine" required> <span
+								id="immagineSpan"></span>
+						</div>
 					</div>
 					<div class="form-group">
 						<div class="form-check">
@@ -142,12 +169,38 @@
 						class="login loginmodal-submit" onclick="valida()">Sign
 						in</button>
 				</form>
+				<div class="login-help">
+					<a href="login.jsp">Hai già un account?</a> - <a href="#">Password
+						dimenticata?</a>
+				</div>
+				<%
+					if (session.getAttribute("d") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == false) {
+				%>
+				<div class="alert alert-danger">
+					<strong>Utente Non Registrato!</strong>Dati non conformi.
+				</div>
+				<%
+					}
+					}
+				
+					if (session.getAttribute("c") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == false) {
+				%>
+				<div class="alert alert-danger">
+					<strong>Volontario Non Registrato!</strong> Dati non conformi.
+				</div>
+				<%
+					}
+					}
+				%>
+
+
+
 
 			</div>
-		</div>
-		<div class="login-help">
-			<a href="login.jsp">Hai già un account?</a> - <a href="#">Password
-				dimenticata?</a>
 		</div>
 	</div>
 	<%@ include file="footer.jsp"%>

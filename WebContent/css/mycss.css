@@ -169,6 +169,16 @@ footer {
 	padding: 0px 8px;
 	font-size: 16px;
 }
+#orario{
+	height: 44px;
+	padding: 0px 8px;
+	font-size: 16px;
+}
+#immagine{
+	height: 44px;
+	padding: 0px 8px;
+	font-size: 16px;
+}
 
 .required {
 	margin-left: 2px;
@@ -191,4 +201,7 @@ footer {
 
 #remember {
 	padding-left: 0;
+}
+#passwordChange{
+	margin-bottom: 0px;
 }
