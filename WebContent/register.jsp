@@ -147,7 +147,7 @@
 							id="OrarioChange">
 							<label for="inputOrario4">Orario</label> <input type="text"
 								class="form-control" name="Orario" id="orario"
-								placeholder="Disponibilità" required> <span
+								placeholder="hh:mm - hh:mm" required> <span
 								id="OrarioSpan"></span>
 						</div>
 						<div style="display: none" class="form-group col-md-12"
@@ -179,8 +179,8 @@
 						dimenticata?</a>
 				</div>
 				<%
-					if (session.getAttribute("d") != null) {
-						boolean islogged = (boolean) session.getAttribute("d");
+					if (request.getAttribute("d") != null) {
+						boolean islogged = (boolean) request.getAttribute("d");
 						if (islogged == false) {
 				%>
 				<div class="alert alert-danger">
@@ -190,8 +190,8 @@
 					}
 					}
 
-					if (session.getAttribute("c") != null) {
-						boolean isregister = (boolean) session.getAttribute("c");
+					if (request.getAttribute("c") != null) {
+						boolean isregister = (boolean) request.getAttribute("c");
 						if (isregister == false) {
 				%>
 				<div class="alert alert-danger">

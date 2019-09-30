@@ -35,11 +35,11 @@ public class RegisterServlet extends HttpServlet {
 			UtenteDAO a = new UtenteDAO();
 			boolean d = a.registrazioneu(u);
 			if (d == true) {
-				request.getSession().setAttribute("d", true);
+				request.setAttribute("d", true);
 				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.forward(request, response);
 			} else {
-				request.getSession().setAttribute("d", false);
+				request.setAttribute("d", false);
 				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 				rd.forward(request, response);
 			}
@@ -48,11 +48,11 @@ public class RegisterServlet extends HttpServlet {
 			VolontarioDAO vd = new VolontarioDAO();
 			boolean c = vd.registrazionev(v);
 			if (c == true) {
-				request.getSession().setAttribute("c", true);
+				request.setAttribute("c", true);
 				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.forward(request, response);
 			} else {
-				request.getSession().setAttribute("c", false);
+				request.setAttribute("c", false);
 				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 				rd.forward(request, response);
 			}

@@ -49,10 +49,15 @@
 			%>
 			<div class="row">
 				<ul class="nav navbar-nav navbar-right navbar-brand">
-					<li><%=u.getNome()%> <%=u.getCognome()%></li>
-					<li><a href="#" class="btn btn-success"> <span
-							class="glyphicon glyphicon-log-out"></span> Log out
-					</a></li>
+					<li><h5 id="welcome">
+							Benvenuto,<%=u.getNome()%>
+							<%=u.getCognome()%></h5></li>
+					<li><a  id="cartnav" href="Carrello.jsp"><span
+							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+					<li><form action="LogOutServlet">
+							<button class="btn btn-success btn-xs" type="submit">Log
+								out</button>
+						</form></li>
 				</ul>
 			</div>
 			<%

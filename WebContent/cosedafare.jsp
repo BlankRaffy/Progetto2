@@ -31,8 +31,9 @@
 				</ol>
 				<h1>Cose da chiedere :</h1>
 				<ol>
-					<li>registrazione dinamica utenti: se Ã¨ volontario appare
-						form per orario libero</li>
+					<li>riempire i campi value dei form con i dati scorretti
+						problema come faccio a sapere se l'object restituito è volontario
+						o utentea</li>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>

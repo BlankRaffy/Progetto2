@@ -169,12 +169,14 @@ footer {
 	padding: 0px 8px;
 	font-size: 16px;
 }
-#orario{
+
+#orario {
 	height: 44px;
 	padding: 0px 8px;
 	font-size: 16px;
 }
-#immagine{
+
+#immagine {
 	height: 44px;
 	padding: 0px 8px;
 	font-size: 16px;
@@ -202,6 +204,19 @@ footer {
 #remember {
 	padding-left: 0;
 }
-#passwordChange{
+
+#passwordChange {
 	margin-bottom: 0px;
+}
+
+.btn-xs {
+	margin-left: 15px
+}
+
+#cartnav {
+	padding-top: 0;
+}
+
+#welcome {
+	padding-top: 0;
 }

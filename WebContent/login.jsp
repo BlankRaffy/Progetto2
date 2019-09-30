@@ -19,8 +19,8 @@
 	<%@ include file="navbar.jsp"%>
 	<div class=container>
 		<%
-					if (session.getAttribute("d") != null) {
-						boolean islogged = (boolean) session.getAttribute("d");
+					if (request.getAttribute("d") != null) {
+						boolean islogged = (boolean) request.getAttribute("d");
 						if (islogged == true) {
 				%>
 		<div class="alert alert-success">
@@ -31,8 +31,8 @@
 					}
 				%>
 		<%
-					if (session.getAttribute("c") != null) {
-						boolean islogged = (boolean) session.getAttribute("c");
+					if (request.getAttribute("c") != null) {
+						boolean islogged = (boolean) request.getAttribute("c");
 						if (islogged == true) {
 				%>
 		<div class="alert alert-success">
