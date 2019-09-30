@@ -9,8 +9,8 @@
 				Children Farma & Volunteers </strong> , un luogo dove ci si prende cura di
 			tutte le necessità del cittadino, dal neonato al più anziano, in tema
 			di prevenzione e benessere. Special Children Farma & Volunteers
-			fornisce oltre ai farmci anche sostegno e aiuto alle persone affate
-			da varie patologie. Il sito offre infatti a tutti la posaibilità di
+			fornisce oltre ai farmaci anche sostegno e aiuto alle persone affete
+			da varie patologie. Il sito offre infatti a tutti la possibilità di
 			diventare volontari.
 		</div>
 
