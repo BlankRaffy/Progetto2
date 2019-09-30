@@ -11,84 +11,84 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function valida() {
+	function valida() {
 
-        var nome = document.getElementById("nome").value;
-        var cognome = document.getElementById("cognome").value;
-        var email = document.getElementById("email").value;
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var telefono = document.getElementById("telefono").value;
-        var password = document.getElementById("password").value;
-        var telformat = /^(\([0-9]{3}\)|[0-9]{3})[0-9]{3}[0-9]{4}$/;
-        var check = 0;
+		var nome = document.getElementById("nome").value;
+		var cognome = document.getElementById("cognome").value;
+		var email = document.getElementById("email").value;
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var telefono = document.getElementById("telefono").value;
+		var password = document.getElementById("password").value;
+		var telformat = /^(\([0-9]{3}\)|[0-9]{3})[0-9]{3}[0-9]{4}$/;
+		var check = 0;
 
-        if (cognome.length < 1 || (cognome == "")) {
-            document.getElementById("cognomeChange").className = "col-md-12 form-group has-error has-feedback";
+		if (cognome.length < 1 || (cognome == "")) {
+			document.getElementById("cognomeChange").className = "col-md-12 form-group has-error has-feedback";
 
-            $("#cognomeSpan").text("COGNOME NON VALIDO");
-            check++;
+			$("#cognomeSpan").text("COGNOME NON VALIDO");
+			check++;
 
-        } else {
-            $("#cognomeSpan").text("");
+		} else {
+			$("#cognomeSpan").text("");
 
-        }
-        if (nome.length < 1 || (nome == "")) {
-            document.getElementById("nameChange").className = "col-md-12 form-group has-error has-feedback";
-            $("#nameSpan").text("NOME NON VALIDO");
-            check++;
+		}
+		if (nome.length < 1 || (nome == "")) {
+			document.getElementById("nameChange").className = "col-md-12 form-group has-error has-feedback";
+			$("#nameSpan").text("NOME NON VALIDO");
+			check++;
 
-        } else {
-            $("#nameSpan").text("");
+		} else {
+			$("#nameSpan").text("");
 
-        }
+		}
 
-        if (!email.match(mailformat)) {
-            document.getElementById("EmailChange").className = "col-md-12 form-group has-error has-feedback";
-            $("#emailSpan").text("MAIL NON VALIDA");
+		if (!email.match(mailformat)) {
+			document.getElementById("EmailChange").className = "col-md-12 form-group has-error has-feedback";
+			$("#emailSpan").text("MAIL NON VALIDA");
 
-            check++;
+			check++;
 
-        } else {
-            $("#emailSpan").text("");
+		} else {
+			$("#emailSpan").text("");
 
-        }
+		}
 
-        if (password.length < 6 || (password == "")
-                || (password == "undefined")) {
-            document.getElementById("passwordChange").className = "col-md-12 form-group has-error has-feedback";
-            $("#passwordSpan").text("PASSWORD NON VALIDA");
+		if (password.length < 6 || (password == "")
+				|| (password == "undefined")) {
+			document.getElementById("passwordChange").className = "col-md-12 form-group has-error has-feedback";
+			$("#passwordSpan").text("PASSWORD NON VALIDA");
 
-            check++;
+			check++;
 
-        } else {
-            $("#passwordSpan").text("");
+		} else {
+			$("#passwordSpan").text("");
 
-        }
+		}
 
-        if (!(telefono.match(telformat))) {
-            document.getElementById("telChange").className = "col-md-12 form-group has-error has-feedback";
-            $("#telSpan").text("NUMERO  NON VALIDO");
+		if (!(telefono.match(telformat))) {
+			document.getElementById("telChange").className = "col-md-12 form-group has-error has-feedback";
+			$("#telSpan").text("NUMERO  NON VALIDO");
 
-            check++;
-        } else {
-            $("#telSpan").text("");
+			check++;
+		} else {
+			$("#telSpan").text("");
 
-        }
-        if (check == 0)
-            document.forms["registrazione"].submit();
-    }
+		}
+		if (check == 0)
+			document.forms["registrazione"].submit();
+	}
 </script>
 <script type="text/javascript">
-$(document).ready(function() {
- $("#btn2").click(function() {
-  $("#OrarioChange").css("display", "block");
-  $("#ImmagineChange").css("display", "block");
- });
- $("#btn1").click(function() {
-  $("#OrarioChange").css("display", "none");
-  $("#ImmagineChange").css("display", "none");
- });
-});
+	$(document).ready(function() {
+		$("#btn2").click(function() {
+			$("#OrarioChange").css("display", "block");
+			$("#ImmagineChange").css("display", "block");
+		});
+		$("#btn1").click(function() {
+			$("#OrarioChange").css("display", "none");
+			$("#ImmagineChange").css("display", "none");
+		});
+	});
 </script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
@@ -107,7 +107,8 @@ $(document).ready(function() {
 				<form method="get" action="RegisterServlet" id="registrazione">
 					<div class="form-row">
 						<input type="radio" name="modalità" value="cliente"
-							required="required" checked="checked" id="btn1" onclick=""> cliente
+							required="required" checked="checked" id="btn1" onclick="">
+						cliente
 					</div>
 					<div class="form-row">
 						<input type="radio" name="modalità" id="btn2" value="volontario">
@@ -143,17 +144,19 @@ $(document).ready(function() {
 								id="password" placeholder="Deve essere almeno 6 caratteri"
 								required> <span id="passwordSpan"></span>
 						</div>
-						<div style="display: none" class="form-group col-md-12" id="OrarioChange">
-							<label for="inputOrario4">Orario</label> <input
-								type="text" class="form-control" name="Orario"
-								id="orario" placeholder="Disponibilità"
-								required> <span id="OrarioSpan"></span>
+						<div style="display: none" class="form-group col-md-12"
+							id="OrarioChange">
+							<label for="inputOrario4">Orario</label> <input type="text"
+								class="form-control" name="Orario" id="orario"
+								placeholder="Disponibilità" required> <span
+								id="OrarioSpan"></span>
 						</div>
-						<div style="display: none" class="form-group col-md-12" id="ImmagineChange">
-							<label for="inputImmagine4">Immagine</label> <input
-								type="text" class="form-control" name="immagine"
-								id="immagine" placeholder="Inserire immagine"
-								required> <span id="immagineSpan"></span>
+						<div style="display: none" class="form-group col-md-12"
+							id="ImmagineChange">
+							<label for="inputImmagine4">Immagine</label> <input type="text"
+								class="form-control" name="immagine" id="immagine"
+								placeholder="Inserire immagine" required> <span
+								id="immagineSpan"></span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -166,12 +169,38 @@ $(document).ready(function() {
 						class="login loginmodal-submit" onclick="valida()">Sign
 						in</button>
 				</form>
+				<div class="login-help">
+					<a href="login.jsp">Hai già un account?</a> - <a href="#">Password
+						dimenticata?</a>
+				</div>
+				<%
+					if (session.getAttribute("d") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == false) {
+				%>
+				<div class="alert alert-danger">
+					<strong>Utente Non Registrato!</strong>Dati non conformi.
+				</div>
+				<%
+					}
+					}
+				
+					if (session.getAttribute("c") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == false) {
+				%>
+				<div class="alert alert-danger">
+					<strong>Volontario Non Registrato!</strong> Dati non conformi.
+				</div>
+				<%
+					}
+					}
+				%>
+
+
+
 
 			</div>
-		</div>
-		<div class="login-help">
-			<a href="login.jsp">Hai già un account?</a> - <a href="#">Password
-				dimenticata?</a>
 		</div>
 	</div>
 	<%@ include file="footer.jsp"%>

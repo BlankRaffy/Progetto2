@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,12 +34,29 @@ public class RegisterServlet extends HttpServlet {
 			// creazione userbean e funzione di registrazione
 			UserBean u = new UserBean(password, nome, telefono, cognome, email);
 			UtenteDAO a = new UtenteDAO();
-			a.registrazioneu(u);
-		}
-		else {
-			VolontarioBean v = new VolontarioBean(immagine, nome, cognome, password, email, telefono, orario) ;
+			boolean d = a.registrazioneu(u);
+			if (d == true) {
+				request.getSession().setAttribute("d", true);
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+				rd.forward(request, response);
+			} else {
+				request.getSession().setAttribute("d", false);
+				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+				rd.forward(request, response);
+			}
+		} else {
+			VolontarioBean v = new VolontarioBean(immagine, nome, cognome, password, email, telefono, orario);
 			VolontarioDAO vd = new VolontarioDAO();
-			vd.registrazionev(v);
+			boolean c = vd.registrazionev(v);
+			if (c == true) {
+				request.getSession().setAttribute("c", true);
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+				rd.forward(request, response);
+			} else {
+				request.getSession().setAttribute("c", false);
+				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+				rd.forward(request, response);
+			}
 		}
 
 	}

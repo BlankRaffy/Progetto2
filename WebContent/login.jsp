@@ -18,6 +18,30 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class=container>
+		<%
+					if (session.getAttribute("d") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == true) {
+				%>
+		<div class="alert alert-success">
+			<strong>Utente Registrato!</strong> Utente Registrato con successo.
+		</div>
+		<%
+					}
+					}
+				%>
+		<%
+					if (session.getAttribute("c") != null) {
+						boolean islogged = (boolean) session.getAttribute("d");
+						if (islogged == true) {
+				%>
+		<div class="alert alert-success">
+			<strong>Volontario Registrato!</strong> Volontario Registrato con successo.
+		</div>
+		<%
+					}
+					}
+				%>
 		<div class="row">
 			<div class=col-sm-6 align=left>
 				<h3>
@@ -52,11 +76,11 @@
 						boolean iscliente = (boolean) request.getAttribute("LoginCliente");
 						if (iscliente == false) {
 				%>
-				<div class="alert alert-danger">
-					<strong>Dati inseriti non corretti!</strong> Verificare le
-					credenziali di accesso inserite.
-				</div>
-				<%
+					<div class="alert alert-danger">
+						<strong>Dati inseriti non corretti!</strong> Verificare le
+						credenziali di accesso inserite.
+					</div>
+					<%
 					}
 					}
 				%>
@@ -69,7 +93,7 @@
 					<button type="submit" class="btn btn-success">Accedi</button>
 					<a href="#">Password dimenticata?</a>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>
