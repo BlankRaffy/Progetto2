@@ -156,11 +156,11 @@
 							<div class="form-row">
 								<input type="radio" name="immagine"
 									value="media/placeholdermale.png" required="required"
-									checked="checked"> Male
+									checked="checked">Male
 							</div>
 							<div class="form-row">
 								<input type="radio" name="immagine"
-									value="media/placeholderfemale.png"> Female
+									value="media/placeholderfemale.png">Female
 							</div>
 						</div>
 					</div>

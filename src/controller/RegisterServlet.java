@@ -28,7 +28,6 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("Password");
 		String orario = request.getParameter("Orario");
 		String immagine = request.getParameter("immagine");
-		System.out.println(request.getParameter("immagine"));
 		if (request.getParameter("tipo").equalsIgnoreCase("cliente")) {
 
 			// creazione userbean e funzione di registrazione
