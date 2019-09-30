@@ -28,7 +28,7 @@
 		</div>
 		<%
 					}
-					}
+					} 
 				%>
 		<%
 					if (request.getAttribute("c") != null) {

@@ -20,6 +20,7 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		// all the get parameter
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");

@@ -12,7 +12,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function valida() {
-
+ 
 		var nome = document.getElementById("nome").value;
 		var cognome = document.getElementById("cognome").value;
 		var email = document.getElementById("email").value;
