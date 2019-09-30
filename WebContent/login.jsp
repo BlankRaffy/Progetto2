@@ -47,16 +47,7 @@
 						<label for="pwd">Password </label> <input type="password"
 							name="pass" class="form-control" placeholder="Password">
 					</div>
-					<div class="row material-row">
-						<div id="remember" class="col-sm-6 margin-bottom--small">
-							<label class="remember-me" style="float: left"><input
-								checked="checked" type="checkbox" value="1" name="_rm" id="_rm"><span>Ricordami</span></label>
-						</div>
-					</div>
-					<button type="submit" class="btn btn-success">Accedi</button>
-					<a href="#">Password dimenticata?</a>
-				</form>
-				<%
+					<%
 					if (request.getAttribute("LoginCliente") != null) {
 						boolean iscliente = (boolean) request.getAttribute("LoginCliente");
 						if (iscliente == false) {
@@ -69,6 +60,16 @@
 					}
 					}
 				%>
+					<div class="row material-row">
+						<div id="remember" class="col-sm-6 margin-bottom--small">
+							<label class="remember-me" style="float: left"><input
+								checked="checked" type="checkbox" value="1" name="_rm" id="_rm"><span>Ricordami</span></label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-success">Accedi</button>
+					<a href="#">Password dimenticata?</a>
+				</form>
+				
 			</div>
 		</div>
 	</div>

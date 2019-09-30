@@ -25,18 +25,9 @@
 					<li>Una volta confermato l'ordine deve essere possibile
 						visualizzare l'ordine nell'elenco degli ordini effettuati e va
 						svuotato il carrello.</li>
-					<li>Il sito deve girare su Tomcat direttamente</li>
-					<li>I form sono controllati con javascript. Il form viene
-						inviato al server solo se corretto. Usare le espressioni regolari
-						per validare i campi del form. Mettere il "focus" sul campo in cui
-						l'utente sta scrivendo. Visualizzare le istruzioni di compilazione
-						di ogni campo di input nel placeholder. Fornire i messaggi di
-						errore quando l'utente preme il submit (evitare gli alert)</li>
-					<li>Usare JQuery per modificare il DOM in qualche pagina</li>
-					<li>Usare JQuery + AJAX per scambiare piccole informazioni con
-						il server (in formato JSON)</li>
 					<li>Usare JQUERY per animare le immagini al passaggio del
 						mouse</li>
+					<li>Il sito deve girare su Tomcat direttamente</li>
 				</ol>
 				<h1>Cose da chiedere :</h1>
 				<ol>
