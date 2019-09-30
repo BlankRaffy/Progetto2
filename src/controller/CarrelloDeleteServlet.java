@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.ProdottoDAO;
 import model.ProdottoBean;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") 
 @WebServlet("/CarrelloDeleteServlet")
 
 public class CarrelloDeleteServlet extends HttpServlet {

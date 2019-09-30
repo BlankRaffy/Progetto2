@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.ProdottoBean;
 import model.FatturaBean;
-
+ 
 @SuppressWarnings("serial")
 @WebServlet("/AcquistoServlet")
 
