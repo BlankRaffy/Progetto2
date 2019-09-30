@@ -35,7 +35,7 @@ public class UtenteDAO {
 		return u2;
 	}
 
-	public boolean registrazione(UserBean u) {
+	public boolean registrazioneu(UserBean u) {
 
 		try {
 			Connection conn = DB.getConnection();
