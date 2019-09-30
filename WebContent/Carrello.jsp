@@ -19,14 +19,14 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript">
-	function controllo(  ){
-		var name = '<%= session.getAttribute("utente") %>'	 
-		if (name.match("null")){
-			 document.getElementById("link").action = "login.jsp"; 
-		}
-			else 
-		document.forms["link"].submit();
-
+	function controllo( ){
+		 var name = '<%= session.getAttribute("utente") %>'
+			 if (name.match("null")){
+				<% request.setAttribute("LogNeedCart", 1); %>
+				 window.location.href = "login.jsp"
+ 			}
+				else 
+			document.forms["Fattura"].submit();
 	}
 	</script>
 <link rel="stylesheet" href="css/resetmycss.css">
@@ -88,7 +88,7 @@
 		
 		 
 	%>
-				 <form name = "link" action = "AcquistoServlet" id="link" onclick = "controllo()"
+				 <form name = "Fattura"  id = "Fattura"  action = "AcquistoServlet"  onclick = "controllo()"
 									class="btn btn-success"><span
 									class="glyphicon glyphicon-trash"></span> Procedi al pagamento 
 									</form>
