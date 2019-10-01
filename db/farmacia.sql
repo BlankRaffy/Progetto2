@@ -9,7 +9,6 @@ create schema Farmacia;
   Telefono varchar (18), 
   Password varchar(18) not null,
   Email varchar(50) not null ,
-  IdCliente int not null AUTO_INCREMENT  unique ,
   
   primary key (Email , Password));
   
@@ -19,23 +18,22 @@ create schema Farmacia;
   Telefono varchar (18), 
   Password varchar(18) not null,
   Email varchar(50) not null ,
-  IdCliente int not null AUTO_INCREMENT  unique ,
   
-  primary key (IdCliente));
+  primary key (Email));
   
   create table  Ordinazione (
-  IdOrdine int not null unique,
+  IdOrdine int not null auto_increment unique,
   date date ,
-  IdCliente int auto_increment unique,
+  Email varchar(50) unique,
 
  Primary key (IdOrdine),
-  foreign key (IdCliente) references Utente(IdCliente));
+  foreign key (Email) references Utente(Email));
   
   create table Fattura (
   Importo double ,
   Iva double ,
   Email varchar(50) not null ,
-  IdOrdine int auto_increment unique,
+  IdOrdine int unique,
 
   
   foreign key (IdOrdine) references Ordinazione(IdOrdine));

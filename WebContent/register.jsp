@@ -11,8 +11,19 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	$(document).ready (function volontario() {
+		var name =
+<%=session.getAttribute("registerV")%>;
+	if (name == 1) {
+			$("#btn2").prop("checked", true);
+			$("#OrarioChange").css("display", "block");
+			$("#ImmagineChange").css("display", "block");
+		}
+	});
+</script>
+<script type="text/javascript">
 	function valida() {
- 
+
 		var nome = document.getElementById("nome").value;
 		var cognome = document.getElementById("cognome").value;
 		var email = document.getElementById("email").value;
@@ -90,6 +101,7 @@
 		});
 	});
 </script>
+
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 </head>

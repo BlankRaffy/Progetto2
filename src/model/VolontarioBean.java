@@ -7,7 +7,6 @@ public class VolontarioBean {
 
 	public VolontarioBean(String immagine, String nome, String cognome, String password, String email,
 			String telefono, String orario) {
-		super();
 		this.immagine = immagine;
 		this.nome = nome;
 		this.cognome = cognome;

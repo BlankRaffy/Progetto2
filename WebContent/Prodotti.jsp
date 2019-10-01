@@ -33,20 +33,14 @@
 			document.getElementById("quantSpan").textContent = "";
 		    
 	}
-
-	function funzione(codice)
-	{
-		var quant = document.getElementById(""+codice);
-		alert(quant);
-	}
-	
-	function Img(){
-		
-		
-	}
-	
 	</script>
+<script type = "text/javascript">
 
+function Img(codice){
+$(codice).css
+}
+
+</script>
 
 
 
@@ -81,7 +75,7 @@
 			<div class="col-md-3">
 				<!-- Tutte le immagini con relativi prezzi  -->
 				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
-					id="<%= b.get(c).getNome()%>" alt="Image" onmouseover="Img()">
+					id="<%= b.get(c).getCodice()%>" alt="Image" onmouseover="Img(<%=b.get(c).getCodice()%>)">
 
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>

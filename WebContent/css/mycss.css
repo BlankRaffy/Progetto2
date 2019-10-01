@@ -5,7 +5,7 @@
 	padding: 0;
 	background-color: #6bff6b;
 }
- 
+
 body {
 	background-color: #6bff6b;
 }
@@ -219,4 +219,5 @@ footer {
 
 #welcome {
 	padding-top: 0;
+	margin-top: 3px;
 }
