@@ -221,3 +221,28 @@ footer {
 	padding-top: 0;
 	margin-top: 3px;
 }
+
+.animButton
+{
+	height:200px;
+}
+
+.prodottiForm
+{
+	padding-bottom: 20px;
+}
+
+.prodottiForm input
+{
+	width: 100%;
+}
+
+.prodottiForm div
+{
+	padding: 0;
+}
+
+.prodottiForm button
+{
+	float: right;
+}

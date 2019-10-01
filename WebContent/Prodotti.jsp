@@ -45,6 +45,18 @@ $(id).animate({width: "50%", height: "50%"}, 'slow');
 }
 </script>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	  $(".animButton").hover(function(){
+	    $(this).css("opacity", "0.7");
+	    }, function(){
+	    $(this).css("opacity", "1");
+	  });
+	});
+	
+</script>
+
 
 
 
@@ -77,7 +89,7 @@ $(id).animate({width: "50%", height: "50%"}, 'slow');
 			%>
 			<div class="col-md-3">
 				<!-- Tutte le immagini con relativi prezzi  -->
-				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
+				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive animButton"
 					id="<%=b.get(c).getCodice()%>" alt="Image"
 					onmouseover="Img(<%=b.get(c).getCodice()%>)">
 
@@ -86,16 +98,19 @@ $(id).animate({width: "50%", height: "50%"}, 'slow');
 				</p>
 
 
-
-
-				<form action="CarrelloServlet">
-					<input type="number" id="quantità" name="quantità"
-						placeholder="quantità" onkeyup="number()" value="1"> <input
-						type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
-					<button type="submit" class="btn btn-default btn-sm" id="action">
-						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
-
-					</button>
+				<form class="prodottiForm" action="CarrelloServlet">
+				<div class="row">
+					<div class="col-xs-9">
+						<input type="number" id="quantità" name="quantità"
+							placeholder="quantità" onkeyup="number()" value="1"> 
+							<input type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
+					</div>
+					<div class="col-xs-3">
+						<button type="submit" class="btn btn-default btn-sm" id="action">
+							<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
+						</button>
+					</div>
+				</div>
 				</form>
 			</div>
 			<%
