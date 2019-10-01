@@ -34,12 +34,15 @@
 		    
 	}
 	</script>
-<script type = "text/javascript">
+<script type="text/javascript">
 
-function Img(codice){
-$(codice).css
+$ function Img(codice){
+	string id= "#"+ codice;
+$(id).css("cursor","pointer");
+$(id).animate({width: "50%", height: "50%"}, 'slow');
+
+
 }
-
 </script>
 
 
@@ -75,7 +78,8 @@ $(codice).css
 			<div class="col-md-3">
 				<!-- Tutte le immagini con relativi prezzi  -->
 				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
-					id="<%= b.get(c).getCodice()%>" alt="Image" onmouseover="Img(<%=b.get(c).getCodice()%>)">
+					id="<%=b.get(c).getCodice()%>" alt="Image"
+					onmouseover="Img(<%=b.get(c).getCodice()%>)">
 
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
@@ -86,8 +90,8 @@ $(codice).css
 
 				<form action="CarrelloServlet">
 					<input type="number" id="quantità" name="quantità"
-						placeholder="quantità" onkeyup="number()" value ="1"> <input
-						type="hidden" name="id" value="<%= b.get(c).getCodice() %>" >
+						placeholder="quantità" onkeyup="number()" value="1"> <input
+						type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
 					<button type="submit" class="btn btn-default btn-sm" id="action">
 						<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
 
