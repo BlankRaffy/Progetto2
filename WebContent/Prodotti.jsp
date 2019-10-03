@@ -59,11 +59,9 @@
 		            },
 		            success: function(status){
 		                console.log("Entered",status);
-		                alert("Success!!!!!!!!");
 		            },
 		            error: function(error){
 		                console.log("error",error);
-		                alert("ERROR");
 		            },
 		            
 
