@@ -4,11 +4,6 @@ public class RigaOrdineBean {
 	public RigaOrdineBean() {
 	}
 
-	private int idCodice;
-	private double prezzo;
-	private int quantita;
-	private double iva;
-
 	public int getIdCodice() {
 		return idCodice;
 	}
@@ -40,4 +35,9 @@ public class RigaOrdineBean {
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
+
+	private int idCodice;
+	private double prezzo;
+	private int quantita;
+	private double iva;
 }
