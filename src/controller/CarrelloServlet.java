@@ -81,7 +81,7 @@ public class CarrelloServlet extends HttpServlet {
 							 
 						 
 					 
-				 }
+				 } 
 				session.setAttribute("carrello", carrello);
 
 			}
