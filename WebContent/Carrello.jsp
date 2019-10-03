@@ -65,7 +65,7 @@
 				<p align="left">
 					<strong><%=b.get(c).getPrezzo()%> </strong>
 				</p>  
-				<input type="number" id="quantità" name="quantità"
+				<input type="number" id="quantità" name="quantita"
 						placeholder="quantità" value = "<%= b.get(c).getPdisponibili()  %>">
 						
 				 <a             
