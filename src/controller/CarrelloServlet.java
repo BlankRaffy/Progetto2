@@ -74,7 +74,13 @@ public class CarrelloServlet extends HttpServlet {
 				 for(int i =0 ; i< carrello.size();i++) {
 					 if(carrello.get(i).getCodice()==b.getCodice()) {
 						 carrello.get(i).setPdisponibili(carrello.get(i).getPdisponibili() + b.getPdisponibili() );
-					 }
+						 }
+						 else {
+							    carrello.add(b);
+						}  
+							 
+						 
+					 
 				 }
 				session.setAttribute("carrello", carrello);
 
