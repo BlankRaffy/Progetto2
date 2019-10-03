@@ -70,6 +70,7 @@ public class CarrelloServlet extends HttpServlet {
 
 			} else {
 				ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
+				//se prodotto è presente già nel carrello
 	             carrello.add(b);
 				session.setAttribute("carrello", carrello);
 
@@ -78,7 +79,6 @@ public class CarrelloServlet extends HttpServlet {
 		} 
 		catch (JSONException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
