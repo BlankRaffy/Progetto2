@@ -40,8 +40,10 @@
 	
 	$(document).ready(function() {
 		$(".carrelloButton").click(function() {
-			var quantita = $('#myForm').find('input[name="quantita"]').val();
-			var id = $('#myForm').find('input[name="id"]').val();
+			var quantita = $(this).parent().parent().parent().find('input[name="quantita"]').val();
+			var id = $(this).parent().parent().parent().find('input[name="id"]').val();
+			
+			alert(id);
 			
 			var json =
 				{
