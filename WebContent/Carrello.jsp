@@ -76,6 +76,7 @@
 		<%
 			if (lenghtb > 0) {
 		%>
+		<div style="text-align:right" class="row">
 		<a href="Prodotti.jsp"><button class="btn btn-success">
 				<span class="glyphicon glyphicon-list-alt"></span>Ritorna al
 				catalogo
@@ -83,7 +84,7 @@
 		<form name="Fattura" id="Fattura" action="AcquistoServlet"
 			onclick="controllo()" class="btn btn-success">
 			<span class="glyphicon glyphicon-ok"></span> Procedi al pagamento
-		</form>
+		</form></div>
 		<%
 			}
 		%>
