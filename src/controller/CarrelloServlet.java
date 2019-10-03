@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import dao.ProdottoDAO;
 import model.ProdottoBean;
 
@@ -18,7 +22,7 @@ import model.ProdottoBean;
 
 public class CarrelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
 		int id = Integer.parseInt(request.getParameter("id"));
 		int d = Integer.parseInt(request.getParameter("quantita")); 
 
@@ -40,8 +44,44 @@ public class CarrelloServlet extends HttpServlet {
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
-		rd.forward(request, response);
+		rd.forward(request, response);*/
 
+		
+		String json = request.getParameter("json");
+
+		JSONObject data = null;
+		
+		try 
+		{
+			data = new JSONObject(json);
+			
+			int id = Integer.parseInt(data.getString("id"));
+			int d = Integer.parseInt(data.getString("quantita"));
+			
+			ProdottoDAO a = new ProdottoDAO();
+			ProdottoBean b = a.GetProdotto(id);
+			b.setPdisponibili(d);
+
+			HttpSession session = request.getSession();
+			if (session.getAttribute("carrello") == null) {
+				ArrayList<ProdottoBean> carrello = new ArrayList<ProdottoBean>();
+				carrello.add(b);
+				session.setAttribute("carrello", carrello);
+
+			} else {
+				ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
+	             carrello.add(b);
+				session.setAttribute("carrello", carrello);
+
+			}
+			
+		} 
+		catch (JSONException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

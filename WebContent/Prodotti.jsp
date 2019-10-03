@@ -37,6 +37,40 @@
 			$(this).css("opacity", "1");
 		});
 	});
+	
+	$(document).ready(function() {
+		$("#Button").click(function() {
+			var quantita = $('#myForm').find('input[name="quantita"]').val();
+			var id = $('#myForm').find('input[name="id"]').val();
+			
+			var json =
+				{
+					"quantita":quantita,
+	            	"id":id
+				}
+		
+			
+			 $.ajax({
+		            type: "GET",
+		            url: "CarrelloServlet",
+		            contentType: "application/json",
+		            data:{
+		            	"json":JSON.stringify(json)
+		            },
+		            success: function(status){
+		                console.log("Entered",status);
+		                alert("Success!!!!!!!!");
+		            },
+		            error: function(error){
+		                console.log("error",error);
+		                alert("ERROR");
+		            },
+		            
+
+		     });
+			
+		});
+	});
 </script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
@@ -75,15 +109,15 @@
 				</p>
 
 
-				<form class="prodottiForm" action="CarrelloServlet">
+				<form id="myForm" class="prodottiForm" action="javascript:void(0);">
 					<div class="row">
 						<div class="col-xs-9">
-							<input type="number" id="quantità" name="quantita"
-								placeholder="quantità" onkeyup="number()" value="1"> <input
-								type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
+							<input type="number" id="quantita" name="quantita"
+								placeholder="quantità" onkeyup="number()" value="1"> 
+								<input type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
 						</div>
 						<div class="col-xs-3">
-							<button type="submit" class="btn btn-default btn-sm" id="action">
+							<button type="submit" class="btn btn-default btn-sm" id="Button">
 								<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
 							</button>
 						</div>
