@@ -78,7 +78,7 @@
 				<form class="prodottiForm" action="CarrelloServlet">
 					<div class="row">
 						<div class="col-xs-9">
-							<input type="number" id="quantità" name="quantità"
+							<input type="number" id="quantità" name="quantita"
 								placeholder="quantità" onkeyup="number()" value="1"> <input
 								type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
 						</div>
