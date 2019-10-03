@@ -19,75 +19,75 @@
 
 <script type="text/javascript">
 	function controllo( ){
-		 var name = '<%= session.getAttribute("utente") %>'
-			 if (name.match("null")){
-				<% session.setAttribute("LogNeedCart", 1); %>
-				 window.location.href = "login.jsp"
- 			}
-				else 
+		 var name = '<%=session.getAttribute("utente")%>
+	'
+		if (name.match("null")) {
+<%session.setAttribute("LogNeedCart", 1);%>
+	window.location.href = "login.jsp"
+		} else
 			document.forms["Fattura"].submit();
 	}
-	</script>
+</script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class=container>
-	<%    
-	ArrayList <ProdottoBean> b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
-	if (b==null){
-		session.setAttribute("carrello", new ArrayList<ProdottoBean>());
-		b = (ArrayList <ProdottoBean>) session.getAttribute("carrello");
-		 
-	}
-	int lenghtb = b.size();
-	System.out.println(lenghtb);
+		<%
+			ArrayList<ProdottoBean> b = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
+			if (b == null) {
+				session.setAttribute("carrello", new ArrayList<ProdottoBean>());
+				b = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 
-	
+			}
+			int lenghtb = b.size();
+			System.out.println(lenghtb);
 		%>
-	<br>
-	<h3 align="center">Carrello</h3>
-	<%
+		<br>
+		<h3 align="center">Carrello</h3>
+		<%
 			for (int i = 0; i < lenghtb; i++) {
 		%>
-	<div class="row">
-	
-		<div class="col-md-4">
-			<!-- Tutte le immagini con relativi prezzi  -->
-			<img src=" <%=b.get(i).getImmagine()%>" class="img-responsive"
-				alt="Image">
-			<p align="left">
-				<strong><%=b.get(i).getPrezzo()%> </strong>
-			</p><div class="row">
-			<input type="number" id="quantità" name="quantita"
-				placeholder="quantità" value="<%= b.get(i).getPdisponibili()  %>">
+		<div class="row">
 
-			<a href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
-				class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>
-				Cancella </a></div>
+			<div class="col-md-4">
+				<!-- Tutte le immagini con relativi prezzi  -->
+				<img src=" <%=b.get(i).getImmagine()%>" class="img-responsive"
+					alt="Image">
+				<p align="left">
+					<strong><%=b.get(i).getPrezzo()%> </strong>
+				</p>
+				<div class="row">
+					<input type="number" id="quantità" name="quantita"
+						placeholder="quantità" value="<%=b.get(i).getPdisponibili()%>">
+
+					<a href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
+						class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>
+						Cancella </a>
+				</div>
+			</div>
 		</div>
 		<%
-			
-						
-					}
-			%>
-	</div>
+			}
+		%>
 
-	<% 
-	if (lenghtb > 0){
-		
-		 
-	%>
-	<a href="Prodotti.jsp"><button class="btn btn-success">
-			<span class="glyphicon glyphicon-list-alt"></span>Ritorna al catalogo
-		</button></a>
-	<form name="Fattura" id="Fattura" action="AcquistoServlet"
-		onclick="controllo()" class="btn btn-success">
-		<span class="glyphicon glyphicon-ok"></span> Procedi al pagamento
-	</form>
-	<% } %>
-</div>
+
+		<%
+			if (lenghtb > 0) {
+		%>
+		<a href="Prodotti.jsp"><button class="btn btn-success">
+				<span class="glyphicon glyphicon-list-alt"></span>Ritorna al
+				catalogo
+			</button></a>
+		<form name="Fattura" id="Fattura" action="AcquistoServlet"
+			onclick="controllo()" class="btn btn-success">
+			<span class="glyphicon glyphicon-ok"></span> Procedi al pagamento
+		</form>
+		<%
+			}
+		%>
+	</div>
 
 	<%@ include file="footer.jsp"%>
 
