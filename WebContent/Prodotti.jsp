@@ -39,7 +39,7 @@
 	});
 	
 	$(document).ready(function() {
-		$("#Button").click(function() {
+		$(".carrelloButton").click(function() {
 			var quantita = $('#myForm').find('input[name="quantita"]').val();
 			var id = $('#myForm').find('input[name="id"]').val();
 			
@@ -117,7 +117,7 @@
 								<input type="hidden" name="id" value="<%=b.get(c).getCodice()%>">
 						</div>
 						<div class="col-xs-3">
-							<button type="submit" class="btn btn-default btn-sm" id="Button">
+							<button type="submit" class="btn btn-default btn-sm carrelloButton">
 								<span class="glyphicon glyphicon-shopping-cart" id="quantSpan"></span>
 							</button>
 						</div>
