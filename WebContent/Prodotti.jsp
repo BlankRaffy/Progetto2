@@ -43,7 +43,6 @@
 			var quantita = $(this).parent().parent().parent().find('input[name="quantita"]').val();
 			var id = $(this).parent().parent().parent().find('input[name="id"]').val();
 			
-			alert(id);
 			
 			var json =
 				{

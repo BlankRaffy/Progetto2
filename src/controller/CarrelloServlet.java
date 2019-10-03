@@ -70,8 +70,12 @@ public class CarrelloServlet extends HttpServlet {
 
 			} else {
 				ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
-				//se prodotto è presente già nel carrello
-	             carrello.add(b);
+				//se prodotto ï¿½ presente giï¿½ nel carrello
+				 for(int i =0 ; i< carrello.size();i++) {
+					 if(carrello.get(i).getCodice()==b.getCodice()) {
+						 carrello.get(i).setPdisponibili(carrello.get(i).getPdisponibili() + b.getPdisponibili() );
+					 }
+				 }
 				session.setAttribute("carrello", carrello);
 
 			}
