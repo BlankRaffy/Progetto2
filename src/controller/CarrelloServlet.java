@@ -57,7 +57,7 @@ public class CarrelloServlet extends HttpServlet {
 			
 			int id = Integer.parseInt(data.getString("id"));
 			int d = Integer.parseInt(data.getString("quantita"));
-			
+			/*
 			ProdottoDAO a = new ProdottoDAO();
 			ProdottoBean b = a.GetProdotto(id);
 			b.setPdisponibili(d);
@@ -85,8 +85,36 @@ public class CarrelloServlet extends HttpServlet {
 				session.setAttribute("carrello", carrello);
 
 			}
+			*/
 			
-		} 
+			// Gian
+			ProdottoBean pb = new ProdottoDAO().GetProdotto(id);
+			pb.setPdisponibili(d);
+			
+			ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) request.getSession().getAttribute("carrello");
+			
+			if (carrello == null) 
+			{
+				carrello = new ArrayList<ProdottoBean>();
+				carrello.add(pb);
+			} 
+			else 
+			{
+				int esiste = 0;
+				
+				for (ProdottoBean cp : carrello) 
+					if(cp.getCodice() == pb.getCodice())
+					{
+						cp.setPdisponibili(cp.getPdisponibili() + pb.getPdisponibili());
+						esiste = 1;
+					}
+				
+				if(esiste == 0)
+					carrello.add(pb);
+			}
+			
+			request.getSession().setAttribute("carrello", carrello);
+		}
 		catch (JSONException e) 
 		{
 			e.printStackTrace();
