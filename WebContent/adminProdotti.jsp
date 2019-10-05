@@ -82,7 +82,7 @@
 									"descrizione" : descrizione,
 									"pd" : pd,
 									"offerta" : offerta,
-									"datainzio" : datainizio,
+									"datainizio" : datainizio,
 									"datafine" : datafine,
 									"sconto" : sconto
 								}
