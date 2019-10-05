@@ -54,6 +54,10 @@ create schema Farmacia;
   Immagine varchar(45), 
   Descrizione varchar(45),
   PDisponibili int ,
+  offerta BIT NULL DEFAULT 0 ,
+  data inizio DATE NULL DEFAULT NULL ,
+  data fine DATE NULL DEFAULT NULL,
+  sconto INT NULL DEFAULT NULL ,
   IdCodice int not null unique Auto_Increment,
 
 primary key (IdCodice));
