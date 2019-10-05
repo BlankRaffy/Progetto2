@@ -42,11 +42,20 @@ public class FatturaBean {
 	public void setImporto(double importo) {
 		this.importo = importo;
 	}
+	public ProdottoBean getProdotto() {
+		return prodotto;
+	}
+
+	public void setProdotto(ProdottoBean prodotto) {
+		this.prodotto = prodotto;
+	}
 
 	private String Email;
 	private int IdOrdine;
 	private double importo;
 	private double iva;
+	private ProdottoBean prodotto;
+	
 
 
 }

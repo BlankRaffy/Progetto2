@@ -41,7 +41,6 @@ public class AcquistoServlet extends HttpServlet {
 		OrdinazioneBean ordine = new OrdinazioneBean();
 		Date myDate = new Date();
 		String data = new SimpleDateFormat("yyyy-MM-dd").format(myDate);
-		System.out.println(data);
 
 		// passo gli oggetti all'ordinazione
 		ordine.setDate(data);
@@ -51,10 +50,10 @@ public class AcquistoServlet extends HttpServlet {
 		OrdinazioneDAO saveOrdine = new OrdinazioneDAO();
 		saveOrdine.AddOrdinazione(ordine);
 		int codiceOrdine = saveOrdine.getIdOrdine();
-		System.out.println(codiceOrdine);
-
+        double totale = 0;
 		// salvare la varie rige d'ordine e istanziarle
 		for (int i = 0; i < carrello.size(); i++) {
+			
 			RigaOrdineDAO salvaRiga = new RigaOrdineDAO();
 			RigaOrdineBean riga = new RigaOrdineBean();
 			riga.setIdCodice(carrello.get(i).getCodice());
@@ -63,14 +62,17 @@ public class AcquistoServlet extends HttpServlet {
 			riga.setQuantita(carrello.get(i).getPdisponibili());
 			riga.setIdProdotto(carrello.get(i).getCodice());
 			salvaRiga.AddRigaOrdine(riga, codiceOrdine);
+			totale = totale + carrello.get(i).getPrezzo() * carrello.get(i).getPdisponibili() ;
 		}
 		
+        System.out.println("test pre fattura");
 		//salva nella fattura 
 		FatturaBean fattura = new FatturaBean();
 		fattura.setEmail(user.getEmail());
-		fattura.setIva(carrello.get(1).getIva());
+		fattura.setIva(carrello.get(0).getIva());
 		fattura.setIdOrdine(codiceOrdine);
-		// fattura.s
+		fattura.setImporto(totale);
+		
 
 		RequestDispatcher rd = request.getRequestDispatcher("Acquisto.jsp");
 		rd.forward(request, response);
