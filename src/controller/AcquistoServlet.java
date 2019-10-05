@@ -16,7 +16,9 @@ import javax.servlet.http.HttpSession;
 
 import dao.FatturaDAO;
 import dao.OrdinazioneDAO;
+import dao.RigaOrdineDAO;
 import model.ProdottoBean;
+import model.RigaOrdineBean;
 import model.UserBean;
 import model.FatturaBean;
 import model.OrdinazioneBean;
@@ -44,12 +46,31 @@ public class AcquistoServlet extends HttpServlet {
 		// passo gli oggetti all'ordinazione
 		ordine.setDate(data);
 		ordine.setEmail(user.getEmail());
-		
-		//salvo nel database
+
+		// salvo nel database
 		OrdinazioneDAO saveOrdine = new OrdinazioneDAO();
 		saveOrdine.AddOrdinazione(ordine);
+		int codiceOrdine = saveOrdine.getIdOrdine();
+		System.out.println(codiceOrdine);
+
+		// salvare la varie rige d'ordine e istanziarle
+		for (int i = 0; i < carrello.size(); i++) {
+			RigaOrdineDAO salvaRiga = new RigaOrdineDAO();
+			RigaOrdineBean riga = new RigaOrdineBean();
+			riga.setIdCodice(carrello.get(i).getCodice());
+			riga.setIva(carrello.get(i).getIva());
+			riga.setPrezzo(carrello.get(i).getPrezzo());
+			riga.setQuantita(carrello.get(i).getPdisponibili());
+			riga.setIdProdotto(carrello.get(i).getCodice());
+			salvaRiga.AddRigaOrdine(riga, codiceOrdine);
+		}
 		
-		//salvare la varie rige d'ordine e istanziarle 
+		//salva nella fattura 
+		FatturaBean fattura = new FatturaBean();
+		fattura.setEmail(user.getEmail());
+		fattura.setIva(carrello.get(1).getIva());
+		fattura.setIdOrdine(codiceOrdine);
+		// fattura.s
 
 		RequestDispatcher rd = request.getRequestDispatcher("Acquisto.jsp");
 		rd.forward(request, response);

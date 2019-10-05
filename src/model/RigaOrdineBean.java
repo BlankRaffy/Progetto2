@@ -35,9 +35,18 @@ public class RigaOrdineBean {
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
+	public int getIdProdotto() {
+		return IdProdotto;
+	}
+
+	public void setIdProdotto(int idProdotto) {
+		IdProdotto = idProdotto;
+	}
 
 	private int idCodice;
 	private double prezzo;
 	private int quantita;
 	private double iva;
+	private int IdProdotto;
+	
 }

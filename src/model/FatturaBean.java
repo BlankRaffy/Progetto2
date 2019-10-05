@@ -17,12 +17,14 @@ public class FatturaBean {
 		Email = email;
 	}
 
-	public ProdottoBean getProdotto() {
-		return prodotto;
+
+
+	public int getIdOrdine() {
+		return IdOrdine;
 	}
 
-	public void setProdotto(ProdottoBean prodotto) {
-		this.prodotto = prodotto;
+	public void setIdOrdine(int idOrdine) {
+		IdOrdine = idOrdine;
 	}
 
 	public double getImporto() {
@@ -42,7 +44,7 @@ public class FatturaBean {
 	}
 
 	private String Email;
-	private ProdottoBean prodotto;
+	private int IdOrdine;
 	private double importo;
 	private double iva;
 

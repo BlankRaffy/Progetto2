@@ -21,10 +21,11 @@ create schema Farmacia;
   
   primary key (Email));
   
+  
   create table  Ordinazione (
-  IdOrdine int not null auto_increment unique,
+  IdOrdine int not null auto_increment ,
   date date ,
-  Email varchar(50) unique,
+  Email varchar(50) ,
 
  Primary key (IdOrdine),
   foreign key (Email) references Utente(Email));
@@ -38,11 +39,14 @@ create schema Farmacia;
   
   foreign key (IdOrdine) references Ordinazione(IdOrdine));
   
+  
   create table RigaOrdine(
+  
   Prezzo double not null , 
   Quantita int  not null ,
   Iva double not null ,
-  IdOrdine int unique,
+  IdOrdine int ,
+  IdProdotto int ,
 
   
   foreign key (IdOrdine) references Ordinazione(IdOrdine));
