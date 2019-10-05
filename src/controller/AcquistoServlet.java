@@ -73,7 +73,7 @@ public class AcquistoServlet extends HttpServlet {
 		fattura.setIdOrdine(codiceOrdine);
 		fattura.setImporto(totale);
 		 FatturaDAO salvafattura = new FatturaDAO();
-		 salvafattura.SalvaFattura(fattura);
+		 salvafattura.SalvaFattura(fattura); 
 		
 
 		RequestDispatcher rd = request.getRequestDispatcher("Acquisto.jsp");
