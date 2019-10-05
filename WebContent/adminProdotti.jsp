@@ -17,7 +17,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 
 <script>
@@ -38,7 +37,8 @@
 							var pd = $('#myForm').find(
 									'input[name="PDisponibili"]').val();
 							var offerta = $('#myForm').find(
-									'input[name="offerta"]').val();
+					         'input[name="offerta"]:checked').val();
+							alert("offerta=" + offerta);
 							if (offerta == 0) {
 								var json = {
 									"prezzo" : prezzo,
@@ -47,6 +47,7 @@
 									"immagine" : immagine,
 									"descrizione" : descrizione,
 									"pd" : pd,
+									"offerta" : offerta
 								}
 								$.ajax({
 									type : "GET",
@@ -84,7 +85,7 @@
 									"offerta" : offerta,
 									"datainzio" : datainizio,
 									"datafine" : datafine,
-									"sconto" : sconto,
+									"sconto" : sconto
 								}
 
 								$.ajax({
@@ -221,8 +222,7 @@
 										<form id="myForm" action="javascript:void(0);">
 											<label>Vuoi metterlo in offerta?</label>
 											<div class="form-row">
-												<input type="radio" name="offerta" value="1"
-													required="required" id="btn1"> Si
+												<input type="radio" name="offerta" value="1" id="btn1">Si
 											</div>
 											<div class="form-row">
 												<input type="radio" name="offerta" id="btn2"
