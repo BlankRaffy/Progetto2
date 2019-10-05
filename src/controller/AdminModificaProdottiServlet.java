@@ -24,7 +24,8 @@ public class AdminModificaProdottiServlet extends HttpServlet {
 					Integer.parseInt(request.getParameter("Pdisponibili")),
 					Integer.parseInt(request.getParameter("IdCodice")),
 					Integer.parseInt(request.getParameter("offerta")), request.getParameter("datainizio"),
-					request.getParameter("datafine"), Integer.parseInt(request.getParameter("sconto")));
+					request.getParameter("datafine"),
+					Integer.parseInt(request.getParameter("sconto")));
 
 		
 		ProdottoDAO a = new ProdottoDAO();

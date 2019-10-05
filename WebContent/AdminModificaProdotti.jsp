@@ -25,11 +25,20 @@
 			$("#DatainizioChange").css("display", "block");
 			$("#DatafineChange").css("display", "block");
 			$("#ScontoChange").css("display", "block");
+			$("#datainizio").type='date';
+			$("#datafine").type='date';
+			$("#sconto").type='text';
 		});
 		$("#btn2").click(function() {
 			$("#DatainizioChange").css("display", "none");
 			$("#DatafineChange").css("display", "none");
 			$("#ScontoChange").css("display", "none");
+			$("#datainizio").type='hidden';
+			$("#datafine").type='hidden';
+			$("#sconto").type='hidden';
+			$("#datainizio").value=null;
+			$("#datafine").value=null;
+			$("#sconto").value='0';
 		});
 	});
 </script>
@@ -38,6 +47,7 @@
 	<%
 		if (session.getAttribute("admin") != null) {
 			int codice = Integer.parseInt(request.getParameter("id"));
+			
 			ProdottoDAO a = new ProdottoDAO();
 			ProdottoBean prodotto = a.GetProdotto(codice);
 	%>
@@ -57,11 +67,11 @@
 							<label>Vuoi metterlo in offerta?</label>
 							<div class="form-row">
 								<input type="radio" name="offerta" value="1" required="required"
-									 id="btn1"> Si
+									id="btn1"> Si
 							</div>
 							<div class="form-row">
-								<input type="radio" name="offerta" id="btn2" checked="checked" value="0">
-								No
+								<input type="radio" name="offerta" id="btn2" checked="checked"
+									value="0"> No
 							</div>
 
 							<div class="form-group">
@@ -90,22 +100,21 @@
 									class="form-control" value="<%=prodotto.getPdisponibili()%>"
 									name="Pdisponibili">
 							</div>
-							<div style="display: none" class="form-group col-md-12"
-								id="DatainizioChange">
-								<label for="inputDatainizio4">Data inizio:</label> <input
-									type="text" class="form-control" name="datainizio"
-									id="datainizio" placeholder="" required> <span
-									id="datainizio"></span>
+							<div class="form-group col-md-12">
+								<label style="display: none" for="inputDatainizio4"
+									id="DatainizioChange">Data inizio:</label> <input type="hidden"
+									class="form-control" name="datainizio" id="datainizio"
+									placeholder="" required> <span id="datainizio"></span>
 							</div>
-							<div style="display: none" class="form-group col-md-12"
-								id="DatafineChange">
-								<label for="inputDatafine4">Data fine:</label> <input
-									type="text" class="form-control" name="datafine" id="datafine"
+							<div class="form-group col-md-12">
+								<label style="display: none" id="DatafineChange"
+									for="inputDatafine4">Data fine:</label> <input type="hidden"
+									class="form-control" name="datafine" id="datafine"
 									placeholder="" required> <span id="Datafinespan"></span>
 							</div>
-							<div style="display: none" class="form-group col-md-12"
-								id="ScontoChange">
-								<label for="inputSconto4">Sconto</label> <input type="text"
+							<div class="form-group col-md-12">
+								<label style="display: none" id="ScontoChange"
+									for="inputSconto4">Sconto</label> <input type="hidden"
 									class="form-control" name="sconto" id="sconto" placeholder=""
 									required> <span id="ScontoSpan"></span>
 							</div>
