@@ -21,7 +21,7 @@ public class ProdottoDAO {
 			while (rs.next()) {
 				ProdottoBean a = new ProdottoBean(rs.getDouble("Prezzo"), rs.getDouble("Iva"), rs.getNString("Nome"),
 						rs.getNString("Immagine"), rs.getNString("Descrizione"), rs.getInt("PDisponibili"),
-						rs.getInt("IdCodice"), 0, null, null, 0);
+						rs.getInt("IdCodice"));
 				prodotti.add(a);
 
 			}
@@ -47,7 +47,7 @@ public class ProdottoDAO {
 			while (rs.next()) {
 				ProdottoBean a = new ProdottoBean(rs.getDouble("Prezzo"), rs.getDouble("Iva"), rs.getNString("Nome"),
 						rs.getNString("Immagine"), rs.getNString("Descrizione"), rs.getInt("PDisponibili"),
-						rs.getInt("IdCodice"), 0, null, null, 0);
+						rs.getInt("IdCodice"));
 				prodotti.add(a);
 
 			}
@@ -65,20 +65,36 @@ public class ProdottoDAO {
 	public boolean modificaadmin(ProdottoBean p) {
 		try {
 			Connection conn = DB.getConnection();
-			PreparedStatement ps = conn.prepareStatement(
-					"UPDATE farmacia.prodotto SET prezzo=?, iva=?, nome = ?, immagine=?, descrizione =?,Pdisponibili=?,offerta=?,dataInizio=?,dataFine=?,sconto=?   WHERE IdCodice = ?");
-			ps.setDouble(1, p.getPrezzo());
-			ps.setDouble(2, p.getIva());
-			ps.setString(3, p.getNome());
-			ps.setString(4, p.getImmagine());
-			ps.setString(5, p.getDescrizione());
-			ps.setInt(6, p.getPdisponibili());
-			ps.setInt(7, p.getOfferta());
-			ps.setString(8, p.getDatainizio());
-			ps.setString(9, p.getDatafine());
-			ps.setInt(10, p.getSconto());
-			ps.setInt(11, p.getCodice());
-
+			PreparedStatement ps;
+			if (p.getOfferta() == 0) {
+				ps = conn.prepareStatement(
+						"UPDATE farmacia.prodotto SET prezzo=?, iva=?, nome = ?, immagine=?, descrizione =?,Pdisponibili=?,offerta=?,dataInizio=?,dataFine=?,sconto=?   WHERE IdCodice = ?");
+				ps.setDouble(1, p.getPrezzo());
+				ps.setDouble(2, p.getIva());
+				ps.setString(3, p.getNome());
+				ps.setString(4, p.getImmagine());
+				ps.setString(5, p.getDescrizione());
+				ps.setInt(6, p.getPdisponibili());
+				ps.setInt(7, 0);
+				ps.setString(8, null);
+				ps.setString(9, null);
+				ps.setInt(10, 0);
+				ps.setInt(11, p.getCodice());
+			} else {
+				ps = conn.prepareStatement(
+						"UPDATE farmacia.prodotto SET prezzo=?, iva=?, nome = ?, immagine=?, descrizione =?,Pdisponibili=?,offerta=?,dataInizio=?,dataFine=?,sconto=?   WHERE IdCodice = ?");
+				ps.setDouble(1, p.getPrezzo());
+				ps.setDouble(2, p.getIva());
+				ps.setString(3, p.getNome());
+				ps.setString(4, p.getImmagine());
+				ps.setString(5, p.getDescrizione());
+				ps.setInt(6, p.getPdisponibili());
+				ps.setInt(7, p.getOfferta());
+				ps.setString(8, p.getDatainizio());
+				ps.setString(9, p.getDatafine());
+				ps.setInt(10, p.getSconto());
+				ps.setInt(11, p.getCodice());
+			}
 			int rs = ps.executeUpdate();
 			if (rs == 1)
 				return true;
@@ -148,8 +164,7 @@ public class ProdottoDAO {
 
 			if (rs.first()) {
 				prodotto = new ProdottoBean(rs.getDouble("prezzo"), rs.getDouble("iva"), rs.getNString("nome"),
-						rs.getNString("immagine"), rs.getNString("descrizione"), rs.getInt("Pdisponibili"), codice, 0,
-						null, null, 0);
+						rs.getNString("immagine"), rs.getNString("descrizione"), rs.getInt("Pdisponibili"), codice);
 				return prodotto;
 			}
 		} catch (Exception e) {
@@ -186,10 +201,21 @@ public class ProdottoDAO {
 			String descrizione = b.getDescrizione();
 			int pdisponibili = b.getPdisponibili();
 			int offerta = b.getOfferta();
+			PreparedStatement st;
+			if (offerta == 0) {
+				st = conn.prepareStatement(
+						"INSERT INTO farmacia.prodotto (Prezzo, Iva, Nome, Immagine, Descrizione, PDisponibili) VALUES (?, ?, ?, ?, ?, ?)");
+				st.setDouble(1, prezzo);
+				st.setDouble(2, iva);
+				st.setString(3, nome);
+				st.setString(4, immagine);
+				st.setString(5, descrizione);
+				st.setInt(6, pdisponibili);
+			} else {
 			String datainizio = b.getDatainizio();
 			String datafine = b.getDatafine();
 			int sconto = b.getSconto();
-			PreparedStatement st = conn.prepareStatement(
+			 st = conn.prepareStatement(
 					"INSERT INTO farmacia.prodotto (Prezzo, Iva, Nome, Immagine, Descrizione, PDisponibili, offerta, datainizio, datafine, sconto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			st.setDouble(1, prezzo);
 			st.setDouble(2, iva);
@@ -200,7 +226,7 @@ public class ProdottoDAO {
 			st.setInt(7, offerta);
 			st.setString(8, datainizio);
 			st.setString(9, datafine);
-			st.setInt(10, sconto);
+			st.setInt(10, sconto);}
 			int rs = st.executeUpdate();
 			if (rs == 1)
 				return true;

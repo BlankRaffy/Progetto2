@@ -38,45 +38,73 @@
 							var pd = $('#myForm').find(
 									'input[name="PDisponibili"]').val();
 							var offerta = $('#myForm').find(
-							'input[name="offerta"]').val();
-							var datainizio = $('#myForm').find(
-							'input[name="Datainizio"]').val();
-							var datafine = $('#myForm').find(
-							'input[name="Datafine"]').val();
-							var sconto = $('#myForm').find(
-							'input[name="Sconto"]').val();
-							
+									'input[name="offerta"]').val();
+							if (offerta == 0) {
+								var json = {
+									"prezzo" : prezzo,
+									"iva" : iva,
+									"nome" : nome,
+									"immagine" : immagine,
+									"descrizione" : descrizione,
+									"pd" : pd,
+								}
+								$.ajax({
+									type : "GET",
+									url : "AdminAddProdottiServlet",
+									contentType : "application/json",
+									data : {
+										"json" : JSON.stringify(json)
+									},
+									success : function(status) {
+										console.log("Entered", status);
+										alert("Success!!!!!!!!");
+									},
+									error : function(error) {
+										console.log("error", error);
+										alert("ERROR");
+									},
 
-							var json = {
-								"prezzo" : prezzo,
-								"iva" : iva,
-								"nome" : nome,
-								"immagine" : immagine,
-								"descrizione" : descrizione,
-								"pd" : pd
-								"offerta":offerta,
-								"datainzio":datainizio,
-								"datafine":datafine,
-								"sconto":sconto,
+								});
+
+							} else {
+								var datainizio = $('#myForm').find(
+										'input[name="Datainizio"]').val();
+								var datafine = $('#myForm').find(
+										'input[name="Datafine"]').val();
+								var sconto = $('#myForm').find(
+										'input[name="Sconto"]').val();
+
+								var json = {
+									"prezzo" : prezzo,
+									"iva" : iva,
+									"nome" : nome,
+									"immagine" : immagine,
+									"descrizione" : descrizione,
+									"pd" : pd,
+									"offerta" : offerta,
+									"datainzio" : datainizio,
+									"datafine" : datafine,
+									"sconto" : sconto,
+								}
+
+								$.ajax({
+									type : "GET",
+									url : "AdminAddProdottiServlet",
+									contentType : "application/json",
+									data : {
+										"json" : JSON.stringify(json)
+									},
+									success : function(status) {
+										console.log("Entered", status);
+										alert("Success!!!!!!!!");
+									},
+									error : function(error) {
+										console.log("error", error);
+										alert("ERROR");
+									},
+
+								});
 							}
-
-							$.ajax({
-								type : "GET",
-								url : "AdminAddProdottiServlet",
-								contentType : "application/json",
-								data : {
-									"json" : JSON.stringify(json)
-								},
-								success : function(status) {
-									console.log("Entered", status);
-									alert("Success!!!!!!!!");
-								},
-								error : function(error) {
-									console.log("error", error);
-									alert("ERROR");
-								},
-
-							});
 
 						});
 			});
@@ -227,14 +255,14 @@
 											<div style="display: none" class="form-group col-md-12"
 												id="DatainizioChange">
 												<label for="inputDatainizio4">Data inizio:</label> <input
-													type="text" class="form-control" name="Datainizio"
+													type="date" class="form-control" name="Datainizio"
 													id="Datainizio" placeholder="" required> <span
 													id="Datainizio"></span>
 											</div>
 											<div style="display: none" class="form-group col-md-12"
 												id="DatafineChange">
 												<label for="inputDatafine4">Data fine:</label> <input
-													type="text" class="form-control" name="Datafine"
+													type="date" class="form-control" name="Datafine"
 													id="Datafine" placeholder="" required> <span
 													id="Datafinespan"></span>
 											</div>

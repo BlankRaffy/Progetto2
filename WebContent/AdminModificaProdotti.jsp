@@ -36,9 +36,7 @@
 			$("#datainizio").prop('type', 'hidden');
 			$("#datafine").prop('type', 'hidden');
 			$("#sconto").prop('type', 'hidden');
-			$("#datainizio").value = null;
-			$("#datafine").value = null;
-			$("#sconto").value = null;
+			
 		});
 	});
 </script>

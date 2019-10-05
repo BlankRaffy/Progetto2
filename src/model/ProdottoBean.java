@@ -20,6 +20,18 @@ public class ProdottoBean {
 
 	}
 
+	public ProdottoBean(double prezzo, double iva, String nome, String immagine, String descrizione, int Pdisponibili,
+			int IdCodice) {
+		this.prezzo = prezzo;
+		this.iva = iva;
+		this.nome = nome;
+		this.Immagine = immagine;
+		this.descrizione = descrizione;
+		this.Pdisponibili = Pdisponibili;
+		this.codice = IdCodice;
+		
+
+	}
 	public String getDatainizio() {
 		return datainizio;
 	}
