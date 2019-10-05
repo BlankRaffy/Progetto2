@@ -11,7 +11,9 @@ public FatturaDAO() {
 	// TODO Auto-generated constructor stub
 }
 
+/*
 public boolean SalvaFattura(ArrayList<FatturaBean> fattura) {
+	
 	
 	try {
 		Connection conn = DB.getConnection();
@@ -28,4 +30,6 @@ public boolean SalvaFattura(ArrayList<FatturaBean> fattura) {
 
 	return true;
 }
+*/
 }
+

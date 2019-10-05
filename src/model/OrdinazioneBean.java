@@ -12,11 +12,11 @@ public class OrdinazioneBean {
 		IdOrdine = idOrdine;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -29,6 +29,6 @@ public class OrdinazioneBean {
 	}
 
 	private String IdOrdine;
-	private Date date;
+	private String date;
 	private String email;
 }

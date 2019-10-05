@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,14 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.FatturaDAO;
+import dao.OrdinazioneDAO;
 import model.ProdottoBean;
 import model.UserBean;
 import model.FatturaBean;
+import model.OrdinazioneBean;
 
 @SuppressWarnings("serial")
 @WebServlet("/AcquistoServlet")
 
 public class AcquistoServlet extends HttpServlet {
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -27,19 +33,24 @@ public class AcquistoServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
 		UserBean user = (UserBean) session.getAttribute("utente");
-		ArrayList<FatturaBean> fattura = new ArrayList<FatturaBean>();
-		for (int i = 0; i < carrello.size(); i++) { 
-			FatturaBean a = new FatturaBean();
-			a.setEmail(user.getEmail());
-			a.setProdotto(carrello.get(i));
-			a.setImporto(carrello.get(i).getPrezzo() * carrello.get(i).getPdisponibili());
-			 a.setIva(carrello.get(i).getIva());
-			fattura.add(a);
+		OrdinazioneBean ordinazione = new OrdinazioneBean();
 
-		}
-        FatturaDAO salva = new FatturaDAO();
-        salva.SalvaFattura(fattura);
-		session.setAttribute("fattura", fattura);
+		// ottengo oggetti per istanziare un ordinazione
+		OrdinazioneBean ordine = new OrdinazioneBean();
+		Date myDate = new Date();
+		String data = new SimpleDateFormat("yyyy-MM-dd").format(myDate);
+		System.out.println(data);
+
+		// passo gli oggetti all'ordinazione
+		ordine.setDate(data);
+		ordine.setEmail(user.getEmail());
+		
+		//salvo nel database
+		OrdinazioneDAO saveOrdine = new OrdinazioneDAO();
+		saveOrdine.AddOrdinazione(ordine);
+		
+		//salvare la varie rige d'ordine e istanziarle 
+
 		RequestDispatcher rd = request.getRequestDispatcher("Acquisto.jsp");
 		rd.forward(request, response);
 

@@ -19,8 +19,8 @@
 
 <script type="text/javascript">
 	function controllo( ){
-		 var name = '<%=session.getAttribute("utente")%>
-	'
+		 var name = '<%=session.getAttribute("utente")%>'
+	
 		if (name.match("null")) {
 <%session.setAttribute("LogNeedCart", 1);%>
 	window.location.href = "login.jsp"

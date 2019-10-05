@@ -22,29 +22,7 @@ import model.ProdottoBean;
 
 public class CarrelloServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-/*
-		int id = Integer.parseInt(request.getParameter("id"));
-		int d = Integer.parseInt(request.getParameter("quantita")); 
 
-		ProdottoDAO a = new ProdottoDAO();
-		ProdottoBean b = a.GetProdotto(id);
-		b.setPdisponibili(d);
-
-		HttpSession session = request.getSession();
-		if (session.getAttribute("carrello") == null) {
-			ArrayList<ProdottoBean> carrello = new ArrayList<ProdottoBean>();
-			carrello.add(b);
-			session.setAttribute("carrello", carrello);
-
-		} else {
-			ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
-             carrello.add(b);
-			session.setAttribute("carrello", carrello);
-
-		}
-
-		RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
-		rd.forward(request, response);*/
 
 		
 		String json = request.getParameter("json");
@@ -57,37 +35,7 @@ public class CarrelloServlet extends HttpServlet {
 			
 			int id = Integer.parseInt(data.getString("id"));
 			int d = Integer.parseInt(data.getString("quantita"));
-			/*
-			ProdottoDAO a = new ProdottoDAO();
-			ProdottoBean b = a.GetProdotto(id);
-			b.setPdisponibili(d);
-
-			HttpSession session = request.getSession();
-			if (session.getAttribute("carrello") == null) {
-				ArrayList<ProdottoBean> carrello = new ArrayList<ProdottoBean>();
-				carrello.add(b);
-				session.setAttribute("carrello", carrello);
-
-			} else {
-				ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");
-				//se prodotto � presente gi� nel carrello
-				 for(int i =0 ; i< carrello.size();i++) {
-					 if(carrello.get(i).getCodice()==b.getCodice()) {
-						 carrello.get(i).setPdisponibili(carrello.get(i).getPdisponibili() + b.getPdisponibili() );
-						 }
-						 else {
-							    carrello.add(b);
-						}  
-							 
-						 
-					 
-				 } 
-				session.setAttribute("carrello", carrello);
-
-			}
-			*/
-			
-			// Gian
+	
 			ProdottoBean pb = new ProdottoDAO().GetProdotto(id);
 			pb.setPdisponibili(d);
 			
