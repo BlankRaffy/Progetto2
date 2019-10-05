@@ -55,22 +55,15 @@ create schema Farmacia;
   Descrizione varchar(45),
   PDisponibili int ,
   offerta BIT NULL DEFAULT 0 ,
-  data inizio DATE NULL DEFAULT NULL ,
-  data fine DATE NULL DEFAULT NULL,
+  dataInizio DATE NULL DEFAULT NULL ,
+  dataFine DATE NULL DEFAULT NULL,
   sconto INT NULL DEFAULT NULL ,
   IdCodice int not null unique Auto_Increment,
 
 primary key (IdCodice));
 
   
-create table Offerta (
-Prezzo double not null,
-DataInizio date ,
-DataFine date ,
-IdCodice int,
 
-
-foreign key (IdCodice) references Prodotto(IdCodice));
 
 
 create table News (
