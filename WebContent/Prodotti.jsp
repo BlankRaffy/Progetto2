@@ -101,9 +101,14 @@
 					class="img-responsive animButton" id="<%=b.get(c).getCodice()%>"
 					alt="Image">
 
-				<p align="left">
-					<strong><%=b.get(c).getPrezzo()%> </strong>
-				</p>
+				<div class="row">
+							<strong>Prezzo:</strong>
+							<%if(b.get(c).getOfferta() == 1){%>
+							<%=(b.get(c).getPrezzo()-((b.get(c).getPrezzo()*b.get(c).getSconto())/100))%>
+							<%} else{%>
+							<%= b.get(c).getPrezzo()%>
+							<%} %>
+						</div>
 
 
 				<form id="myForm" class="prodottiForm" action="javascript:void(0);">
