@@ -28,7 +28,6 @@
 			document.forms["Fattura"].submit();
 	}
 </script>
-<link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
 </head>
 <body>
