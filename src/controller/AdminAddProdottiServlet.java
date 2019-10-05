@@ -26,11 +26,18 @@ public class AdminAddProdottiServlet extends HttpServlet {
 
 		try {
 			data = new JSONObject(json);
-			ProdottoBean p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
-					Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
-					data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0,
-					Integer.parseInt(data.getString("offerta")), data.getString("datainizio"),
-					data.getString("datafine"), Integer.parseInt(data.getString("sconto")));
+			ProdottoBean p;
+			if (Integer.parseInt(data.getString("offerta")) == 0) {
+				p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
+						Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
+						data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0);
+			} else {
+				p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
+						Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
+						data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0,
+						Integer.parseInt(data.getString("offerta")), data.getString("datainizio"),
+						data.getString("datafine"), Integer.parseInt(data.getString("sconto")));
+			}
 
 			(new ProdottoDAO()).AddProdotto(p);
 
