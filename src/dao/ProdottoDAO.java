@@ -47,7 +47,7 @@ public class ProdottoDAO {
 			while (rs.next()) {
 				ProdottoBean a = new ProdottoBean(rs.getDouble("Prezzo"), rs.getDouble("Iva"), rs.getNString("Nome"),
 						rs.getNString("Immagine"), rs.getNString("Descrizione"), rs.getInt("PDisponibili"),
-						rs.getInt("IdCodice"));
+						rs.getInt("IdCodice"), rs.getInt("offerta"), rs.getString("datainizio"),rs.getString("datafine"),rs.getInt("sconto"));
 				prodotti.add(a);
 
 			}
