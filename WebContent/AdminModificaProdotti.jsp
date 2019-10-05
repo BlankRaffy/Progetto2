@@ -25,20 +25,20 @@
 			$("#DatainizioChange").css("display", "block");
 			$("#DatafineChange").css("display", "block");
 			$("#ScontoChange").css("display", "block");
-			$("#datainizio").type='date';
-			$("#datafine").type='date';
-			$("#sconto").type='text';
+			$("#datainizio").prop('type', 'date');
+			$("#datafine").prop('type', 'date');
+			$("#sconto").prop('type', 'text');
 		});
 		$("#btn2").click(function() {
 			$("#DatainizioChange").css("display", "none");
 			$("#DatafineChange").css("display", "none");
 			$("#ScontoChange").css("display", "none");
-			$("#datainizio").type='hidden';
-			$("#datafine").type='hidden';
-			$("#sconto").type='hidden';
-			$("#datainizio").value=null;
-			$("#datafine").value=null;
-			$("#sconto").value='0';
+			$("#datainizio").prop('type', 'hidden');
+			$("#datafine").prop('type', 'hidden');
+			$("#sconto").prop('type', 'hidden');
+			$("#datainizio").value = null;
+			$("#datafine").value = null;
+			$("#sconto").value = null;
 		});
 	});
 </script>
@@ -47,7 +47,7 @@
 	<%
 		if (session.getAttribute("admin") != null) {
 			int codice = Integer.parseInt(request.getParameter("id"));
-			
+
 			ProdottoDAO a = new ProdottoDAO();
 			ProdottoBean prodotto = a.GetProdotto(codice);
 	%>
