@@ -37,7 +37,7 @@
 							var pd = $('#myForm').find(
 									'input[name="PDisponibili"]').val();
 							var offerta = $('#myForm').find(
-					         'input[name="offerta"]:checked').val();
+									'input[name="offerta"]:checked').val();
 							if (offerta == 0) {
 								var json = {
 									"prezzo" : prezzo,
@@ -307,8 +307,24 @@
 							<%=b.get(i).getNome()%>
 						</div>
 						<div class="row">
+							<strong>Offerta:</strong>
+							<%
+								if (b.get(i).getOfferta() == 1) {
+							%>Scontato
+							<%
+								} else {
+							%>
+							Non Scontato<%
+								}
+							%>
+						</div>
+						<div class="row">
 							<strong>Prezzo:</strong>
-							<%=b.get(i).getPrezzo()%>
+							<%if(b.get(i).getOfferta() == 1){%>
+							<%=(b.get(i).getPrezzo()-((b.get(i).getPrezzo()*b.get(i).getSconto())/100))%>
+							<%} else{%>
+							<%= b.get(i).getPrezzo()%>
+							<%} %>
 						</div>
 						<div class="row">
 							<strong>Quantità:</strong>

@@ -1,7 +1,5 @@
 package model;
 
-//import java.sql.Date;
-
 public class ProdottoBean {
 
 	public ProdottoBean(double prezzo, double iva, String nome, String immagine, String descrizione, int Pdisponibili,
