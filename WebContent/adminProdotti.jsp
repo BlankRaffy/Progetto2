@@ -21,46 +21,77 @@
 <link rel="stylesheet" href="css/mycss.css">
 
 <script>
+	$(document).ready(
+			function() {
+				$("#Button").click(
+						function() {
+							var prezzo = $('#myForm').find(
+									'input[name="prezzo"]').val();
+							var iva = $('#myForm').find('input[name="iva"]')
+									.val();
+							var nome = $('#myForm').find('input[name="nome"]')
+									.val();
+							var immagine = $('#myForm').find(
+									'input[name="immagine"]').val();
+							var descrizione = $('#myForm').find(
+									'input[name="descrizione"]').val();
+							var pd = $('#myForm').find(
+									'input[name="PDisponibili"]').val();
+							var offerta = $('#myForm').find(
+							'input[name="offerta"]').val();
+							var datainizio = $('#myForm').find(
+							'input[name="Datainizio"]').val();
+							var datafine = $('#myForm').find(
+							'input[name="Datafine"]').val();
+							var sconto = $('#myForm').find(
+							'input[name="Sconto"]').val();
+							
 
+							var json = {
+								"prezzo" : prezzo,
+								"iva" : iva,
+								"nome" : nome,
+								"immagine" : immagine,
+								"descrizione" : descrizione,
+								"pd" : pd
+								"offerta":offerta,
+								"datainzio":datainizio,
+								"datafine":datafine,
+								"sconto":sconto,
+							}
+
+							$.ajax({
+								type : "GET",
+								url : "AdminAddProdottiServlet",
+								contentType : "application/json",
+								data : {
+									"json" : JSON.stringify(json)
+								},
+								success : function(status) {
+									console.log("Entered", status);
+									alert("Success!!!!!!!!");
+								},
+								error : function(error) {
+									console.log("error", error);
+									alert("ERROR");
+								},
+
+							});
+
+						});
+			});
+</script>
+<script type="text/javascript">
 	$(document).ready(function() {
-		$("#Button").click(function() {
-			var prezzo = $('#myForm').find('input[name="prezzo"]').val();
-			var iva = $('#myForm').find('input[name="iva"]').val();
-			var nome = $('#myForm').find('input[name="nome"]').val();
-			var immagine = $('#myForm').find('input[name="immagine"]').val();
-			var descrizione = $('#myForm').find('input[name="descrizione"]').val();
-			var pd = $('#myForm').find('input[name="PDisponibili"]').val();
-			
-			var json =
-				{
-					"prezzo":prezzo,
-	            	"iva":iva,
-	            	"nome":nome,
-	            	"immagine":immagine,
-	            	"descrizione":descrizione,
-	            	"pd":pd
-				}
-		
-			
-			 $.ajax({
-		            type: "GET",
-		            url: "AdminAddProdottiServlet",
-		            contentType: "application/json",
-		            data:{
-		            	"json":JSON.stringify(json)
-		            },
-		            success: function(status){
-		                console.log("Entered",status);
-		                alert("Success!!!!!!!!");
-		            },
-		            error: function(error){
-		                console.log("error",error);
-		                alert("ERROR");
-		            },
-		            
-
-		     });
-			
+		$("#btn1").click(function() {
+			$("#DatainizioChange").css("display", "block");
+			$("#DatafineChange").css("display", "block");
+			$("#ScontoChange").css("display", "block");
+		});
+		$("#btn2").click(function() {
+			$("#DatainizioChange").css("display", "none");
+			$("#DatafineChange").css("display", "none");
+			$("#ScontoChange").css("display", "none");
 		});
 	});
 </script>
@@ -159,7 +190,16 @@
 
 									<div class="col-md-12">
 
-										<form id ="myForm" action="javascript:void(0);">
+										<form id="myForm" action="javascript:void(0);">
+											<label>Vuoi metterlo in offerta?</label>
+											<div class="form-row">
+												<input type="radio" name="offerta" value="1"
+													required="required" id="btn1"> Si
+											</div>
+											<div class="form-row">
+												<input type="radio" name="offerta" id="btn2"
+													checked="checked" value="0"> No
+											</div>
 											<div class="form-group">
 												<label>Prezzo:</label> <input type="text"
 													class="form-control" name="prezzo">
@@ -183,6 +223,26 @@
 											<div class="form-group">
 												<label>PDisponibili:</label> <input type="number"
 													class="form-control" name="PDisponibili">
+											</div>
+											<div style="display: none" class="form-group col-md-12"
+												id="DatainizioChange">
+												<label for="inputDatainizio4">Data inizio:</label> <input
+													type="text" class="form-control" name="Datainizio"
+													id="Datainizio" placeholder="" required> <span
+													id="Datainizio"></span>
+											</div>
+											<div style="display: none" class="form-group col-md-12"
+												id="DatafineChange">
+												<label for="inputDatafine4">Data fine:</label> <input
+													type="text" class="form-control" name="Datafine"
+													id="Datafine" placeholder="" required> <span
+													id="Datafinespan"></span>
+											</div>
+											<div style="display: none" class="form-group col-md-12"
+												id="ScontoChange">
+												<label for="inputSconto4">Sconto</label> <input type="text"
+													class="form-control" name="Sconto" id="Sconto"
+													placeholder="" required> <span id="ScontoSpan"></span>
 											</div>
 											<button id="Button" class="btn btn-default">Aggiungi
 												Prodotto</button>

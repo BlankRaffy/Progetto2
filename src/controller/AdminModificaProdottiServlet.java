@@ -18,17 +18,17 @@ public class AdminModificaProdottiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProdottoBean p  = new ProdottoBean(Double.parseDouble(request.getParameter("prezzo")),
+					Double.parseDouble(request.getParameter("iva")), request.getParameter("nome"),
+					request.getParameter("immagine"), request.getParameter("descrizione"),
+					Integer.parseInt(request.getParameter("Pdisponibili")),
+					Integer.parseInt(request.getParameter("IdCodice")),
+					Integer.parseInt(request.getParameter("offerta")), request.getParameter("datainizio"),
+					request.getParameter("datafine"), Integer.parseInt(request.getParameter("sconto")));
 
-		ProdottoBean p = new ProdottoBean(Double.parseDouble(request.getParameter("prezzo")),
-				Double.parseDouble(request.getParameter("iva")), request.getParameter("nome"),
-				request.getParameter("immagine"), request.getParameter("descrizione"),
-				Integer.parseInt(request.getParameter("Pdisponibili")),
-				Integer.parseInt(request.getParameter("IdCodice")));
-
-		ProdottoDAO a = new ProdottoDAO();
 		
+		ProdottoDAO a = new ProdottoDAO();
 		boolean b = a.modificaadmin(p);
-
 		request.setAttribute("ModificaProdotto", b);
 		RequestDispatcher rd = request.getRequestDispatcher("adminProdotti.jsp");
 		rd.forward(request, response);

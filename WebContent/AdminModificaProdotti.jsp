@@ -19,6 +19,20 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/resetmycss.css">
 <link rel="stylesheet" href="css/mycss.css">
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btn1").click(function() {
+			$("#DatainizioChange").css("display", "block");
+			$("#DatafineChange").css("display", "block");
+			$("#ScontoChange").css("display", "block");
+		});
+		$("#btn2").click(function() {
+			$("#DatainizioChange").css("display", "none");
+			$("#DatafineChange").css("display", "none");
+			$("#ScontoChange").css("display", "none");
+		});
+	});
+</script>
 </head>
 <body>
 	<%
@@ -40,13 +54,22 @@
 					<div class="col-md-6">
 
 						<form action="AdminModificaProdottiServlet">
+							<label>Vuoi metterlo in offerta?</label>
+							<div class="form-row">
+								<input type="radio" name="offerta" value="1" required="required"
+									 id="btn1"> Si
+							</div>
+							<div class="form-row">
+								<input type="radio" name="offerta" id="btn2" checked="checked" value="0">
+								No
+							</div>
+
 							<div class="form-group">
 								<label>Prezzo:</label> <input type="text" class="form-control"
 									value="<%=prodotto.getPrezzo()%>" name="prezzo">
 							</div>
 							<div class="form-group">
 								<label>Iva:</label> <input type="text" class="form-control"
-								
 									value="<%=prodotto.getIva()%>" name="iva">
 							</div>
 							<div class="form-group">
@@ -67,9 +90,28 @@
 									class="form-control" value="<%=prodotto.getPdisponibili()%>"
 									name="Pdisponibili">
 							</div>
+							<div style="display: none" class="form-group col-md-12"
+								id="DatainizioChange">
+								<label for="inputDatainizio4">Data inizio:</label> <input
+									type="text" class="form-control" name="datainizio"
+									id="datainizio" placeholder="" required> <span
+									id="datainizio"></span>
+							</div>
+							<div style="display: none" class="form-group col-md-12"
+								id="DatafineChange">
+								<label for="inputDatafine4">Data fine:</label> <input
+									type="text" class="form-control" name="datafine" id="datafine"
+									placeholder="" required> <span id="Datafinespan"></span>
+							</div>
+							<div style="display: none" class="form-group col-md-12"
+								id="ScontoChange">
+								<label for="inputSconto4">Sconto</label> <input type="text"
+									class="form-control" name="sconto" id="sconto" placeholder=""
+									required> <span id="ScontoSpan"></span>
+							</div>
 							<div class="form-group">
-								<label>IdCodice:</label> <input type="hidden" class="form-control"
-									value="<%=codice %>" name="IdCodice">
+								<input type="hidden" class="form-control" value="<%=codice%>"
+									name="IdCodice">
 							</div>
 							<button type="submit" class="btn btn-default">Modifica</button>
 						</form>

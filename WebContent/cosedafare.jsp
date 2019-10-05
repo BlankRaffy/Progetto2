@@ -31,9 +31,7 @@
 				</ol>
 				<h1>Cose da chiedere :</h1>
 				<ol>
-					<li>riempire i campi value dei form con i dati scorretti
-						problema come faccio a sapere se l'object restituito è volontario
-						o utentea</li>
+					<li>reset.css</li>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>

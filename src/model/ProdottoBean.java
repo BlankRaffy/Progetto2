@@ -1,9 +1,11 @@
 package model;
 
+//import java.sql.Date;
+
 public class ProdottoBean {
 
 	public ProdottoBean(double prezzo, double iva, String nome, String immagine, String descrizione, int Pdisponibili,
-			int IdCodice) {
+			int IdCodice, int offerta, String datainizio, String datafine, int sconto) {
 		this.prezzo = prezzo;
 		this.iva = iva;
 		this.nome = nome;
@@ -11,7 +13,35 @@ public class ProdottoBean {
 		this.descrizione = descrizione;
 		this.Pdisponibili = Pdisponibili;
 		this.codice = IdCodice;
+		this.offerta = offerta;
+		this.datainizio = datainizio;
+		this.datafine = datafine;
+		this.sconto = sconto;
 
+	}
+
+	public String getDatainizio() {
+		return datainizio;
+	}
+
+	public void setDatainizio(String datainizio) {
+		this.datainizio = datainizio;
+	}
+
+	public String getDatafine() {
+		return datafine;
+	}
+
+	public void setDatafine(String datafine) {
+		this.datafine = datafine;
+	}
+
+	public int getSconto() {
+		return sconto;
+	}
+
+	public void setSconto(int sconto) {
+		this.sconto = sconto;
 	}
 
 	public double getPrezzo() {
@@ -20,6 +50,18 @@ public class ProdottoBean {
 
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
+	}
+
+	public int getOfferta() {
+		return offerta;
+	}
+
+	public void setOfferta(int offerta) {
+		this.offerta = offerta;
+	}
+
+	public void setIva(double iva) {
+		this.iva = iva;
 	}
 
 	public double getIva() {
@@ -77,5 +119,9 @@ public class ProdottoBean {
 	private String descrizione;
 	private int Pdisponibili;
 	private int codice;
+	private int offerta;
+	private String datainizio;
+	private String datafine;
+	private int sconto;
 
 }

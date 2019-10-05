@@ -19,19 +19,7 @@ public class AdminAddProdottiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * ProdottoDAO a = new ProdottoDAO(); ProdottoBean b= new
-		 * ProdottoBean(Double.parseDouble(request.getParameter("prezzo")),
-		 * Double.parseDouble(request.getParameter("iva")),
-		 * request.getParameter("nome"), request.getParameter("immagine"),
-		 * request.getParameter("descrizione"),
-		 * Integer.parseInt(request.getParameter("Pdisponibili")), 0); boolean
-		 * c=a.AddProdotto(b); request.setAttribute("AddProdotto", c); RequestDispatcher
-		 * rd = request.getRequestDispatcher("adminProdotti.jsp"); rd.forward(request,
-		 * response);
-		 */
-		
-		
+
 		String json = request.getParameter("json");
 
 		JSONObject data = null;
@@ -40,7 +28,9 @@ public class AdminAddProdottiServlet extends HttpServlet {
 			data = new JSONObject(json);
 			ProdottoBean p = new ProdottoBean(Double.parseDouble(data.getString("prezzo")),
 					Double.parseDouble(data.getString("iva")), data.getString("nome"), data.getString("immagine"),
-					data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0);
+					data.getString("descrizione"), Integer.parseInt(data.getString("pd")), 0,
+					Integer.parseInt(data.getString("offerta")), data.getString("datainizio"),
+					data.getString("datafine"), Integer.parseInt(data.getString("sconto")));
 
 			(new ProdottoDAO()).AddProdotto(p);
 
