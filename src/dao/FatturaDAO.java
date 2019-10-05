@@ -32,14 +32,13 @@ public class FatturaDAO {
 			st.executeUpdate();
 			System.out.println("ma perche non funziona");
 
-			return true;
 		} catch (Exception e) {
 
 			System.out.println("Errore durante la connessione." + e.getMessage());
 			System.out.println("se sei qui non funziona");
-
+            return false;
 		}
-		return false;
+		return true;
 
 	}
 }
