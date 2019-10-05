@@ -38,7 +38,6 @@
 									'input[name="PDisponibili"]').val();
 							var offerta = $('#myForm').find(
 					         'input[name="offerta"]:checked').val();
-							alert("offerta=" + offerta);
 							if (offerta == 0) {
 								var json = {
 									"prezzo" : prezzo,
