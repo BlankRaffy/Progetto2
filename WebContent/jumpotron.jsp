@@ -29,8 +29,16 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<%
-						for (int j = 0; j < lenghtp; j++) {
-							if (j == 0) {
+						if (lenghtp == 0) {
+					%>
+					<div class="item active">
+						<img src="media/offerte.png" class="img-responsive"
+							style="width: 100%" alt="Prodotti">
+					</div>
+					<%
+						} else {
+							for (int j = 0; j < lenghtp; j++) {
+								if (j == 0) {
 					%>
 					<div class="item active">
 						<img src="<%=prodotti.get(j).getImmagine()%>"
@@ -47,6 +55,7 @@
 						}
 					%>
 					<%
+						}
 						}
 					%>
 				</div>
