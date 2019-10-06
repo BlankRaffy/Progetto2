@@ -47,7 +47,7 @@
 
 		<h3 align="center">
 			Ordine numero :
-<%=ordini.get(i).getIdOrdine()  %></h3>
+			<%=ordini.get(i).getIdOrdine()  %></h3>
 		<h4 align="center">
 			Richiesto in data :
 			<%=ordini.get(i).getDate() %>
@@ -64,25 +64,32 @@
 			ProdottoDAO prodotto = new ProdottoDAO();
 			String nome = prodotto.GetProdotto(n).getNome();
 			%>
-			<div align = "center">
-			   <div class="row" >
-			    <div class= "col-md-3">
-			    			     <div><strong>Nome : <%=nome %></strong></div>
-			    
-			    <div>
-			   <strong> Quantità =  <%=righe.get(k).getQuantita() %></strong></div>
-			     <div><strong>Prezzo : <%=righe.get(k).getPrezzo() %></strong></div>
-			     
-			    </div>
-			<%  }%>
-		   </div> 
-		   <h3><strong> Totale speso in questo ordine : <%= fattura.get(i).getImporto() %></strong> </h3>
-<% }
+		<div align="center">
+			<div class="row">
+				<div class="col-md-3">
+					<div>
+						<strong>Nome : <%=nome %></strong>
+					</div>
+
+					<div>
+						<strong> Quantità = <%=righe.get(k).getQuantita() %></strong>
+					</div>
+					<div>
+						<strong>Prezzo : <%=righe.get(k).getPrezzo() %></strong>
+					</div>
+
+				</div>
+				<%  }%>
+			</div>
+			<h3>
+				<strong> Totale speso in questo ordine : <%= fattura.get(i).getImporto() %></strong>
+			</h3>
+			<% }
 		%>
-			</div>
-			</div>
-		
-		
+		</div>
+	</div>
+
+
 
 	<%@ include file="footer.jsp"%>
 
