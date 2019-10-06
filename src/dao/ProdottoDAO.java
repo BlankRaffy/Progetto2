@@ -237,4 +237,27 @@ public class ProdottoDAO {
 		}
 		return false;
 	}
+	public ArrayList<ProdottoBean> offerta() {
+		ArrayList<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
+		try {
+			Connection conn = DB.getConnection();
+
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM farmacia.prodotto where offerta=1;");
+			while (rs.next()) {
+				ProdottoBean a = new ProdottoBean(rs.getDouble("Prezzo"), rs.getDouble("Iva"), rs.getNString("Nome"),
+						rs.getNString("Immagine"), rs.getNString("Descrizione"), rs.getInt("PDisponibili"),
+						rs.getInt("IdCodice"),rs.getInt("offerta"),rs.getString("datainizio"),rs.getString("datafine"),rs.getInt("sconto"));
+				prodotti.add(a);
+			}
+
+		}
+
+		catch (Exception e) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+			return null;
+		}
+		return prodotti;
+	}
 }
