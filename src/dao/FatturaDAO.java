@@ -69,5 +69,6 @@ public class FatturaDAO {
             return null;
 			
 		}
+		
 	}
 }

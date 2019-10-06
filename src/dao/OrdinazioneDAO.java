@@ -65,7 +65,7 @@ public class OrdinazioneDAO {
 
 				ordine.setDate(rs.getString("date"));
 				ordine.setEmail(rs.getString("Email"));
-				ordine.setIdOrdine(rs.getString("IdOrdine"));
+				ordine.setIdOrdine(rs.getInt("IdOrdine"));
 				ordini.add(ordine);
 			}
 			return ordini ;

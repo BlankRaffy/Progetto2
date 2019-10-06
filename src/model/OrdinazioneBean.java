@@ -4,11 +4,11 @@ import java.sql.Date;
 
 public class OrdinazioneBean {
 
-	public String getIdOrdine() {
+	public int getIdOrdine() {
 		return IdOrdine;
 	}
 
-	public void setIdOrdine(String idOrdine) {
+	public void setIdOrdine(int idOrdine) {
 		IdOrdine = idOrdine;
 	}
 
@@ -28,7 +28,7 @@ public class OrdinazioneBean {
 		this.email = email;
 	}
 
-	private String IdOrdine;
+	private int IdOrdine;
 	private String date;
 	private String email;
 }

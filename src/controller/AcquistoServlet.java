@@ -75,8 +75,10 @@ public class AcquistoServlet extends HttpServlet {
 		 FatturaDAO salvafattura = new FatturaDAO();
 		 salvafattura.SalvaFattura(fattura); 
 		
+			ArrayList<ProdottoBean> svuotaCarrello = new ArrayList<ProdottoBean>();
+			session.setAttribute("carrello", svuotaCarrello);
 
-		RequestDispatcher rd = request.getRequestDispatcher("Acquisto.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Carrello.jsp");
 		rd.forward(request, response);
 
 	}
