@@ -80,8 +80,8 @@ public class UtenteDAO {
 		try {
 			Connection conn = DB.getConnection();
 			PreparedStatement ps = conn.prepareStatement("UPDATE farmacia.utente SET Password =? WHERE Email = ?");
-			ps.setString(0, newpassword);
-			ps.setString(1, email);
+			ps.setString(1, newpassword);
+			ps.setString(2, email);
 			int rs = ps.executeUpdate();
 			if (rs == 1)
 				return true;

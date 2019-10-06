@@ -50,7 +50,7 @@
 			<div class="row">
 				<ul class="nav navbar-nav navbar-right navbar-brand">
 					<li><h5 id="welcome" >
-							Benvenuto,<a href="ProfiloUtente.jsp"><%=u.getNome()%>
+							Benvenuto,<a href="ProfiloUtente.jsp" style="text-decoration: none"><%=u.getNome()%>
 							<%=u.getCognome()%></a> </h5></li>
 					<li><a  id="cartnav" href="Carrello.jsp"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>

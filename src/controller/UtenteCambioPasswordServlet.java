@@ -21,15 +21,16 @@ public class UtenteCambioPasswordServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserBean u = (UserBean) session.getAttribute("utente");
 		String email = u.getEmail();
-		String oldpassword = request.getParameter("oldpass");
-		String newpassword = request.getParameter("newpass");
+		String oldpass = request.getParameter("oldpass");
+		String newpass = request.getParameter("newpass");
 		UtenteDAO g = new UtenteDAO();
 		boolean z = false;
-		if (g.verificaOldPassword(email, oldpassword)) {
-			z = g.changePassword(email, newpassword);
+		if (g.verificaOldPassword(email, oldpass)) {
+			z = g.changePassword(email, newpass);
+			request.setAttribute("Changepass", z);
 		}
-
-		request.setAttribute("Changepass", z);
+		else
+			request.setAttribute("Verificaoldpass", false);
 		RequestDispatcher rd = request.getRequestDispatcher("ProfiloUtente.jsp");
 		rd.forward(request, response);
 
