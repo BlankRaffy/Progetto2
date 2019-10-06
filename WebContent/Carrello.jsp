@@ -25,7 +25,7 @@
 <%session.setAttribute("LogNeedCart", 1);%>
 	window.location.href = "login.jsp"
 		} else
-			document.forms["Fattura"].submit();
+			document.forms["Fattura"].submit(); 
 	}
 </script>
 <link rel="stylesheet" href="css/mycss.css">
@@ -41,14 +41,13 @@
 
 			}
 			int lenghtb = b.size();
-			System.out.println(lenghtb);
 			double totale = 0;
 		%>
 		<br>
-		<h3 align="center">Carrello</h3>
+		<h3 align="center">Carrello</h3> 
 		<%
 			for (int i = 0; i < lenghtb; i++) {
-				totale = totale + b.get(i).getPrezzo() *b.get(i).getPrezzo();
+				totale = totale + b.get(i).getPrezzo() * b.get(i).getPdisponibili();
 		%>
 		<div class="row">
 
@@ -79,7 +78,7 @@
 		%>
 				<div style="text-align:right" class="row">
 				<span class="glyphicon glyphicon-list-alt"></span> 
-				<strong>Importo Totale : <%= totale  %></strong>
+				<strong>Importo Totale : <%= Math.floor( totale * 100.0) / 100.0  %></strong>
 			
 		         </div>
 		<div style="text-align:right" class="row">

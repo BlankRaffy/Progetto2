@@ -50,8 +50,8 @@
 			<div class="row">
 				<ul class="nav navbar-nav navbar-right navbar-brand">
 					<li><h5 id="welcome" >
-							Benvenuto,<%=u.getNome()%>
-							<%=u.getCognome()%></h5></li>
+							Benvenuto,<a href="ProfiloUtente.jsp"><%=u.getNome()%>
+							<%=u.getCognome()%></a> </h5></li>
 					<li><a  id="cartnav" href="Carrello.jsp"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 					<li><form action="LogOutServlet">
