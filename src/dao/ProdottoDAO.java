@@ -239,7 +239,6 @@ public class ProdottoDAO {
 	}
 	public ArrayList<ProdottoBean> offerta() {
 		ArrayList<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
-
 		try {
 			Connection conn = DB.getConnection();
 
