@@ -11,7 +11,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/mycss.css">
-</head>
+</head> 
 <body>
 	<%@ include file="navbar.jsp"%>
 

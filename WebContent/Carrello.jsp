@@ -74,7 +74,7 @@
 
 
 		<%
-			if (lenghtb > 0) {
+			if (lenghtb > 0) { 
 		%>
 				<div style="text-align:right" class="row">
 				<span class="glyphicon glyphicon-list-alt"></span> 

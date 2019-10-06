@@ -43,7 +43,7 @@
 				<li><a href="Carrello.jsp"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 			</ul>
-
+ 
 			<%
 				} else {
 			%>
