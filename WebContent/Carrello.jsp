@@ -42,11 +42,13 @@
 			}
 			int lenghtb = b.size();
 			System.out.println(lenghtb);
+			double totale = 0;
 		%>
 		<br>
 		<h3 align="center">Carrello</h3>
 		<%
 			for (int i = 0; i < lenghtb; i++) {
+				totale = totale + b.get(i).getPrezzo() *b.get(i).getPrezzo();
 		%>
 		<div class="row">
 
@@ -58,7 +60,7 @@
 					<strong><%=b.get(i).getPrezzo()%> </strong>
 				</p>
 				<div class="row">
-					<input type="number" id="quantità" name="quantita"
+					<input type="number" id="quantità" name="quantita" disabled
 						placeholder="quantità" value="<%=b.get(i).getPdisponibili()%>">
 
 					<a href="CarrelloDeleteServlet?id=<%=b.get(i).getCodice()%>"
@@ -75,6 +77,11 @@
 		<%
 			if (lenghtb > 0) {
 		%>
+				<div style="text-align:right" class="row">
+				<span class="glyphicon glyphicon-list-alt"></span> 
+				<strong>Importo Totale : <%= totale  %></strong>
+			
+		         </div>
 		<div style="text-align:right" class="row">
 		<a href="Prodotti.jsp"><button class="btn btn-success">
 				<span class="glyphicon glyphicon-list-alt"></span>Ritorna al
