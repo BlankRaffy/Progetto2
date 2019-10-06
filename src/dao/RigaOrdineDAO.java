@@ -2,9 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import model.DB;
-import model.OrdinazioneBean;
 import model.RigaOrdineBean;
 
 public class RigaOrdineDAO {
@@ -37,5 +38,42 @@ public class RigaOrdineDAO {
 
 			}
 			return false;
+		}
+		
+		
+		
+		public ArrayList<RigaOrdineBean> getRigaOrdine (int IdOrdine){
+			try {
+				Connection conn = DB.getConnection();
+	       
+	            ArrayList <RigaOrdineBean> righe = new ArrayList<RigaOrdineBean>() ;
+	            PreparedStatement ps = conn
+						.prepareStatement("SELECT * FROM farmacia.RigaOrdine WHERE IdOrdine = ? ");
+
+				ps.setInt(1, IdOrdine);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()){
+					
+					RigaOrdineBean a = new RigaOrdineBean();
+					a.setIdCodice(rs.getInt("IdOrdine"));
+					a.setIdProdotto(rs.getInt("IdProdotto"));
+					a.setIva(rs.getDouble("Iva"));
+					a.setPrezzo(rs.getDouble("Prezzo"));
+					a.setQuantita(rs.getInt("Quantita"));
+					righe.add(a);
+					
+					
+				}
+				return righe;
+				
+				
+				
+			}
+			catch (Exception e ) {
+				System.out.println("Errore durante la connessione." + e.getMessage());
+				System.out.println("se sei qui non funziona");
+				return null;
+			}
+			
 		}
 }

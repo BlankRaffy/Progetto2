@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<%@page import="dao.OrdinazioneDAO"%>
+<%@page import="model.OrdinazioneBean"%>
+<%@page import="dao.FatturaDAO"%>
+<%@page import="model.FatturaBean"%>
+<%@page import="model.OrdinazioneBean"%>
+
+<%@page import="java.util.*"%>
+
 <html lang="ita">
 <head>
 <title>Profilo Utente</title>
@@ -16,7 +24,25 @@
 	<%@ include file="navbar.jsp"%>
 
 	<div id="index" class=container>
-	
+				<% UserBean utente = (UserBean) session.getAttribute("utente");
+				
+				FatturaDAO a = new FatturaDAO();
+				OrdinazioneDAO b =  new OrdinazioneDAO();
+				ArrayList <FatturaBean> fattura = a.getFattura(utente.getEmail());
+				ArrayList <OrdinazioneBean> ordini = b.getOrdinazione(utente.getEmail());
+					
+					
+				
+				%>
+				<%    for(int i = 0 ; i<ordini.size();i++) {%>
+				
+				
+						<h3 align="center">Ordine numero : <%=ordini.get(i).getIdOrdine()  %></h3>
+						<h4 align="center"> Richiesto in data : <%=ordini.get(i).getDate() %>    </h4>
+				
+				
+				<% } %>
+				
 	</div>
 	<%@ include file="footer.jsp"%>  
 

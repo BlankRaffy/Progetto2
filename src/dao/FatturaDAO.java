@@ -2,7 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import model.DB;
@@ -40,5 +40,34 @@ public class FatturaDAO {
 		}
 		return true;
 
+	}
+	
+	public ArrayList <FatturaBean> getFattura(String Email) {
+		try {
+			Connection conn = DB.getConnection();
+            String email = Email;
+            ArrayList <FatturaBean> fattura = new ArrayList<FatturaBean>() ;
+            PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM farmacia.fattura WHERE Email = ? ");
+
+			ps.setString(1, email);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()){
+				FatturaBean a = new FatturaBean();
+				a.setImporto(rs.getDouble("Importo"));
+				a.setIdOrdine(rs.getInt("IdOrdine"));
+				a.setIva(rs.getDouble("Iva"));
+				fattura.add(a);
+			}
+			return fattura;
+			
+		}
+		catch (Exception e){
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+            return null;
+			
+		}
 	}
 }
