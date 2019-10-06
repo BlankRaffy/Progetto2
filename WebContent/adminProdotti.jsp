@@ -30,14 +30,15 @@
 									.val();
 							var nome = $('#myForm').find('input[name="nome"]')
 									.val();
-							var immagine = $('#myForm').find(
-									'input[name="immagine"]').val();
-							var descrizione = $('#myForm').find(
-									'input[name="descrizione"]').val();
-							var pd = $('#myForm').find(
-									'input[name="PDisponibili"]').val();
+							//var descrizione = $('#myForm').find('input[name="descrizione"]').val();
+							var descrizione = document.getElementById("provaDescrizione").value;
+							//var pd = $('#myForm').find('input[name="PDisponibili"]').val();
+							var pd = document.getElementById("provaPD").value;
 							var offerta = $('#myForm').find(
 									'input[name="offerta"]:checked').val();
+							
+							var immagine = "media/" + document.getElementById("InputFile").value.split('\\')[2];
+							
 							if (offerta == 0) {
 								var json = {
 									"prezzo" : prezzo,
@@ -58,6 +59,7 @@
 									success : function(status) {
 										console.log("Entered", status);
 										alert("Success!!!!!!!!");
+										document.getElementById("ImageForm").submit();
 									},
 									error : function(error) {
 										console.log("error", error);
@@ -97,6 +99,7 @@
 									success : function(status) {
 										console.log("Entered", status);
 										alert("Success!!!!!!!!");
+										document.getElementById("ImageForm").submit();
 									},
 									error : function(error) {
 										console.log("error", error);
@@ -240,15 +243,17 @@
 													name="nome">
 											</div>
 											<div class="form-group">
-												<label>Immagine:</label> <input type="text"
-													class="form-control" name="immagine">
+												<label>Immagine:</label> 
+												
+									                <input id="InputFile" type="file" name="file" form="ImageForm"/>
+									             
 											</div>
 											<div class="form-group">
-												<label>Descrizione:</label> <input type="text"
+												<label>Descrizione:</label> <input id="provaDescrizione" type="text"
 													class="form-control" name="descrizione">
 											</div>
 											<div class="form-group">
-												<label>PDisponibili:</label> <input type="number"
+												<label>PDisponibili:</label> <input id="provaPD" type="number"
 													class="form-control" name="PDisponibili">
 											</div>
 											<div style="display: none" class="form-group col-md-12"
@@ -273,6 +278,8 @@
 											</div>
 											<button id="Button" class="btn btn-default">Aggiungi
 												Prodotto</button>
+										</form>
+										<form id="ImageForm" action="UploadImageServlet" method="POST" enctype="multipart/form-data">
 										</form>
 									</div>
 								</div>
