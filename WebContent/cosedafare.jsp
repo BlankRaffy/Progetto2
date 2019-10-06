@@ -24,13 +24,7 @@
 					<li>Una volta confermato l'ordine deve essere possibile
 						visualizzare l'ordine nell'elenco degli ordini effettuati e va
 						svuotato il carrello. </li>
-					<li>Usare JQUERY per animare le immagini al passaggio del
-						mouse</li>
 					<li>Il sito deve girare su Tomcat direttamente</li>
-				</ol>
-				<h1>Cose da chiedere :</h1>
-				<ol>
-					<li>reset.css</li>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>
