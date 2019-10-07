@@ -39,7 +39,7 @@
 		</div>
 
 		<div class="row">
-			<form action="AdminRicercaDAta">
+			<form action="AdminRicercaDAta" method="post">
 				<h4>visualizza ordini per data</h4>
 				<input type="date" name="dataInizio"> 
 				<input type="date"
@@ -53,10 +53,10 @@
 			</form>
 		</div>
 		<div class="row">
-			<form action="AdminRicercaUtenteData">
+			<form action="AdminRicercaUtenteData" method="post">
 				<h4>visualizza ordini per data e per utente</h4>
-				<input type="date" name=""> 
-				<input type="date" name=""> <span style="float: right">
+				<input type="date" name="dataInizioUtente"> 
+				<input type="date" name="dataFineUtente"> <span style="float: right">
 				<select name ="email">
 				<%UtenteDAO alluser= new UtenteDAO();
 				ArrayList<UserBean> a = alluser.getAllUtenti();
