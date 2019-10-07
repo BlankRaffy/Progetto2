@@ -14,7 +14,17 @@
 					<li><a href="adminelencoVolontari.jsp"> Elenco Volontari</a></li>
 					<li><a href="adminReclamo.jsp">Elenco Reclami</a></li>
 					<li><a href="adminstoricoordini.jsp">Storico Ordini</a></li>
-				</ul>
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right navbar-brand">
+					<li> Benvenuto, Admin</li>
+				<li ><form action="LogOutServlet">
+						<button id="logout" class="btn btn-success btn-xs" type="submit">Log
+							out</button>
+					</form></li>
+			</ul>
+					
+				
 
 			</div>
 		</div>
