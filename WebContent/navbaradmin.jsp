@@ -13,7 +13,7 @@
 					<li><a href="adminProdotti.jsp">Elenco Prodotti</a></li>
 					<li><a href="adminelencoVolontari.jsp"> Elenco Volontari</a></li>
 					<li><a href="adminReclamo.jsp">Elenco Reclami</a></li>
-					<li><a href="adminstoricoordini.jsp">Storico Ordini</a></li>
+					<li><a href="AdminRicerca.jsp">Storico Ordini</a></li>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right navbar-brand">
