@@ -63,7 +63,7 @@
 					<strong>Quantità:</strong>
 					<%=storico.get(i).getQuantita()%></h4>
 			</div>
-			<div class="row" style="padding-bot:15px">
+			<div class="row" style="margin-bottom:15px">
 				<h4>
 					<strong>Data:</strong>
 					<%=storico.get(i).getData()%></h4>
