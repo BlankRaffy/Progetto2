@@ -102,12 +102,18 @@
 					alt="Image">
 
 				<div class="row">
+											
+				
 							<strong>Prezzo:</strong>
 							<%if(b.get(c).getOfferta() == 1){%>
 							<%=(b.get(c).getPrezzo()-((b.get(c).getPrezzo()*b.get(c).getSconto())/100))%>
 							<%} else{%>
 							<%= b.get(c).getPrezzo()%>
 							<%} %>
+						</div>
+						<div class="row">
+						<strong>Nome:</strong>
+											<%= b.get(c).getNome() %>
 						</div>
 
 

@@ -50,7 +50,13 @@
 				<img src=" <%=b.get(c).getImmagine()%>" class="img-responsive"
 					alt="Image">
 				<p align="left">
-					<strong><%=b.get(c).getPrezzo()%> </strong>
+					<strong>Nome:</strong>
+					<%=b.get(c).getNome()%> 
+					
+				</p>
+				<p align="left">
+					<strong>Prezzo: </strong>
+					<%=b.get(c).getPrezzo()%>
 					
 				</p>
 				<form action="CarrelloServlet">
