@@ -11,20 +11,18 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(document).ready (function volontario() {
-		var name =
-<%=session.getAttribute("registerV")%>;
-<%session.removeAttribute("registerV");%>
-alert(name);
-	if (name == 1) {
+<%System.out.println(request.getAttribute("registerV"));%>
+	$(document).ready(function volontario() {
+		var name =<%=((String)request.getAttribute("registerV"))%>;
+		if (name != null) {
 			$("#btn2").prop("checked", true);
 			$("#OrarioChange").css("display", "block");
 			$("#ImmagineChange").css("display", "block");
+<%request.removeAttribute("registerV");%>
+	} else {
+			$("#btn2").prop("checked", false);
+
 		}
-	else{
-		$("#btn2").prop("checked", false);
-		
-	}
 	});
 </script>
 <script type="text/javascript">

@@ -1,7 +1,11 @@
-<script>
-	function registerV() {
-<%session.setAttribute("registerV", 1);%>
-	}
+<script type="text/javascript">
+	$(document).ready(function registerV() {
+		$.ajax({
+			type : "POST",
+			url : "RegisterVolontarioServlet",
+		});
+
+	});
 </script>
 <div class="row">
 	<a href="magazine.jsp"><img src="media\magazine.png"
