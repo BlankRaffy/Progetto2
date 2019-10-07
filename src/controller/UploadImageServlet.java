@@ -38,7 +38,8 @@ public class UploadImageServlet extends HttpServlet {
                 for(FileItem item : multiparts){
                     if(!item.isFormField()){
                         String name = new File(item.getName()).getName();
-                        item.write( new File(getServletContext().getRealPath("media") + "\\" + name));
+                        // save image
+                        item.write( new File(getServletContext().getRealPath("/") + "/media/" + name));
                     }
                 }
                 
