@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.DB;
-import model.UserBean;
 import model.VolontarioBean;
 
 public class VolontarioDAO {
@@ -113,6 +112,32 @@ public class VolontarioDAO {
 
 		}
 		return false;
+	}
+
+	public ArrayList<VolontarioBean> Ricerca(String s) {
+		ArrayList<VolontarioBean> volontari = new ArrayList<VolontarioBean>();
+
+		try {
+			Connection conn = DB.getConnection();
+
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.volontario where Nome  LIKE '%" + s + "%' OR Cognome  LIKE '%" + s + "%' ");
+			while (rs.next()) {
+				VolontarioBean v = new VolontarioBean(rs.getNString("immagine"), rs.getNString("nome"),
+						rs.getNString("cognome"), rs.getNString("password"), rs.getNString("email"),
+						rs.getNString("telefono"), rs.getNString("orario"));
+				volontari.add(v);
+
+			}
+
+		}
+
+		catch (Exception e) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+			return null;
+		}
+		return volontari;
 	}
 
 }
