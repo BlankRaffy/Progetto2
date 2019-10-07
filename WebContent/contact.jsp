@@ -21,27 +21,27 @@
 			<div class=row>
 				<div class="form-group col-md-6">
 					<label for="nome">Nome:</label> <input type="text"
-						class="form-control" id="nome" name="nome">
+						class="form-control" id="nome" name="nome" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="cognome">Cognome:</label> <input type="text"
-						class="form-control" id="cognome " name="cognome">
+						class="form-control" id="cognome " name="cognome" required>
 				</div>
 			</div>
 			<div class=row>
 				<div class="form-group col-md-6">
 					<label for="email">Email:</label> <input type="email"
-						class="form-control" id="email" name="email">
+						class="form-control" id="email" name="email" required>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="tel">Telefono:</label> <input type="tel"
-						class="form-control" id="telefono" name="telefono">
+						class="form-control" id="telefono" placeholder="opzionale" name="telefono">
 				</div>
 			</div>
 			<div style="padding-right: 15px" class=row>
 				<label for="comment">Commenti:</label>
 				<textarea class="form-control" rows="5" id="comment" name="commenti"
-					placeholder="Inserisci qui..."></textarea>
+					placeholder="Inserisci qui..." required></textarea>
 			</div>
 			<br>
 			<div style="padding-right: 15px" class=row align="right">

@@ -21,6 +21,9 @@
 <link rel="stylesheet" href="css/mycss.css">
 </head>
 <body>
+<%
+		if (session.getAttribute("admin") != null) {
+	%>
 	<%@ include file="navbaradmin.jsp"%>
 	<div class=container>
 		<!--  get all the images  -->
@@ -34,6 +37,7 @@
 		<%
 			for (int i = 0; i < lenghtb; i++) {
 		%>
+		<div class="row"><h4 align="left"> Reclamo n°<%=i+1%></h4></div>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="row">
@@ -75,6 +79,16 @@
 		
 			}
 		%>
-	</div>
+		</div>
+	<%
+		} else {
+	%>
+	<script>
+		alert("ERRORE! STAI TENTANDO DI COMMETTERE UN ILLECITO")
+	</script>
+
+	<%
+		}
+	%>
 </body>
 </html>
