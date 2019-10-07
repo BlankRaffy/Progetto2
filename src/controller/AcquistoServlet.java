@@ -41,7 +41,7 @@ public class AcquistoServlet extends HttpServlet {
 		OrdinazioneBean ordine = new OrdinazioneBean();
 		Date myDate = new Date();
 		String data = new SimpleDateFormat("yyyy-MM-dd").format(myDate);
-
+      System.out.println(data);
 		// passo gli oggetti all'ordinazione
 		ordine.setDate(data);
 		ordine.setEmail(user.getEmail());
