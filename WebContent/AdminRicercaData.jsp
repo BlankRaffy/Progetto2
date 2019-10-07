@@ -22,26 +22,59 @@
 		if (session.getAttribute("admin") != null) {
 	%>
 	<%@ include file="navbaradmin.jsp"%>
-	<h3 align = "center">Ordini per l'intervallo di date selezionato</h3>
-	    <%  ArrayList<StoricoOrdiniBean>  storico = (ArrayList<StoricoOrdiniBean>)  session.getAttribute("Storico") ;
-	    for(int i = 0 ; i< storico.size();i++) {
-	    ProdottoDAO prodotto = new ProdottoDAO();
-	    %>
-	    
-	    <div class="row">
-	    <h4> <strong>Nome:</strong>  <%=storico.get(i).getNome()%></h4>
-	    <h4> <strong>Cognome:</strong>  <%=storico.get(i).getCognome()%></h4>
-	    <h4> <strong> Email  </strong>  <%=storico.get(i).getEmail() %>    </h4>
-	    <h4><strong>  Prodotto:    </strong><%=prodotto.GetProdotto(storico.get(i).getIdProdotto()).getNome() %></h4>
-	    <h4><strong>Prezzo :</strong> <%= storico.get(i).getPrezzo() %>  </h4>
-	    <h4><strong>Quantità:</strong> <%= storico.get(i).getQuantita() %></h4>
-	    <h4> <strong>Data:</strong> <%=storico.get(i).getData()  %></h4>
-	    </div>
-	    <br>
-	    <br>
-	    
-	    <%} %>
-	
+	<div id="index" class=container>
+		<h3 align="center">Ordini per l'intervallo di date selezionato</h3>
+		<%
+			ArrayList<StoricoOrdiniBean> storico = (ArrayList<StoricoOrdiniBean>) session.getAttribute("Storico");
+				for (int i = 0; i < storico.size(); i++) {
+					ProdottoDAO prodotto = new ProdottoDAO();
+		%>
+
+		<div class="container">
+		<div class="col-md-5">
+			<div class="row">
+				<h4>
+					<strong>Nome:</strong>
+					<%=storico.get(i).getNome()%></h4>
+			</div>
+			<div class="row">
+				<h4>
+					<strong>Cognome:</strong>
+					<%=storico.get(i).getCognome()%></h4>
+			</div>
+			<div class="row">
+				<h4>
+					<strong>Email:</strong>
+					<%=storico.get(i).getEmail()%>
+				</h4>
+			</div>
+			<div class="row">
+				<h4>
+					<strong> Prodotto: </strong><%=prodotto.GetProdotto(storico.get(i).getIdProdotto()).getNome()%></h4>
+			</div>
+			<div class="row">
+				<h4>
+					<strong>Prezzo :</strong>
+					<%=storico.get(i).getPrezzo()%>
+				</h4>
+			</div>
+			<div class="row">
+				<h4>
+					<strong>Quantità:</strong>
+					<%=storico.get(i).getQuantita()%></h4>
+			</div>
+			<div class="row" style="padding-bot:15px">
+				<h4>
+					<strong>Data:</strong>
+					<%=storico.get(i).getData()%></h4>
+			</div>
+		</div>
+		</div>
+		<%
+			}
+		%>
+	</div>
+
 	<%
 		} else {
 	%>
