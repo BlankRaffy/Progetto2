@@ -1,11 +1,36 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import model.DB;
 import model.UserBean;
 
 public class UtenteDAO {
+	
+	public ArrayList<UserBean> getAllUtenti(){
+		try {
+			Connection conn = DB.getConnection();
+            ArrayList<UserBean> utenti = new ArrayList<UserBean>();
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT  * FROM farmacia.utente ");
+			while (rs.next()) {
+				UserBean a = new UserBean();
+				a.setCognome(rs.getString("Cognome"));
+				a.setEmail(rs.getString("Email"));
+				a.setNome(rs.getString("Nome"));
+				a.setPassword(rs.getString("Password"));
+				a.setTelefono(rs.getString("Telefono"));
+				utenti.add(a);
+			}
+			return utenti;
+		}
+		catch (Exception e ) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			return null;
+		}
+	}
+	
 	public UserBean login(String email, String pass) {
 		UserBean u2 = null;
 
