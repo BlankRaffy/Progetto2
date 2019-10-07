@@ -20,30 +20,33 @@
 	%>
 	<%@ include file="navbaradmin.jsp"%>
 	<div class=container>
+		<br>
 		<div class="row">
-		 <form action = "adminstoricoordini.jsp" > 
-       <h4> visualizza ordini per  clienti </h4>
-       <span style="float: right">
-          <button type="submit" class="btn btn-success" >
-            <span class="glyphicon glyphicon-plus"></span> Vedi Ordini Cliente
+			<form action="adminstoricoordini.jsp">
+				<h4>visualizza ordini per clienti</h4>
+				<span style="float: right">
+					<button type="submit" class="btn btn-success">
+						<span class="glyphicon glyphicon-plus"></span> Vedi Ordini Cliente
 
-          </button>
-        </span>
-       </form>
-       </div>
-       
-       <div class="row">
-        <form action = "" > 
-       <h4> visualizza ordini per data </h4>
-       <input type="text">
-       <span style="float: right">
-          <button type="submit" class="btn btn-success" >
-            <span class="glyphicon glyphicon-plus"></span> Vedi ordini per data 
+					</button>
+				</span>
+			</form>
+		</div>
 
-          </button>
-        </span>
-       </form>
-</div>
+		<div class="row">
+			<form action="AdminRicercaDAta">
+				<h4>visualizza ordini per data</h4>
+				<input type="text" name="dataInizio"> 
+				<input type="text"
+					name="dataFine"> <span style="float: right">
+					<button type="submit" class="btn btn-success">
+						<span class="glyphicon glyphicon-plus"></span> Vedi ordini per
+						data
+
+					</button>
+				</span>
+			</form>
+		</div>
 	</div>
 	<%
 		} else {
