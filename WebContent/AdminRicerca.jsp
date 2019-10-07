@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import ="dao.UtenteDAO" %>
+		<%@page import ="model.UserBean" %>
+			<%@page import ="java.util.*" %>
+		
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +41,33 @@
 		<div class="row">
 			<form action="AdminRicercaDAta">
 				<h4>visualizza ordini per data</h4>
-				<input type="text" name="dataInizio"> 
-				<input type="text"
+				<input type="date" name="dataInizio"> 
+				<input type="date"
 					name="dataFine"> <span style="float: right">
 					<button type="submit" class="btn btn-success">
 						<span class="glyphicon glyphicon-plus"></span> Vedi ordini per
 						data
+
+					</button>
+				</span>
+			</form>
+		</div>
+		<div class="row">
+			<form action="AdminRicercaUtenteData">
+				<h4>visualizza ordini per data e per utente</h4>
+				<input type="date" name=""> 
+				<input type="date" name=""> <span style="float: right">
+				<select name ="email">
+				<%UtenteDAO alluser= new UtenteDAO();
+				ArrayList<UserBean> a = alluser.getAllUtenti();
+				for (int i = 0; i<a.size();i++){%>
+				<option value="<%=a.get(i).getEmail() %>" > <%=a.get(i).getEmail() %>  </option>
+				  
+				<%} %>
+				
+				</select>
+					<button type="submit" class="btn btn-success">
+						<span class="glyphicon glyphicon-plus"></span> Vedi Risultati
 
 					</button>
 				</span>
