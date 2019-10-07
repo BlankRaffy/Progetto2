@@ -71,4 +71,32 @@ public class FatturaDAO {
 		}
 		
 	}
+	public FatturaBean getFattura(int id) {
+		try {
+			Connection conn = DB.getConnection();
+            FatturaBean fattura = new FatturaBean() ;
+            PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM farmacia.fattura WHERE IdOrdine = ? ");
+
+			ps.setInt(1, id);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()){
+				fattura = new FatturaBean();
+				fattura.setImporto(rs.getDouble("Importo"));
+				fattura.setIdOrdine(rs.getInt("IdOrdine"));
+				fattura.setIva(rs.getDouble("Iva"));
+				fattura.setEmail(rs.getNString("email"));
+			}
+			return fattura;
+			
+		}
+		catch (Exception e){
+			System.out.println("Errore durante la connessione." + e.getMessage());
+			System.out.println("se sei qui non funziona");
+            return null;
+			
+		}
+		
+	}
 }
