@@ -14,11 +14,17 @@
 	$(document).ready (function volontario() {
 		var name =
 <%=session.getAttribute("registerV")%>;
+<%session.removeAttribute("registerV");%>
+alert(name);
 	if (name == 1) {
 			$("#btn2").prop("checked", true);
 			$("#OrarioChange").css("display", "block");
 			$("#ImmagineChange").css("display", "block");
 		}
+	else{
+		$("#btn2").prop("checked", false);
+		
+	}
 	});
 </script>
 <script type="text/javascript">
