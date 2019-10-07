@@ -153,13 +153,13 @@
                     <div class="row">
                       <h4 id="ordinei">
                         Richiesto in data :
-                        <%=ordini.get(i).getDate()%>
+                        <%=ordini.get(f).getDate()%>
                       </h4>
                     </div>
                     <div class="row">
                       <h4 id="ordinei">
                         Totale speso in questo ordine :
-                        <%=fattura.get(i).getImporto()%>
+                        <%=fattura.get(f).getImporto()%>
                       </h4>
                     </div>
                   </div>
