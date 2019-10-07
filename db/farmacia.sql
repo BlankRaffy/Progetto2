@@ -92,6 +92,6 @@ CREATE TABLE `farmacia`.`volontario` (
   Cognome varchar(18) not null ,
   Telefono varchar (18),
   Email varchar(50) not null ,
- Commento varchar(50) not null,
+ Commento varchar(500) not null,
  primary key (Email)
  );

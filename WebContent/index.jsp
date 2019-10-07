@@ -13,7 +13,27 @@
 <link rel="stylesheet" href="css/mycss.css">
 </head>
 <body>
-	<%@ include file="navbar.jsp"%>
+	<%@ include file="navbar.jsp"%>	
+	<%
+		if (request.getAttribute("recsended") != null) {
+			boolean issended = (boolean) request.getAttribute("recsended");
+			if (issended == true) {
+	%>
+	<div class="alert alert-success">
+		<strong>RECLAMO MANDATO! </strong> Il Reclamo è stato inviato con
+		successo.
+	</div>
+	<%
+		} else {
+	%>
+	<div class="alert alert-danger">
+		<strong>RECLAMO NON MANDATO! </strong> Il Reclamo non è stato inviato
+		con successo.
+	</div>
+	<%
+		}
+		}
+	%>
 
 	<div id="index" class=container>
 		<%@ include file="intestazione.jsp"%>

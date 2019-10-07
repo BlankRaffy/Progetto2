@@ -17,7 +17,7 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class=container>
-		<form action="ReclamoServlet">
+		<form method="post" action="SendReclamoServlet">
 			<div class=row>
 				<div class="form-group col-md-6">
 					<label for="nome">Nome:</label> <input type="text"

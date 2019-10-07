@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -33,5 +34,25 @@ public class ReclamoDAO {
 			return null;
 		}
 		return reclami;
+	}
+
+	public boolean sendReclamo(ReclamoBean reclamo) {
+		try {
+			Connection conn = DB.getConnection();
+
+			PreparedStatement st = conn.prepareStatement(
+					"INSERT INTO farmacia.reclamo (Nome, Cognome, Telefono, Email, Commento) VALUES ('"
+							+ reclamo.getNome() + "','" + reclamo.getCognome() + "','" + reclamo.getTelefono() + "', '"
+							+ reclamo.getEmail() + "', '" + reclamo.getCommento() + "');");
+
+			int rs = st.executeUpdate();
+			if (rs == 1)
+				return true;
+		} catch (Exception e) {
+			System.out.println("Errore durante la connessione." + e.getMessage());
+
+		}
+
+		return false;
 	}
 }

@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ReclamoDAO;
 import model.ReclamoBean;
 
-@WebServlet("/ReclamoServlet")
-public class ReclamoServlet extends HttpServlet {
+@WebServlet("/SendReclamoServlet")
+public class SendReclamoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReclamoBean reclamo = new ReclamoBean(request.getParameter("Nome"), request.getParameter("Cognome"),
-				request.getParameter("Telefono"), request.getParameter("Email"), request.getParameter("Commenti"));
-
-		
+		ReclamoBean reclamo = new ReclamoBean(request.getParameter("nome"), request.getParameter("cognome"),
+				request.getParameter("telefono"), request.getParameter("email"), request.getParameter("commenti"));
+		ReclamoDAO r= new ReclamoDAO();
+		boolean rec= r.sendReclamo(reclamo);
+		request.setAttribute("recsended", rec);
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 

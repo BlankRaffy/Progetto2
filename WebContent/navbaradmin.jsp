@@ -17,7 +17,7 @@
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right navbar-brand">
-					<li> Benvenuto, Admin</li>
+					<li id="adminW"> Benvenuto, Admin</li>
 				<li ><form action="LogOutServlet">
 						<button id="logout" class="btn btn-success btn-xs" type="submit">Log
 							out</button>
