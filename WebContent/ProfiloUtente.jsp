@@ -36,24 +36,28 @@
 			$("#newpass2Span").text("");
 
 		}
-		if (check == 0){
+		if (check == 0) {
 			document.forms["myForm"].submit();
-			}
+		}
 	}
 </script>
 <script>
-function modal(){
-$('#ModalPassword').modal('show');
-}
+	function modal() {
+		$('#ModalPassword').modal('show');
+	}
 </script>
 <script>
-$(document).ready(function oldpass(){
-if(<%=request.getAttribute("Verificaoldpass")%>!= null){
-	$('#ModalPassword').modal('show');
-	$("#oldpasschange").toggleClass("form-group has-error has-feedback");
-	$("#oldpassSpan").text("PASSWORD NON CORRETTA");
-}
-});
+	$(document).ready(
+			function oldpass() {
+				if (
+<%=request.getAttribute("Verificaoldpass")%>
+	!= null) {
+					$('#ModalPassword').modal('show');
+					$("#oldpasschange").toggleClass(
+							"form-group has-error has-feedback");
+					$("#oldpassSpan").text("PASSWORD NON CORRETTA");
+				}
+			});
 </script>
 <link rel="stylesheet" href="css/mycss.css">
 </head>
@@ -87,26 +91,51 @@ if(<%=request.getAttribute("Verificaoldpass")%>!= null){
 	<div id="index" class=container>
 		<br>
 		<div class="row">
-			<div class="col-md-4">
+			<div id="profilou"class="col-md-4">
 				<div class="row">
-					<h3><%=u.getNome()%></h3>
+					<h3>
+						<strong>Nome: </strong>
+					</h3>
 				</div>
 				<div class="row">
-					<h3><%=u.getCognome()%></h3>
+					<h4><%=u.getNome()%></h4>
 				</div>
 				<div class="row">
-					<h3><%=u.getTelefono()%></h3>
+					<h3>
+						<strong>Cognome: </strong>
+					</h3>
 				</div>
 				<div class="row">
-					<h3><%=u.getEmail()%></h3>
+					<h4><%=u.getCognome()%></h4>
 				</div>
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="modal()"
-						data-target="#ModalPassword">
-						<span class="glyphicon glyphicon-pencil"></span>Modifica Password
-					</button>
+					<h3>
+						<strong>Telefono: </strong>
+					</h3>
 				</div>
-				<div class="modal fade" id="ModalPassword" role="dialog" style="show:false">
+				<div class="row">
+					<h4><%=u.getTelefono()%></h4>
+				</div>
+				<div class="row">
+					<h3>
+						<strong>Email:</strong>
+					</h3>
+				</div>
+				<div class="row">
+					<h4><%=u.getEmail()%></h4>
+				</div>
+				<div class="row">
+					<span><button type="button" class="btn btn-success"
+							onclick="modal()" data-target="#ModalPassword">
+							<span class="glyphicon glyphicon-pencil"></span>Modifica Password
+						</button> </span><span><a href="StoricoOrdini.jsp"><button
+								class="btn btn-success">
+								<span class="glyphicon glyphicon-list-alt"></span> Storico
+								Ordini
+							</button></a></span>
+				</div>
+				<div class="modal fade" id="ModalPassword" role="dialog"
+					style="show: false">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -119,7 +148,8 @@ if(<%=request.getAttribute("Verificaoldpass")%>!= null){
 
 										<div class="col-md-12">
 
-											<form method="post" id="myForm" action="UtenteCambioPasswordServlet">
+											<form method="post" id="myForm"
+												action="UtenteCambioPasswordServlet">
 												<div class="form-group" id="oldpasschange">
 													<label>Vecchia Password:</label> <input type="password"
 														class="form-control" id="oldpass" name="oldpass"><span
@@ -150,11 +180,7 @@ if(<%=request.getAttribute("Verificaoldpass")%>!= null){
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4" style="text-align: right">
-				<a href="StoricoOrdini.jsp"><button class="btn btn-success">
-						<span class="glyphicon glyphicon-list-alt"></span> Storico Ordini
-					</button></a>
-			</div>
+			<div class="col-md-4"></div>
 			<div class="col-md-4"></div>
 
 		</div>

@@ -43,23 +43,22 @@
 				<li><a href="Carrello.jsp"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
 			</ul>
- 
+
 			<%
 				} else {
 			%>
-			<div class="row">
-				<ul class="nav navbar-nav navbar-right navbar-brand">
-					<li><h5 id="welcome" >
-							Benvenuto,<a href="ProfiloUtente.jsp" style="text-decoration: none"><%=u.getNome()%>
-							<%=u.getCognome()%></a> </h5></li>
-					<li><a  id="cartnav" href="Carrello.jsp"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
-					<li><form action="LogOutServlet">
-							<button class="btn btn-success btn-xs" type="submit">Log
-								out</button>
-						</form></li>
-				</ul>
-			</div>
+
+			<ul class="nav navbar-nav navbar-right navbar-brand">
+				<li><a id="welcome" href="ProfiloUtente.jsp"> Benvenuto,<%=u.getNome()%>
+						<%=u.getCognome()%></a></li>
+				<li><a id="cartnav" href="Carrello.jsp"><span
+						class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+				<li><form action="LogOutServlet">
+						<button id="logout" class="btn btn-success btn-xs" type="submit">Log
+							out</button>
+					</form></li>
+			</ul>
+
 			<%
 				}
 			%>

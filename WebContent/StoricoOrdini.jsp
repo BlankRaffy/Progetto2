@@ -29,69 +29,89 @@
 	<%@ include file="navbar.jsp"%>
 
 	<div id="index" class=container>
-		<% UserBean utente = (UserBean) session.getAttribute("utente");
-				
-				FatturaDAO a = new FatturaDAO();
-				OrdinazioneDAO b =  new OrdinazioneDAO();
-				int j;
-				int c = 0;
+		<%
+			UserBean utente = (UserBean) session.getAttribute("utente");
 
-						
-				
-					ArrayList <FatturaBean> fattura = a.getFattura(utente.getEmail());
-					int counter = 0;
-				ArrayList <OrdinazioneBean> ordini = b.getOrdinazione(utente.getEmail());%>
-		<%    for(int i = 0 ; i<ordini.size();i++) {
-		 %>
+			FatturaDAO a = new FatturaDAO();
+			OrdinazioneDAO b = new OrdinazioneDAO();
+			int j;
+			int c = 0;
 
-
-		<h3 align="center">
-			Ordine numero :
-			<%=ordini.get(i).getIdOrdine()  %></h3>
-		<h4 align="center">
-			Richiesto in data :
-			<%=ordini.get(i).getDate() %>
-		</h4>
-
-		<%  ArrayList <RigaOrdineBean> righe =  new RigaOrdineDAO().getRigaOrdine(ordini.get(i).getIdOrdine());
-		int lenghtb = righe.size();
-		int n;
-		
-		
-		//stampa di tutte le righe d'ordine 
-		for(int k = 0 ; k< lenghtb; k++){ 
-			 n = righe.get(k).getIdProdotto();
-			ProdottoDAO prodotto = new ProdottoDAO();
-			String nome = prodotto.GetProdotto(n).getNome();
-			%>
-		<div align="center">
-			<div class="row">
-				<div class="col-md-3">
-					<div>
-						<strong>Nome : <%=nome %></strong>
-					</div>
-
-					<div>
-						<strong> Quantità = <%=righe.get(k).getQuantita() %></strong>
-					</div>
-					<div>
-						<strong>Prezzo : <%=righe.get(k).getPrezzo() %></strong>
-					</div>
-
-				</div>
-				<%  }%>
-			</div>
-			<h3>
-				<strong> Totale speso in questo ordine : <%= fattura.get(i).getImporto() %></strong>
-			</h3>
-			<% }
+			ArrayList<FatturaBean> fattura = a.getFattura(utente.getEmail());
+			int counter = 0;
+			ArrayList<OrdinazioneBean> ordini = b.getOrdinazione(utente.getEmail());
 		%>
+		<div class="row" align="center">
+			<h1>
+				Storico Ordini Cliente:
+				<%=utente.getNome()%>
+				<%=utente.getCognome()%></h1>
 		</div>
+		<%
+			for (int i = 0; i < ordini.size(); i++) {
+		%>
+		<div align="left" class="container">
+			<div class="row">
+				<h2>
+					Ordine numero :<%=ordini.get(i).getIdOrdine()%></h2>
+			</div>
+			<%
+				ArrayList<RigaOrdineBean> righe = new RigaOrdineDAO().getRigaOrdine(ordini.get(i).getIdOrdine());
+					int lenghtb = righe.size();
+					int n;
+
+					//stampa di tutte le righe d'ordine 
+					for (int k = 0; k < lenghtb; k++) {
+						n = righe.get(k).getIdProdotto();
+						ProdottoDAO prodotto = new ProdottoDAO();
+						String nome = prodotto.GetProdotto(n).getNome();
+			%>
+			<div class="row">
+				<div id="ordini" class="col-md-3">
+					<div class="row">
+						Nome :
+						<%=nome%>
+					</div>
+
+					<div class="row">
+						Quantità =
+						<%=righe.get(k).getQuantita()%>
+					</div>
+					<div class="row">
+						Prezzo :
+						<%=righe.get(k).getPrezzo()%>
+					</div>
+					<br>
+				</div>
+			</div>
+			<%
+				}
+			%>
+
+			<div align="left">
+				<div class="row">
+					<h4 id="ordinei">
+						Richiesto in data :
+						<%=ordini.get(i).getDate()%>
+					</h4>
+				</div>
+				<div class="row">
+					<h4 id="ordinei">
+						Totale speso in questo ordine :
+						<%=fattura.get(i).getImporto()%>
+					</h4>
+				</div>
+			</div>
+
+		</div>
+		<%
+			}
+		%>
+
 	</div>
 
 
 
 	<%@ include file="footer.jsp"%>
-
 </body>
 </html>
