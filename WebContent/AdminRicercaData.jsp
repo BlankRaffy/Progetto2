@@ -1,4 +1,5 @@
 <%@page import="dao.ProdottoDAO"%>
+<%@page import="dao.FatturaDAO"%>
 <%@page import="model.StoricoOrdiniBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -26,49 +27,78 @@
 		<h3 align="center">Ordini per l'intervallo di date selezionato</h3>
 		<%
 			ArrayList<StoricoOrdiniBean> storico = (ArrayList<StoricoOrdiniBean>) session.getAttribute("Storico");
-				for (int i = 0; i < storico.size(); i++) {
+		int lastord=storico.get(storico.size()-1).getIdOrdine();
+		int i=0;
+				for (int j = 1; j <= lastord; j++) {
 					ProdottoDAO prodotto = new ProdottoDAO();
+					FatturaDAO fattura = new FatturaDAO();
+					//int j = storico.get(i).getIdOrdine();
 		%>
 
 		<div class="container">
-		<div class="col-md-5">
-			<div class="row">
-				<h4>
-					<strong>Nome:</strong>
-					<%=storico.get(i).getNome()%></h4>
+			<div class="col-md-5">
+				<div class="row">
+					<h2>
+						Ordine n°<%=j%></h2>
+				</div>
+				<div class="row">
+					<h4>
+						<strong>Nome:</strong>
+						<%=storico.get(i).getNome()%></h4>
+				</div>
+				<div class="row">
+					<h4>
+						<strong>Cognome:</strong>
+						<%=storico.get(i).getCognome()%></h4>
+				</div>
+				<div class="row">
+					<h4>
+						<strong>Email:</strong>
+						<%=storico.get(i).getEmail()%>
+					</h4>
+				</div>
+				<div class="row" style="margin-bottom: 15px">
+					<h4>
+						<strong>Data:</strong>
+						<%=storico.get(i).getData()%></h4>
+				</div>
+				<%
+					while (j == storico.get(i).getIdOrdine() && i < storico.size()-1) {
+				%>
+				<div class="row">
+					<h4>
+						<strong> Prodotto: </strong><%=prodotto.GetProdotto(storico.get(i).getIdProdotto()).getNome()%></h4>
+				</div>
+				<div class="row">
+					<h4>
+						<strong>Prezzo :</strong>
+						<%=storico.get(i).getPrezzo()%>
+					</h4>
+				</div>
+				<div class="row">
+					<h4>
+						<strong>Quantità:</strong>
+						<%=storico.get(i).getQuantita()%></h4>
+				</div>
+				
+				<%
+					i++;
+				if(i > storico.size())
+				    break;
+							}
+				%>
+				<div class="row">
+					<h4>
+						<strong>IVA:</strong>
+						<%=fattura.getFattura(j).getIva()%></h4>
+				</div>
+				<div class="row" style="margin-bottom: 15px">
+					<h4>
+						<strong>Prezzo Tot:</strong>
+						<%=fattura.getFattura(j).getImporto()%></h4>
+				</div>
+
 			</div>
-			<div class="row">
-				<h4>
-					<strong>Cognome:</strong>
-					<%=storico.get(i).getCognome()%></h4>
-			</div>
-			<div class="row">
-				<h4>
-					<strong>Email:</strong>
-					<%=storico.get(i).getEmail()%>
-				</h4>
-			</div>
-			<div class="row">
-				<h4>
-					<strong> Prodotto: </strong><%=prodotto.GetProdotto(storico.get(i).getIdProdotto()).getNome()%></h4>
-			</div>
-			<div class="row">
-				<h4>
-					<strong>Prezzo :</strong>
-					<%=storico.get(i).getPrezzo()%>
-				</h4>
-			</div>
-			<div class="row">
-				<h4>
-					<strong>Quantità:</strong>
-					<%=storico.get(i).getQuantita()%></h4>
-			</div>
-			<div class="row" style="margin-bottom:15px">
-				<h4>
-					<strong>Data:</strong>
-					<%=storico.get(i).getData()%></h4>
-			</div>
-		</div>
 		</div>
 		<%
 			}
