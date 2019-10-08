@@ -10,7 +10,7 @@
 <div class="jumbotron">
 	<h2 align="center">Prodotti in offerta</h2>
 	<br>
-
+</div>
 	<div class="row">
 		<div class="col-md-12">
 
@@ -73,4 +73,3 @@
 			<div class="col-md-0"></div>
 		</div>
 	</div>
-</div>

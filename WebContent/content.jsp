@@ -7,13 +7,19 @@
 
 	});
 </script>
+<br>
 <div class="row">
+<div class="col-md-12">
+
 	<a href="magazine.jsp"><img src="media\magazine.png"
 		class="img-responsive" alt="Magazine"> </a>
 </div>
+</div>
 <br>
 <div class="row" align="center">
-	<a href="register.jsp"><img src="media\diventavolontario.png"
+<div class="col-md-12">
+	<a href="register.jsp"><img style="width:100%" src="media\diventavolontario.png"
 		class="img-responsive" alt="Diventa Volontario" onclick="registerV()"></a>
 
+</div>
 </div>
