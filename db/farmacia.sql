@@ -93,5 +93,6 @@ CREATE TABLE `farmacia`.`volontario` (
   Telefono varchar (18),
   Email varchar(50) not null ,
  Commento varchar(500) not null,
- primary key (Email)
+ IdReclamo int Auto_Increment not null,
+ primary key (IdReclamo)
  );
