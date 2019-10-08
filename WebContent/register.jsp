@@ -11,9 +11,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-<%System.out.println(request.getAttribute("registerV"));%>
-	$(document).ready(function volontario() {
-		var name =<%=((String)request.getAttribute("registerV"))%>;
+	function volontario() {
+		<%String name = (String) request.getAttribute("registerV");%>
 		if (name != null) {
 			$("#btn2").prop("checked", true);
 			$("#OrarioChange").css("display", "block");
@@ -23,7 +22,7 @@
 			$("#btn2").prop("checked", false);
 
 		}
-	});
+	};
 </script>
 <script type="text/javascript">
 	function valida() {
@@ -178,12 +177,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="gridCheck">
-							<label class="form-check-label" for="gridCheck">Ricordami</label>
-						</div>
-					</div>
+					<div class="form-group"></div>
 					<button type="button" class="btn btn-primary" name="Registrazione"
 						class="login loginmodal-submit" onclick="valida()">Sign
 						in</button>

@@ -97,13 +97,9 @@
 						}
 					%>
 					<div class="row material-row">
-						<div id="remember" class="col-sm-6 margin-bottom--small">
-							<label class="remember-me" style="float: left"><input
-								checked="checked" type="checkbox" value="1" name="_rm" id="_rm"><span>Ricordami</span></label>
-						</div>
-					</div>
+					
 					<button type="submit" class="btn btn-success">Accedi</button>
-					<a href="#">Password dimenticata?</a>
+					<a href="#">Password dimenticata?</a></div>
 				</form>
 
 			</div>
