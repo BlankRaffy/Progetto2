@@ -25,75 +25,87 @@
 		<div class="row">
 			<div class="col-md-3">
 
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
+				<img src="media/asper.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/farmaci-malattie/farmaci-sindrome-di-asperger.html#">
+						<strong>Sindrome di Asperger - Farmaci e Cura </strong>
+					</a>
+				</p>
 			</div>
 			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
+				<img src="media/autismo.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/salute-benessere/autismo-cause-sintomi-cura.html#">
+						<strong>Autismo - Cause, Sintomi, Cura</strong>
+					</a>
+				</p>
 			</div>
 			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
+				<img src="media/doctor.gif" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/farmaci-malattie/farmaci-autismo.html">
+						<strong>Autismo</strong>
+					</a>
+				</p>
 			</div>
 			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
+				<img src="media/autismo2.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/Sintomi/Autismo">
+						<strong>Sintomi dell'Autismo</strong>
+					</a>
+				</p>
 			</div>
-		</div>
-		<div class="row">
+			</div>
+			<div class="row">
 			<div class="col-md-3">
+				<img src="media/farmaciautismo.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/farmaci-malattie/farmaci-autismo.html#">
+						<strong>Farmaci per la cura dell'Autismo</strong>
+					</a>
+				</p>
+			</div>
+			<div class="col-md-3">
+				<img src="media/rett.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/salute/sindrome-di-rett.html">
+						<strong>Sindrome di Rett</strong>
+					</a>
+				</p>
+				
+			</div>
+			<div class="col-md-3">
+				<img src="media/malattierare.jpeg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/salute-benessere/malattie-rare.html">
+						<strong>Malattie Rare</strong>
+					</a>
+				</p>
+				
+			</div>
+			<div class="col-md-3">
+				<img src="media/bambino2.jpg" class="img-responsive" alt="Image">
+				<p align="left">
+					<a
+						href="https://www.my-personaltrainer.it/salute-benessere/sindrome-proteo.html#">
+						<strong>Sindrome di Proteo</strong>
+					</a>
+				</p>
+				
+			</div>
+			</div>
+			</div>
+			
 
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
 
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-			<div class="col-md-3">
-				<img src="https://placehold.it/150x80?text=IMAGE"
-					class="img-responsive" alt="Image">
-				<p align="left">titolo</p>
-			</div>
-		</div>
-
-
-	</div>
 	<%@ include file="footer.jsp"%>
 
 </body>
