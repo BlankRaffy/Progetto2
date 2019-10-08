@@ -60,6 +60,13 @@
                 },
                 success: function(status){
                     console.log("Entered",status);
+                    var my_elem = document.getElementById('container');
+
+                    var span = document.createElement('div');
+                        span.innerHTML = '<strong>Prodotto aggiunto! </strong> Il prodotto è stato aggiunto al carrello con successo.';
+                        span.className = 'alert alert-success';
+
+                    my_elem.parentNode.insertBefore(span, my_elem);
                 },
                 error: function(error){
                     console.log("error",error);
@@ -76,7 +83,7 @@
 </head>
 <body>
   <%@ include file="navbar.jsp"%>
-  <div class=container>
+  <div id="container" class=container>
     <!--  get all the images  -->
 
     <%
