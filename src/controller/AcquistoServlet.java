@@ -27,10 +27,12 @@ import model.OrdinazioneBean;
 @WebServlet("/AcquistoServlet")
 
 public class AcquistoServlet extends HttpServlet {
+
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		ArrayList<ProdottoBean> carrello = (ArrayList<ProdottoBean>) session.getAttribute("carrello");

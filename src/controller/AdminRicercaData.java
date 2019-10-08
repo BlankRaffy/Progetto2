@@ -21,6 +21,8 @@ public class AdminRicercaData extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		 String dataInizio = request.getParameter("dataInizio");
          String dataFine = request.getParameter("dataFine")	;
          StoricoOrdiniDAO a = new StoricoOrdiniDAO();

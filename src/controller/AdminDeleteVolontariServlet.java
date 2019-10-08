@@ -14,9 +14,12 @@ import dao.VolontarioDAO;
 
 @WebServlet("/AdminDeleteVolontariServlet")
 public class AdminDeleteVolontariServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		String email = request.getParameter("email");
 		VolontarioDAO a = new VolontarioDAO();
 		boolean c = a.AdminDeleteVolontario(email);

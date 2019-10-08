@@ -16,6 +16,8 @@ public class LogOutServlet extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		HttpSession session=request.getSession();
 		session.invalidate();
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");

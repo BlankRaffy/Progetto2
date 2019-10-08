@@ -30,6 +30,8 @@ public class UploadImageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		request.setCharacterEncoding("UTF-8");
+
         //process only if its multipart content
         if(ServletFileUpload.isMultipartContent(request)){
             try {

@@ -21,6 +21,8 @@ public class RicercaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		String a = (String) request.getParameter("search");
 		ProdottoDAO risultati = new ProdottoDAO();
 		ArrayList<ProdottoBean> prodotti = risultati.Ricerca(a);

@@ -18,6 +18,8 @@ public class AdminModificaProdottiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		ProdottoBean p = null;
 		if (Integer.parseInt(request.getParameter("offerta")) == 0) {
 			p = new ProdottoBean(Double.parseDouble(request.getParameter("prezzo")),

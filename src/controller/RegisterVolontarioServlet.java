@@ -16,6 +16,8 @@ public class RegisterVolontarioServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		request.setAttribute("registerV", 1);
 		RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
 		rd.forward(request, response);
